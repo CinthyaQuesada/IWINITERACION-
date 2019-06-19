@@ -176,6 +176,45 @@ namespace Iwin1._2.Data
         }
 
 
+        public void registrarResultado(Resultado sancion)
+        {
+
+
+
+            string connectionString = "Server=163.178.107.130; Database=iwincjm; Uid= laboratorios; Pwd=UCRSA.118;";
+            // Tu consulta en SQL
+            string query = "Insert into resultado values( null " + ",'" + sancion.Juego.Identificador + "','" + sancion.Equipo.Identificador + "','" + sancion.Anotaciones + "','" + sancion.SancionesColectivas + "','" + sancion.SancionesIndividuales + "') ";
+
+
+            // Prepara la conexión
+            MySqlConnection databaseConnection = new MySqlConnection(connectionString);
+            MySqlCommand commandDatabase = new MySqlCommand(query, databaseConnection);
+            commandDatabase.CommandTimeout = 60;
+            MySqlDataReader reader;
+
+            // A consultar !
+
+            // Abre la base de datos
+            databaseConnection.Open();
+
+            // Ejecuta la consultas
+            reader = commandDatabase.ExecuteReader();
+
+            // Hasta el momento todo bien, es decir datos obtenidos
+
+            // IMPORTANTE :#
+            // Si tu consulta retorna un resultado, usa el siguiente proceso para obtener datos
+
+
+
+            // Cerrar la conexión
+            databaseConnection.Close();
+
+        }
+
+
+
+
 
 
     }

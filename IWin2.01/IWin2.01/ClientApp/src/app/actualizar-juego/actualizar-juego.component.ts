@@ -21,7 +21,8 @@ export class ActualizarJuegoComponent {
   public campeonatos: Campeonato[];
   public equipos: Equipo[] = [];
   public arbitroAsignados: Arbitro[] = [];
-
+  list_of_lists: number[][];
+ 
   identificador: number;
   equipoA: Equipo;
   equipoB: Equipo;

@@ -6,6 +6,8 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Iwin1._2.Data;
 using Iwin1._2.Domain;
+using System.Windows.Forms;
+
 namespace Iwin1._2.Controllers
 {
     [Route("api/[controller]")]
@@ -45,8 +47,12 @@ namespace Iwin1._2.Controllers
 
         // POST: api/Resultado
         [HttpPost]
-        public void Post([FromBody] string value)
+        public Resultado Post([FromBody] Resultado value)
         {
+
+            ResultadoData resultadoData = new ResultadoData();
+            resultadoData.registrarResultado(value);
+            return value;
         }
 
         // PUT: api/Resultado/5

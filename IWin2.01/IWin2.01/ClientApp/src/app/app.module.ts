@@ -53,6 +53,8 @@ import { ListarSancionesColectivasComponent } from './listar-sanciones-colectiva
 import { ListarSancionesIndividualesComponent } from './listar-sanciones-individuales/listar-sanciones-individuales.component';
 import { TablaPosicionesComponent } from './tabla-posiciones/tabla-posiciones.component';
 import { TablaPosicionesRepComponent } from './tabla-posiciones-rep/tabla-posiciones-rep.component';
+import { AdministrarResumenComponent } from './administrar-resumen/administrar-resumen.component';
+import { ResumenComponent } from './resumen/resumen.component';
 
 
 @NgModule({
@@ -181,6 +183,7 @@ import { TablaPosicionesRepComponent } from './tabla-posiciones-rep/tabla-posici
       { path: 'tabla-posiciones-rep/:idC', component: TablaPosicionesRepComponent }
 
 
+      { path: 'resultado', component: AdministrarResumenComponent },
     ])
   ],
   providers: [jugadorservice, AnotacionService, SancionColectivaService, SancionIndividualService, campeonatoService, juegoService, LoginService, ArbitroService, InscripcionService, EquipoService],
