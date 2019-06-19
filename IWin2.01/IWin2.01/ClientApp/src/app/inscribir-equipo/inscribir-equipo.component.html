@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!--header-->
+<header class="main-header" id="header">
+  <div class="bg-color">
+    <!--nav-->
+    <nav class="nav navbar-default navbar-fixed-top">
+      <div class="container">
+        <div class="col-md-12">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#mynavbar" aria-expanded="false" aria-controls="navbar">
+              <span class="fa fa-bars"></span>
+            </button>
+            <a href="index.html" class="navbar-brand">IWin</a>
+          </div>
+          <div class="collapse navbar-collapse navbar-right" id="mynavbar">
+            <ul class="nav navbar-nav">
+              <li><a href="#contact">Regresar</a></li>
+              <button type="submit" class="btn btn-submit">Cerrar Sesion</button>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </nav>
+    <!--/ nav-->
+    <div class="container text-center">
+      <div >
+        <h4 class="sub-title">Gestionar Equipo</h4>
+      </div>
+    </div>
+  </div>
+</header>
+
+
+
+<body>
+  <ul class="menuAdmin">
+    <li><a href="gestionar-equipo-rep/{{nombre}}">Listar</a></li>
+    <li><a href="registrar-equipo/{{nombre}}">Registrar</a></li>
+    <li><a href="modificar-equipo/{{nombre}}">Modificar</a></li>
+    <li><a href="eliminar-equipo-repo/{{nombre}}">Eliminar</a></li>
+    <li><a href="inscribir-equipo/{{nombre}}">Inscribir en Campeonato</a></li>
+  </ul>
+
+  <div class="container-contact1">
+    <div class="contact1-pic js-tilt" data-tilt>
+      <img src="../../assets/images/campeonatos.png" alt="IMG">
+    </div>
+
+    <form class="contact1-form validate-form" required>
+      <span class="contact1-form-title">
+        Inscribe tu equipo
+      </span>
+
+      <span style="font-size:20px ; font-family: Montserrat-SemiBold;">Nombre Equipo *</span>
+      <br>
+
+
+      <div class="wrap-input1 validate-input" data-validate="Nombre del equipo">
+        <input class="input1" type="text" name="nombre" placeholder="Nombre del equipo" [(ngModel)]="nombreEquipo" value="" disabled>
+        <span class="shadow-input1"></span>
+      </div>
+
+      <span style="font-size:20px ; font-family: Montserrat-SemiBold;">Campeonato *</span>
+      <br>
+      <div class="wrap-input1 validate-input" data-validate="Subject is required">
+        <select class="input1" ngrepeat="let item of campeonatos" id="campeonato" [(ngModel)]="identificadorCampeonato" name="campeonato" style="-moz-border-radius:6px;-webkit-border-radius: 6px;height:30px;border: 0px solid #BDC2C9" >
+          <option *ngFor="let item of  campeonatos" [value]="item.identificador">
+            {{item.nombreCampeonato}}
+          </option>
+        </select>
+        <span class="shadow-input1"></span>
+      </div>
+      <span style="font-size:20px ; font-family: Montserrat-SemiBold;">Fecha Inscripción  *</span>
+      <br>
+      <div class="wrap-input1 validate-input" data-validate="Message is required">
+        <input class="input1" type="date" style="width:163px" [(ngModel)]="fechaInscripcion" placeholder="Fecha de Inscripción" name="fechaInscripcion" value="" >
+        <span class="shadow-input1"></span>
+      </div>
+      <br>
+
+      <div class="container-contact1-form-btn">
+        <button class="contact1-form-btn" style="background-color: black" (click)="inscribirEquipo()">
+          <span>
+            Enviar Inscripción
+            <i class="t" aria-hidden="true"></i>
+          </span>
+        </button>
+      </div>
+    </form>
+  </div>
+
+
+
+
+
+  <!--===============================================================================================-->
+  <script src="../../assets/vendor/jquery/jquery-3.2.1.min.js"></script>
+  <!--===============================================================================================-->
+  <script src="../../assets/vendor/bootstrap/js/popper.js"></script>
+  <script src="../../assets/vendor/bootstrap/js/bootstrap.min.js"></script>
+  <!--===============================================================================================-->
+  <script src="../../assets/vendor/select2/select2.min.js"></script>
+  <!--===============================================================================================-->
+  <script src="../../assets/vendor/tilt/tilt.jquery.min.js"></script>
+  <script>
+    $('.js-tilt').tilt({
+      scale: 1.1
+    })
+  </script>
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'UA-23581568-13');
+  </script>
+
+  <!--===============================================================================================-->
+  <script src="../../assets/js/main.js"></script>
+
+</body>
+<footer class="" id="footer">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-7 footer-copyright">
+        © Bethany Theme - All rights reserved
+        <div class="credits">
+          <!--
+            All the links in the footer should remain intact.
+            You can delete the links only if you purchased the pro version.
+            Licensing information: https://bootstrapmade.com/license/
+            Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/buy/?theme=Bethany
+          -->
+          Designed by CJM Systems
+        </div>
+      </div>
+      <div class="col-sm-5 footer-social">
+        <div class="pull-right hidden-xs hidden-sm">
+          <a href="https://www.facebook.com/comite.cot"><i class="fa fa-facebook"></i></a>
+          <a href="#"><i class="fa fa-dribbble"></i></a>
+          <a href="#"><i class="fa fa-twitter"></i></a>
+          <a href="#"><i class="fa fa-google-plus"></i></a>
+          <a href="#"><i class="fa fa-pinterest"></i></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+
+</html>

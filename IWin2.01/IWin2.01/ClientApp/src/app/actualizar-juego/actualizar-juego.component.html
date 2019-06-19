@@ -1,0 +1,199 @@
+
+<!--header-->
+<header class="main-header" id="header">
+  <div class="bg-color">
+    <!--nav-->
+    <nav class="nav navbar-default navbar-fixed-top">
+      <div class="container">
+        <div class="col-md-12">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#mynavbar" aria-expanded="false" aria-controls="navbar">
+              <span class="fa fa-bars"></span>
+            </button>
+            <a href="index.html" class="navbar-brand">IWin</a>
+          </div>
+          <div class="collapse navbar-collapse navbar-right" id="mynavbar">
+            <ul class="nav navbar-nav">
+              <li><a href="moduloAdministrador">Regresar</a></li>
+              <button type="submit" class="btn btn-submit">Cerrar Sesion</button>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </nav>
+    <!--/ nav-->
+    <div class="container text-center">
+      <div >
+        <h4 class="sub-title">Gestionar Juego</h4>
+      </div>
+    </div>
+  </div>
+</header>
+<ul class="menuAdmin" style="color: white;">
+  <li><a href="gestionarJuego">Lista</a></li>
+  <li><a href="actualizarJuego">Actualizar</a></li>
+</ul>
+<p *ngIf="!campeonatos"><em>Cargando.......</em></p>
+
+
+<!--campeonato-->
+<div *ngIf="campeonatos">
+  <div class="grid-container" *ngFor="let campeonato of campeonatos">
+    <div class="item2"><img width="100" height="100" src="http://www.micampeonato.com/images/campeonatos/20602851587_845_945164173938_398_principal280b.png"></div>
+    <div class="item3">
+      <div>
+        <h3>{{ campeonato.identificador}}</h3>
+        <h4> {{ campeonato.nombreCampeonato}} </h4>
+        <h4>{{ campeonato.fechaInicio}}</h4>
+        <form id="formulario" class="form-signin">
+          <button class="btn btn-primary" (click)="buscar(campeonato.identificador)">Buscar</button>
+        </form>
+      </div>
+
+    </div>
+  </div>
+</div>
+<!--juegos-->
+<div class="tabla">
+  <table id="example" class="table table-striped table-bordered" style="width:100%">
+    <tr>
+      <th>Identificador</th>
+      <th>Equipo A</th>
+      <th>Equipo B</th>
+      <th>Fecha</th>
+      <th>Estado</th>
+      <th>Lugar</th>
+      <th>Arbitro</th>
+      <th>Opcion</th>
+    </tr>
+    <tbody>
+      <tr *ngFor="let juego of juegos">
+        <td style="vertical-align:middle">{{juego.identificador}}</td>
+        <td style="vertical-align:middle">{{juego.equipoA.nombreEquipo}}</td>
+        <td style="vertical-align:middle">{{juego.equipoB.nombreEquipo}}</td>
+        <td style="vertical-align:middle">{{juego.fechaJuego}}</td>
+        <td style="vertical-align:middle">{{juego.estadoJuego}}</td>
+        <td style="vertical-align:middle">{{juego.lugar}}</td>
+        <td style="vertical-align:middle">{{juego.arbitroAsignado.nombre}}</td>
+        <td style="vertical-align:middle">
+          <button class="btn btn-primary" (click)="buscarJuego(juego)">
+            Buscar
+          </button>
+        </td>
+      </tr>
+    </tbody>
+
+  </table>
+</div>
+
+
+<br />
+
+<div class="containerINT">
+  <a *ngFor="let juego of juegos">
+
+    <h1>{{juego.identificadorCampeonatos}}</h1>
+
+
+
+    <div class="form-group">
+      <label class="control-label col-sm-2" for="tipo">Equipo A:</label>
+      <div class="col-sm-10">
+        <td>
+          <select [(ngModel)]="identificadorEquipoA" name="identificadorEquipoA">
+            <option [ngValue]="equipoA.identificador" *ngFor="let equipoA of equipos">{{equipoA.identificador}} - {{equipoA.nombreEquipo}}</option>
+          </select>
+        </td>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label class="control-label col-sm-2" for="tipo">Equipo B:</label>
+      <div class="col-sm-10">
+        <td>
+          <select [(ngModel)]="identificadorEquipoB" name="identificadorEquipoB">
+            <option [ngValue]="equipoB.identificador" *ngFor="let equipoB of equipos">{{equipoB.identificador}} - {{equipoB.nombreEquipo}}</option>
+          </select>
+        </td>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label class="control-label col-sm-2" for="juegoSeleccionado.fechaJuego">Fecha:</label>
+      <div class="col-sm-10">
+        <input type="datetime-local" [(ngModel)]="juegoSeleccionado.fechaJuego" placeholder="Nombre" name="juegoSeleccionado.fechaJuego" width="200">
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label class="control-label col-sm-2" for="juegoSeleccionado.estadoJuego">Estado:</label>
+      <div class="col-sm-10">
+        <input type="text" [(ngModel)]="juegoSeleccionado.estadoJuego" placeholder="Nombre" name="juegoSeleccionado.estadoJuego" width="200">
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label class="control-label col-sm-2" for="juegoSeleccionado.lugar">Lugar:</label>
+      <div class="col-sm-10">
+        <input type="text" [(ngModel)]="juegoSeleccionado.lugar" placeholder="Nombre" name="juegoSeleccionado.lugar" width="200">
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label class="control-label col-sm-2" for="tipo">Arbitro:</label>
+      <div class="col-sm-10">
+        <td>
+          <select [(ngModel)]="identificacionArbitro" name="identificacionArbitro">
+            <option [ngValue]="arbitro.identificacion" *ngFor="let arbitro of arbitroAsignados">{{arbitro.identificacion}} - {{arbitro.nombre}} {{arbitro.apellidos}}</option>
+          </select>
+        </td>
+      </div>
+    </div>
+
+
+
+  </a>
+
+  <br />
+  <button class="btn btn-lg btn-primary btn-block" (click)="actualizar()" onclick="alert('Actualización de juego Exitosa!')"
+          type="submit">
+    Actualizar
+  </button>
+
+</div>
+
+<footer class="" id="footer">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-7 footer-copyright">
+        © Bethany Theme - All rights reserved
+        <div class="credits">
+          <!--
+            All the links in the footer should remain intact.
+            You can delete the links only if you purchased the pro version.
+            Licensing information: https://bootstrapmade.com/license/
+            Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/buy/?theme=Bethany
+          -->
+          Designed by CJM Systems
+        </div>
+      </div>
+      <div class="col-sm-5 footer-social">
+        <div class="pull-right hidden-xs hidden-sm">
+          <a href="https://www.facebook.com/comite.cot"><i class="fa fa-facebook"></i></a>
+          <a href="#"><i class="fa fa-dribbble"></i></a>
+          <a href="#"><i class="fa fa-twitter"></i></a>
+          <a href="#"><i class="fa fa-google-plus"></i></a>
+          <a href="#"><i class="fa fa-pinterest"></i></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+<!---->
+<!--contact ends-->
+<script src="js/jquery.min.js"></script>
+<script src="js/jquery.easing.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/wow.js"></script>
+<script src="js/custom.js"></script>
+<script src="contactform/contactform.js"></script>

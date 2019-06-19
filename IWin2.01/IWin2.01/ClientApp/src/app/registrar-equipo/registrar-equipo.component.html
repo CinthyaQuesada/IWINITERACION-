@@ -1,0 +1,194 @@
+
+<!--header-->
+<header class="main-header" id="header">
+  <div class="bg-color">
+    <!--nav-->
+    <nav class="nav navbar-default navbar-fixed-top">
+      <div class="container">
+        <div class="col-md-12">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#mynavbar" aria-expanded="false" aria-controls="navbar">
+              <span class="fa fa-bars"></span>
+            </button>
+            <a href="index.html" class="navbar-brand">IWin</a>
+          </div>
+          <div class="collapse navbar-collapse navbar-right" id="mynavbar">
+            <ul class="nav navbar-nav">
+              <li><a href="#contact">Regresar</a></li>
+              <button type="submit" class="btn btn-submit">Cerrar Sesion</button>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </nav>
+    <!--/ nav-->
+    <div class="container text-center">
+      <div >
+        <h4 class="sub-title">Gestionar Equipo</h4>
+      </div>
+    </div>
+  </div>
+</header>
+
+<ul class="menuAdmin">
+  <li><a href="gestionar-equipo-repo/{{nombreEquipo}}">Listar</a></li>
+  <li><a href="registrar-equipoo">Registrar</a></li>
+  <li><a href="modificar-equipo/{{nombreEquipo}}">Modificar</a></li>
+  <li><a href="eliminar-equipo-repo/{{nombreEquipo}}">Eliminar</a></li>
+  <li><a href="inscribir-equipo/{{nombreEquipo}}">Inscribir en Campeonato</a></li>
+</ul>
+
+<div class="container-contact100">
+  <div class="wrap-contact100">
+    <form class="contact100-form validate-form" enctype="multipart/form-data" required>
+      <span class="contact100-form-title"></span>
+      <p>Registrar Equipo</p>
+
+      <div class="wrap-input100 validate-input bg1" data-validate="Campo requerido">
+        <span class="label-input100">Nombre *</span>
+        <input class="input100" type="text" [(ngModel)]="nombreEquipo" name="nombre" placeholder="Nombre del equipo">
+      </div>
+
+      <div class="wrap-input100 validate-input bg1 rs1-wrap-input100" data-validate="Campo requerido">
+        <span class="label-input100">Representante *</span>
+        <input class="input100" type="text" [(ngModel)]="nombreRepresentante" name="representante" placeholder="Nombre del representante ">
+      </div>
+
+      <div class="wrap-input100 bg1 validate-input rs1-wrap-input100"
+           data-validate="Campo requerido">
+        <span class="label-input100">Télefono</span>
+        <input class="input100" type="text" [(ngModel)]="telefonoRepresentante" name="telefono" placeholder="Télefono de contacto">
+      </div>
+
+      <div class="wrap-input100 input100-select bg1 rs1-wrap-input100">
+        <span class="label-input100">Rama *</span>
+        <div>
+          <select [(ngModel)]="categoria" class="js-select2" name="categoria">
+            <option value="Masculina">Masculina</option>
+            <option value="Femenina">Femenina</option>
+          </select>
+          <div class="dropDownSelect2"></div>
+        </div>
+      </div>
+
+      <div class="wrap-input100 input100-select bg1 rs1-wrap-input100">
+        <span class="label-input100">Deporte *</span>
+        <div>
+          <select [(ngModel)]="rama" class="js-select2" name="rama">
+            <option value="Futbol 11">Fútbol 11</option>
+            <option value="Futbol 5">Fútbol 5</option>
+            <option value="Baloncesto">Baloncesto</option>
+          </select>
+          <div class="dropDownSelect2"></div>
+        </div>
+      </div>
+
+      <div class="wrap-input100 validate-input bg1 rs1-wrap-input100" data-validate="Campo requerido">
+        <span class="label-input100">Cancha Sede *</span>
+        <input class="input100" type="text" [(ngModel)]="canchaSede" name="canchaSede" placeholder="Cancha Sede ">
+      </div>
+
+      <div class="wrap-input100 bg1 validate-input rs1-wrap-input100 " data-validate="Campo requerido">
+        <span class="label-input100">Contraseña</span>
+        <input class="input100" type="password" [(ngModel)]="contraseniaEquipo" name="contrasena" placeholder="Contraseña">
+      </div>
+
+      <div class="wrap-input100 ">
+        <span class="label-input100">Logo</span>
+        <input class="input100" type="file" [(ngModel)]="logo" name="logo" placeholder="Logo" accept=".jpg,.png">
+      </div>
+
+      <div class="container-contact100-form-btn">
+        <button class="contact100-form-btn" (click)="insertar()">
+          <span>
+            Registrar
+            <i class="fa fa-long-arrow-right m-l-7" aria-hidden="true"></i>
+          </span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
+
+
+<!---->
+<!--contact ends-->
+<script src="js/jquery.min.js"></script>
+<script src="js/jquery.easing.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/wow.js"></script>
+<script src="js/custom.js"></script>
+<script src="contactform/contactform.js"></script>
+<!--===============================================================================================-->
+<script src="../../assets/vendor/jquery/jquery-3.2.1.min.js"></script>
+<!--===============================================================================================-->
+<script src="../../assets/vendor/animsition/js/animsition.min.js"></script>
+<!--===============================================================================================-->
+<script src="../../assets/vendor/bootstrap/js/popper.js"></script>
+<script src="../assets/vendor/bootstrap/js/bootstrap.min.js"></script>
+<!--===============================================================================================-->
+<script src="../../assets/vendor/select2/select2.min.js"></script>
+<script>
+  $(".js-select2").each(function () {
+    $(this).select2({
+      minimumResultsForSearch: 20,
+      dropdownParent: $(this).next('.dropDownSelect2')
+    });
+
+
+    $(".js-select2").each(function () {
+      $(this).on('select2:close', function (e) {
+        if ($(this).val() == "Please chooses") {
+          $('.js-show-service').slideUp();
+        }
+        else {
+          $('.js-show-service').slideUp();
+          $('.js-show-service').slideDown();
+        }
+      });
+    });
+  })
+</script>
+<!--===============================================================================================-->
+<script src="../../assets/vendor/daterangepicker/moment.min.js"></script>
+<script src="../../assets/vendor/daterangepicker/daterangepicker.js"></script>
+<!--===============================================================================================-->
+<script src="../../assets/vendor/countdowntime/countdowntime.js"></script>
+<!--===============================================================================================-->
+<script src="../../assets/vendor/vendor/noui/nouislider.min.js"></script>
+<script>
+  var filterBar = document.getElementById('filter-bar');
+
+  noUiSlider.create(filterBar, {
+    start: [1500, 3900],
+    connect: true,
+    range: {
+      'min': 1500,
+      'max': 7500
+    }
+  });
+
+  var skipValues = [
+    document.getElementById('value-lower'),
+    document.getElementById('value-upper')
+  ];
+
+  filterBar.noUiSlider.on('update', function (values, handle) {
+    skipValues[handle].innerHTML = Math.round(values[handle]);
+    $('.contact100-form-range-value input[name="from-value"]').val($('#value-lower').html());
+    $('.contact100-form-range-value input[name="to-value"]').val($('#value-upper').html());
+  });
+</script>
+<!--===============================================================================================-->
+<script src="js/main.js"></script>
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag() { dataLayer.push(arguments); }
+  gtag('js', new Date());
+
+  gtag('config', 'UA-23581568-13');
+</script>
+

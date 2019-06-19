@@ -1,0 +1,148 @@
+
+<header class="main-header" id="header">
+  <div class="bg-color">
+    <!--nav-->
+    <nav class="nav navbar-default navbar-fixed-top">
+      <div class="container">
+        <div class="col-md-12">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#mynavbar" aria-expanded="false" aria-controls="navbar">
+              <span class="fa fa-bars"></span>
+            </button>
+            <a href="index.html" class="navbar-brand">IWin</a>
+          </div>
+          <div class="collapse navbar-collapse navbar-right" id="mynavbar">
+            <ul class="nav navbar-nav">
+              <li><a href="moduloAdministrador">Regresar</a></li>
+              <button type="submit" class="btn btn-submit">Cerrar Sesion</button>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </nav>
+    <!--/ nav-->
+    <div class="container text-center">
+      <div>
+        <h4 class="sub-title">Sanción Colectiva</h4>
+      </div>
+    </div>
+  </div>
+</header>
+<ul class="menuAdmin">
+  <li><a href="listarAnotaciones">Listar</a></li>
+  <li><a href="agregarAnotaciones">Agregar</a></li>
+
+</ul>
+
+<div style="height='1000'">
+
+
+
+  <div class="container">
+    <ul></ul>
+
+    <ul></ul>
+
+
+    <div class="form-horizontal">
+
+      <div class="form-group">
+        <label class="control-label col-sm-2" for="tipo">Campeonato:</label>
+        <div class="col-sm-10">
+          <td>
+            <select style="width:330px; height:50px " [(ngModel)]="campeonaatoSelecto" (change)="seleccionar()">
+              <option *ngFor="let campeonato of campeonatos" value="{{campeonato.identificador}}">{{campeonato.nombreCampeonato}}  </option>
+
+            </select>
+          </td>
+        </div>
+      </div>
+
+
+
+    </div>
+
+
+
+
+
+  </div><div *ngIf="juegos" class="tabla" style="align-content:center">
+
+
+    <h1>Juegos</h1>
+    <table title="Seleccione el quipo " id="example" class="table table-striped table-bordered">
+      <tr>
+
+        <th>Fecha</th>
+        <th>Equipo A</th>
+        <th>Equipo B</th>
+
+
+      </tr>
+      <tbody>
+        <tr *ngFor="let juego of juegos">
+          <td style="vertical-align:middle">{{juego.fechaJuego}}</td>
+
+          <td (click)="busca(juego.equipoA.identificador,juego.identificador)" style="vertical-align:middle">{{juego.equipoA.nombreEquipo}} {{juego.equipoA.identificador}} </td>
+          <td (click)="busca(juego.equipoB.identificador,juego.identificador)" style="vertical-align:middle">{{juego.equipoB.nombreEquipo}} {{juego.equipoB.identificador}}</td>
+
+
+        </tr>
+      </tbody>
+    </table>
+
+
+
+
+  </div>
+
+  <div *ngIf="anotaciones" class="tabla" style="align-content:center">
+    <h1>Listado de anotaciones</h1>
+    <table title="Anotaciones" id="example" class="table table-striped table-bordered">
+      <tr>
+        <th>Equipo</th>
+        <th>Jugador</th>
+        <th>Anotaciones</th>
+
+
+      </tr>
+      <tbody>
+        <tr *ngFor="let anotacion of anotaciones">
+          <td style="vertical-align:middle">{{anotacion.equipo.nombreEquipo}}</td>
+
+          <td style="vertical-align:middle">{{anotacion.jugador.nombre}} {{anotacion.jugador.apellidos}} </td>
+          <td style="vertical-align:middle">{{anotacion.cantidadGoles}} </td>
+
+
+        </tr>
+      </tbody>
+    </table>
+
+
+
+
+  </div>
+
+</div>
+
+<div *ngIf="juegosSelectos">
+  <div class="grid-container1">
+    <div class="grid-item1">
+
+      <app-anotaciones #actualiza idEquipo="{{juego.equipoA.identificador}} " idJuego="{{juego.identificador}}"></app-anotaciones>
+
+    </div>
+    <div class="grid-item1">
+      <app-anotaciones #actualiza2 idEquipo="{{juego.equipoB.identificador}} " idJuego="{{juego.identificador}}"></app-anotaciones>
+
+    </div>
+
+    <div class="grid-item1">
+
+      <button type="button" (click)="guardarAnotaciones()" class="btn btn-info">Guardar</button>
+    </div>
+  </div>
+</div>
+
+<br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br />
+

@@ -1,0 +1,156 @@
+
+<!--header-->
+<header class="main-header" id="header">
+  <div class="bg-color">
+    <!--nav-->
+    <nav class="nav navbar-default navbar-fixed-top">
+      <div class="container">
+        <div class="col-md-12">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#mynavbar" aria-expanded="false" aria-controls="navbar">
+              <span class="fa fa-bars"></span>
+            </button>
+            <a href="index.html" class="navbar-brand">IWin</a>
+          </div>
+          <div class="collapse navbar-collapse navbar-right" id="mynavbar">
+            <ul class="nav navbar-nav">
+              <li><a href="#contact">Regresar</a></li>
+              <button type="submit" class="btn btn-submit">Cerrar Sesion</button>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </nav>
+    <!--/ nav-->
+    <div class="container text-center">
+      <div class="wrapper wow fadeInUp delay-05s">
+        <h4 class="sub-title">INSCRIPCIONES</h4>
+      </div>
+    </div>
+  </div>
+</header>
+<ul class="menuAdmin">
+  <li><a href="gestionar-equipo-adm">Listar</a></li>
+  <li><a href="eliminar-equipo-adm">Eliminar</a></li>
+  <li><a href="listar-inscripciones">Inscripciones</a></li>
+</ul>
+
+
+<!--/ cambiar-->
+
+
+
+
+<div class="container-table100">
+  <div class="wrap-table100">
+    <div class="table100 ver1">
+      <div class="table100-firstcol">
+        <table>
+          <thead>
+            <tr class="row100 head">
+              <th class="cell100 column1">Inscripciones</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+
+      <div class="wrap-table100-nextcols js-pscroll">
+        <div class="table100-nextcols">
+          <table>
+            <thead>
+              <tr class="row100 head">
+                <th class="cell100 column2">Identificador Inscripcion</th>
+                <th class="cell100 column2">Campeonato</th>
+                <th class="cell100 column3">Equipo</th>
+                <th class="cell100 column5">Fecha Inscripcion</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let inscripcion of listas()">
+                <td >{{inscripcion.identificador}}</td>
+                <td style="vertical-align:middle">{{inscripcion.campeonato.nombreCampeonato}}</td>
+                <td style="vertical-align:middle">{{inscripcion.equipo.nombreEquipo}}</td>
+                <td style="vertical-align:middle">{{inscripcion.fechaInscripcion}}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+<footer class="" id="footer">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-7 footer-copyright">
+        © Bethany Theme - All rights reserved
+        <div class="credits">
+          <!--
+            All the links in the footer should remain intact.
+            You can delete the links only if you purchased the pro version.
+            Licensing information: https://bootstrapmade.com/license/
+            Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/buy/?theme=Bethany
+          -->
+          Designed by CJM Systems
+        </div>
+      </div>
+      <div class="col-sm-5 footer-social">
+        <div class="pull-right hidden-xs hidden-sm">
+          <a href="https://www.facebook.com/comite.cot"><i class="fa fa-facebook"></i></a>
+          <a href="#"><i class="fa fa-dribbble"></i></a>
+          <a href="#"><i class="fa fa-twitter"></i></a>
+          <a href="#"><i class="fa fa-google-plus"></i></a>
+          <a href="#"><i class="fa fa-pinterest"></i></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+<!---->
+<!--contact ends-->
+<script src="js/jquery.min.js"></script>
+<script src="js/jquery.easing.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/wow.js"></script>
+<script src="js/custom.js"></script>
+<script src="contactform/contactform.js"></script>
+<!--===============================================================================================-->
+<script src="../../assets/vendor/jquery/jquery-3.2.1.min.js"></script>
+<!--===============================================================================================-->
+<script src="../../assets/vendor/bootstrap/js/popper.js"></script>
+<script src="../../assets/vendor/bootstrap/js/bootstrap.min.js"></script>
+<!--===============================================================================================-->
+<script src="../../assets/vendor/select2/select2.min.js"></script>
+<!--===============================================================================================-->
+<script src="../../assets/vendor/perfect-scrollbar/perfect-scrollbar.min.js"></script>
+<script>
+  $('.js-pscroll').each(function () {
+    var ps = new PerfectScrollbar(this);
+
+    $(window).on('resize', function () {
+      ps.update();
+    })
+
+    $(this).on('ps-x-reach-start', function () {
+      $(this).parent().find('.table100-firstcol').removeClass('shadow-table100-firstcol');
+    });
+
+    $(this).on('ps-scroll-x', function () {
+      $(this).parent().find('.table100-firstcol').addClass('shadow-table100-firstcol');
+    });
+
+  });
+
+
+
+
+</script>
+<!--===============================================================================================-->
+<script src="../../assets/js/main.js"></script>
