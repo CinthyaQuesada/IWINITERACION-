@@ -11,7 +11,7 @@ namespace Iwin1._2.Data
     public class EquipoData
     {
 
-        string connectionString = "Server=163.178.107.130; Database=iwincjm; Uid= laboratorios; Pwd=UCRSA.118;";
+        string connectionString = "Server=db4free.net; Database=iwincjmdb; Uid= laboratorios; Pwd=UCRSA.118; old guids=true;";
 
         public EquipoData()
         {
@@ -25,7 +25,7 @@ namespace Iwin1._2.Data
         {
             Equipo equipo;
             List<Equipo> equipoList = new List<Equipo>();
-            string connectionString1 = "Server=163.178.107.130; Database=iwincjm; Uid= laboratorios; Pwd=UCRSA.118;";
+            string connectionString1 = "Server=db4free.net; Database=iwincjmdb; Uid= laboratorios; Pwd=UCRSA.118; old guids=true;";
             string query = "select * from equipo where identificador=4";
 
             MySqlConnection databaseConnection = new MySqlConnection(connectionString1);
@@ -242,7 +242,7 @@ namespace Iwin1._2.Data
 
         public int modificarEquipo(Equipo equipo)
         {
-            string connectionString = "Server=163.178.107.130; Database=iwincjm; Uid= laboratorios; Pwd=UCRSA.118;";
+            string connectionString = "Server=db4free.net; Database=iwincjmdb; Uid= laboratorios; Pwd=UCRSA.118; old guids=true;";
 
 
             string query = "Update Equipo set nombre_equipo='" + equipo.NombreEquipo + "' where identificador='" + equipo.Identificador + "";
@@ -269,7 +269,7 @@ namespace Iwin1._2.Data
 
             Equipo equipo;
             List<Equipo> equipoList = new List<Equipo>();
-            string connectionString = "Server=163.178.107.130; Database=iwincjm; Uid= laboratorios; Pwd=UCRSA.118;";
+            string connectionString = "Server=db4free.net; Database=iwincjmdb; Uid= laboratorios; Pwd=UCRSA.118; old guids=true;";
             // Tu consulta en SQL
             string query = "select * from equipo ";
 
@@ -324,7 +324,7 @@ namespace Iwin1._2.Data
 
         public void eliminar(int id)
         {
-            string connectionString = "Server=163.178.107.130; Database=iwincjm; Uid= laboratorios; Pwd=UCRSA.118;";
+            string connectionString = "Server=db4free.net; Database=iwincjmdb; Uid= laboratorios; Pwd=UCRSA.118; old guids=true;";
             // Borrar la fila con ID 1
             string query = "DELETE FROM equipo WHERE identificador =" + id;
             //MessageBox.Show("ENTRAAA");
@@ -355,7 +355,7 @@ namespace Iwin1._2.Data
         {
 
 
-            string connectionString = "Server=163.178.107.130; Database=iwincjm; Uid= laboratorios; Pwd=UCRSA.118;";
+            string connectionString = "Server=db4free.net; Database=iwincjmdb; Uid= laboratorios; Pwd=UCRSA.118; old guids=true;";
             string query = "UPDATE equipo  SET nombre_equipo='" + equipo.NombreEquipo + "' , nombre_representante='" + equipo.NombreRepresentante + "' , cancha_sede='" + equipo.CanchaSede + "'" +
             ", telefono_representante= '" + equipo.TelefonoRepresentante + "'," + "contrasenia_equipo='" + equipo.ContraseniaEquipo + "'  WHERE identificador='" + id + "'";
 
@@ -379,7 +379,7 @@ namespace Iwin1._2.Data
         {
 
 
-            string connectionString = "Server=163.178.107.130; Database=iwincjm; Uid= laboratorios; Pwd=UCRSA.118;";
+            string connectionString = "Server=db4free.net; Database=iwincjmdb; Uid= laboratorios; Pwd=UCRSA.118; old guids=true;";
             string query = "INSERT INTO equipo(`nombre_equipo`, `nombre_representante`, `categoria`, `rama`,`logo`,`telefono_representante`,`cancha_sede`,`contrasenia_equipo`) VALUES ('" + equipo.NombreEquipo + "', '" + equipo.NombreRepresentante + "', '"
                 + equipo.Categoria + "' ,'" + equipo.Rama + "', '" + equipo.Logo + "', '" + equipo.TelefonoRepresentante + "', '" + equipo.CanchaSede + "', '" + equipo.ContraseniaEquipo + "')";
 
@@ -412,7 +412,7 @@ namespace Iwin1._2.Data
 
             Equipo equipo = new Equipo();
 
-            string connectionString = "Server=163.178.107.130; Database=iwincjm; Uid= laboratorios; Pwd=UCRSA.118;";
+            string connectionString = "Server=db4free.net; Database=iwincjmdb; Uid= laboratorios; Pwd=UCRSA.118; old guids=true;";
             string query = "select * from equipo where nombre_equipo='" + nombre + "'";
 
             MySqlConnection databaseConnection = new MySqlConnection(connectionString);
@@ -457,7 +457,7 @@ namespace Iwin1._2.Data
             Equipo equipo = new Equipo();
             List<Equipo> equipoList = new List<Equipo>();
 
-            string connectionString = "Server=163.178.107.130; Database=iwincjm; Uid= laboratorios; Pwd=UCRSA.118;";
+            string connectionString = "Server=db4free.net; Database=iwincjmdb; Uid= laboratorios; Pwd=UCRSA.118; old guids=true;";
             string query = "select * from equipo where nombre_equipo='" + nombre + "'";
 
             MySqlConnection databaseConnection = new MySqlConnection(connectionString);
@@ -502,7 +502,7 @@ namespace Iwin1._2.Data
             Equipo equipo = new Equipo();
             List<Equipo> equipoList = new List<Equipo>();
 
-            string connectionString = "Server=163.178.107.130; Database=iwincjm; Uid= laboratorios; Pwd=UCRSA.118;";
+            string connectionString = "Server=db4free.net; Database=iwincjmdb; Uid= laboratorios; Pwd=UCRSA.118; old guids=true;";
             string query = "select * from equipo where nombre_representante='" + nombre + "'";
 
             MySqlConnection databaseConnection = new MySqlConnection(connectionString);

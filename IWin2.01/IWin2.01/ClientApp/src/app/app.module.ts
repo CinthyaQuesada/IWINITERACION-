@@ -95,7 +95,9 @@ import { ListarSancionesIndividualesComponent } from './listar-sanciones-individ
     ListarAnotacionesComponent,
     ListarSancionesColectivasComponent,
     ListarSancionesIndividualesComponent,
-
+    GestionarArbitroComponent,
+    EliminarArbitroComponent,
+    
 
   ],
   imports: [
@@ -147,14 +149,17 @@ import { ListarSancionesIndividualesComponent } from './listar-sanciones-individ
       { path: 'moduloAdministrador', component: ModuloAdministradorComponent },
 
       { path: 'registrar-arbitro', component: RegistrarArbitroComponent },
+      { path: 'eliminar-arbitro', component: EliminarArbitroComponent },
 
+      { path: 'gestionar-arbitro', component: GestionarArbitroComponent },
 
       { path: 'inscribir-equipo/:nombre', component: InscribirEquipoComponent },
       { path: 'listar-inscripciones', component: ListarInscripcionesComponent },
 
       { path: 'gestionar-equipo-adm', component: GestionarEquipoAdmComponent },
       { path: 'gestionar-equipo-rep/:nombre', component: GestionarEquipoRepComponent },
-      { path: 'eliminar-equipo-rep/:nombre', component: EliminarEquipoAdmComponent },
+      { path: 'eliminar-equipo-rep/:nombre', component: EliminarEquipoRepComponent },
+      { path: 'eliminar-equipo-adm', component: EliminarEquipoAdmComponent },
 
       { path: 'modificar-equipo/:nombre', component: ModificarEquipoComponent },
 

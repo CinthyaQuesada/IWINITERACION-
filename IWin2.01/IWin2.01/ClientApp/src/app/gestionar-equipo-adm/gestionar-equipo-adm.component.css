@@ -14184,3 +14184,7 @@ span.psw {
   overflow: hidden;
   background-color: #333;
 }
+.marginEliminar {
+  margin-left: 100px;
+  margin-bottom: 50px;
+}

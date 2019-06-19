@@ -1,6 +1,9 @@
 
 <!--header-->
 <header class="main-header" id="header">
+  <link rel="stylesheet" type="text/css" href="../../assets/css/util.css">
+  <link rel="stylesheet" type="text/css" href="../../assets/css/main.css">
+
   <div class="bg-color">
     <!--nav-->
     <nav class="nav navbar-default navbar-fixed-top">
@@ -12,18 +15,17 @@
             </button>
             <a href="index.html" class="navbar-brand">IWin</a>
           </div>
-          <div class="collapse navbar-collapse navbar-right" id="mynavbar">
-            <ul class="nav navbar-nav">
-              <li><a href="#contact">Regresar</a></li>
-              <button type="submit" class="btn btn-submit">Cerrar Sesion</button>
-            </ul>
-          </div>
+          <ul class="nav navbar-nav">
+            <li><a href="moduloAdministrador">Regresar</a></li>
+
+            <button type="submit" class="btn btn-submit" onclick="location.href='#contact'">Cerrar Sesion</button>
+          </ul>
         </div>
       </div>
     </nav>
     <!--/ nav-->
     <div class="container text-center">
-      <div >
+      <div>
         <h4 class="sub-title">Gestionar Arbitro</h4>
       </div>
     </div>
@@ -37,10 +39,14 @@
 </ul>
 
 <div class="container-contact100">
+  
   <div class="wrap-contact100">
+    <h1>Registrar Arbitro</h1>
+    <br>
+
     <form class="contact100-form validate-form" enctype="multipart/form-data" required>
+
       <span class="contact100-form-title"></span>
-      <p>Registrar Arbitro</p>
 
       <div class="wrap-input100 validate-input bg1" data-validate="Campo requerido">
         <span class="label-input100">Identificacion *</span>

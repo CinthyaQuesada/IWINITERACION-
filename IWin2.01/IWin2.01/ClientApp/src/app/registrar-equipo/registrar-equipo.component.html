@@ -1,6 +1,10 @@
 
 <!--header-->
 <header class="main-header" id="header">
+  <link rel="stylesheet" type="text/css" href="../../assets/css/util.css">
+  <link rel="stylesheet" type="text/css" href="../../assets/css/main.css">
+
+
   <div class="bg-color">
     <!--nav-->
     <nav class="nav navbar-default navbar-fixed-top">
@@ -14,8 +18,8 @@
           </div>
           <div class="collapse navbar-collapse navbar-right" id="mynavbar">
             <ul class="nav navbar-nav">
-              <li><a href="#contact">Regresar</a></li>
-              <button type="submit" class="btn btn-submit">Cerrar Sesion</button>
+              <li><a href="moduloEncargado">Regresar</a></li>
+              <button type="submit" class="btn btn-submit" onclick="location.href='#contact'">Cerrar Sesion</button>
             </ul>
           </div>
         </div>
@@ -23,7 +27,7 @@
     </nav>
     <!--/ nav-->
     <div class="container text-center">
-      <div >
+      <div>
         <h4 class="sub-title">Gestionar Equipo</h4>
       </div>
     </div>
@@ -40,9 +44,11 @@
 
 <div class="container-contact100">
   <div class="wrap-contact100">
+    <h1>Registrar Equipo</h1>
+    <br>
     <form class="contact100-form validate-form" enctype="multipart/form-data" required>
       <span class="contact100-form-title"></span>
-      <p>Registrar Equipo</p>
+
 
       <div class="wrap-input100 validate-input bg1" data-validate="Campo requerido">
         <span class="label-input100">Nombre *</span>
@@ -61,7 +67,7 @@
       </div>
 
       <div class="wrap-input100 input100-select bg1 rs1-wrap-input100">
-        <span class="label-input100">Rama *</span>
+        <span class="label-input100">Categoría *</span>
         <div>
           <select [(ngModel)]="categoria" class="js-select2" name="categoria">
             <option value="Masculina">Masculina</option>
@@ -93,10 +99,7 @@
         <input class="input100" type="password" [(ngModel)]="contraseniaEquipo" name="contrasena" placeholder="Contraseña">
       </div>
 
-      <div class="wrap-input100 ">
-        <span class="label-input100">Logo</span>
-        <input class="input100" type="file" [(ngModel)]="logo" name="logo" placeholder="Logo" accept=".jpg,.png">
-      </div>
+
 
       <div class="container-contact100-form-btn">
         <button class="contact100-form-btn" (click)="insertar()">
