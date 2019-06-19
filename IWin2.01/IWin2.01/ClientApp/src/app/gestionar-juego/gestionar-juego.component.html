@@ -1,3 +1,4 @@
+
 <!--header-->
 <header class="main-header" id="header">
   <div class="bg-color">
@@ -22,7 +23,7 @@
     </nav>
     <!--/ nav-->
     <div class="container text-center">
-      <div>
+      <div >
         <h4 class="sub-title">Gestionar Juego</h4>
       </div>
     </div>
@@ -31,31 +32,27 @@
 <ul class="menuAdmin">
   <li><a href="gestionarJuego">Lista</a></li>
   <li><a href="actualizarJuego">Actualizar</a></li>
-  <li><a href="resultadoJuego">Insertar Resultados</a></li>
 </ul>
 
 
 <p *ngIf="!campeonatos"><em>Loading.......</em></p>
 <!--campeonato-->
-<!--campeonatos-->
-<br/>
-<div class="form-group">
-  <label class="control-label col-sm-2" for="tipo">Campeonatos:</label>
-  <div class="col-sm-10">
-    <td>
-      <select [(ngModel)]="campeonato" name="campeonato">
-        <option [ngValue]="campeonato" *ngFor="let campeonato of campeonatos">{{campeonato.nombreCampeonato}}</option>
-      </select>
-    </td>
+<div *ngIf="campeonatos">
+  <div class="grid-container" *ngFor="let campeonato of campeonatos">
+    <div class="item2"><img width="100" height="100" src="http://www.micampeonato.com/images/campeonatos/20602851587_845_945164173938_398_principal280b.png"></div>
+    <div class="item3">
+      <div>
+        <h3>{{ campeonato.identificador}}</h3>
+        <h4> {{ campeonato.nombreCampeonato}} </h4>
+        <h4>{{ campeonato.fechaInicio}}</h4>
+        <form id="formulario" class="form-signin">
+          <button class="btn btn-primary" (click)="buscar(campeonato.identificador)">Buscar</button>
+        </form>
+      </div>
 
-    <form id="formulario" class="form-signin">
-      <button class="btn btn-primary" (click)="buscar(campeonato.identificador)">Buscar</button>
-    </form>
-    <br />
+    </div>
   </div>
 </div>
-<br />
-
 <!--juegos-->
 <div class="tabla">
   <table id="example" class="table table-striped table-bordered" style="width:100%">

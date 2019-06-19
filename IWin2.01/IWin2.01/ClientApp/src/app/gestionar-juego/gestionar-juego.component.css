@@ -14184,12 +14184,3 @@ span.psw {
   overflow: hidden;
   background-color: #333;
 }
-
-
-select[_ngcontent-c1][_ngcontent-c1], input[_ngcontent-c1][_ngcontent-c1] {
-  width: 390px !important;
-  padding: 12px 20px;
-  margin: 8px 0;
-  display: inline-block;
-  border: 1px solid #ccc;
-}

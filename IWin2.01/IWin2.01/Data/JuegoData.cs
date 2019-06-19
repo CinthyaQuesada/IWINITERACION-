@@ -4,16 +4,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Iwin1._2.Domain;
-using System.Windows.Forms;
 
 namespace Iwin1._2.Data
 {
     public class JuegoData
     {
-        //string connectionString = "Server=db4free.net; Database=iwincjmdb; Uid= laboratorios; Pwd=UCRSA.118;old guids=true;";
+
         public List<Juego> listarJuegos()
         {
-            MessageBox.Show("entra en dta");
+
             Juego juego;
             Campeonato campeonato;
             Equipo equipoA;
@@ -21,11 +20,10 @@ namespace Iwin1._2.Data
             List<Juego> juegoList = new List<Juego>();
             string connectionString = "Server=163.178.107.130; Database=iwincjm; Uid= laboratorios; Pwd=UCRSA.118;";
             // Tu consulta en SQL
-            /* string query = "SELECT j.identificador, c.nombre_campeonato as campeonato, ea.nombre_equipo as equipoA, eb.nombre_equipo as equipoB,j.fecha_juego," +
-                 "j.estado_juego, j.lugar, a.nombre as arbitro FROM iwincjm.juego j JOIN iwincjm.equipo ea ON j.equipo_A = ea.identificador" +
-                 "JOIN iwincjm.equipo eb ON j.equipo_B = eb.identificador JOIN iwincjm.campeonato c ON j.identificador_campeonato = c.identificador " +
-                 "JOIN iwincjm.arbitro a ON j.arbitro_asignado = a.identificacion ";*/
-            string query = "SELECT * FROM iwincjm.juego;";
+            string query = "SELECT j.identificador, c.nombre_campeonato as campeonato, ea.nombre_equipo as equipoA, eb.nombre_equipo as equipoB,j.fecha_juego," +
+                "j.estado_juego, j.lugar, a.nombre as arbitro FROM iwincjm.juego j JOIN iwincjm.equipo ea ON j.equipo_A = ea.identificador" +
+                "JOIN iwincjm.equipo eb ON j.equipo_B = eb.identificador JOIN iwincjm.campeonato c ON j.identificador_campeonato = c.identificador " +
+                "JOIN iwincjm.arbitro a ON j.arbitro_asignado = a.identificacion ";
 
             // Prepara la conexión
             MySqlConnection databaseConnection = new MySqlConnection(connectionString);
@@ -89,7 +87,7 @@ namespace Iwin1._2.Data
             List<Juego> juegoList = new List<Juego>();
             string connectionString = "Server=163.178.107.130; Database=iwincjm; Uid= laboratorios; Pwd=UCRSA.118;";
             // Tu consulta en SQL
-            string query = "SELECT j.identificador, c.nombre_campeonato as campeonato, ea.nombre_equipo as equipoA, " +
+            string query = "SELECT j.identificador, c.nombre_campeonato as campeonato, eb.identificador as idB,ea.identificador as idA,ea.nombre_equipo as equipoA, " +
                 "eb.nombre_equipo as equipoB,j.fecha_juego, j.estado_juego, j.lugar, a.nombre as arbitro " +
                 "FROM iwincjm.juego j JOIN iwincjm.equipo ea ON j.equipo_A = ea.identificador " +
                 "JOIN iwincjm.equipo eb ON j.equipo_B = eb.identificador " +
@@ -128,6 +126,8 @@ namespace Iwin1._2.Data
                     juego.Identificador = reader.GetInt32("identificador");
                     equipoA.NombreEquipo = reader.GetString("equipoA");
                     equipoB.NombreEquipo = reader.GetString("equipoB");
+                    equipoA.Identificador =reader.GetInt32("idA");
+                    equipoB.Identificador = reader.GetInt32("idB");
                     juego.EquipoA = equipoA;
                     juego.EquipoB = equipoB;
                     juego.FechaJuego = reader.GetDateTime("fecha_juego");
@@ -164,7 +164,7 @@ namespace Iwin1._2.Data
             string connectionString = "Server=163.178.107.130; Database=iwincjm; Uid= laboratorios; Pwd=UCRSA.118;";
             // Tu consulta en SQL
             string query = "SELECT j.identificador, c.nombre_campeonato AS nombreCampeonato, ea.nombre_equipo AS equipoA, " +
-                "eb.nombre_equipo AS equipoB, j.fecha_juego, j.lugar, j.arbitro_asignado FROM iwincjm.juego j " +
+                "eb.nombre_equipo AS equipoB, j.fecha_juego, j.lugar, j.arbitro_asignado ,j.estado_juego FROM Juego j " +
                 "JOIN campeonato c on j.identificador_campeonato=c.identificador " +
                 "JOIN equipo ea ON j.equipo_A = ea.identificador " +
                 "JOIN equipo eb ON j.equipo_B = eb.identificador " +
@@ -205,8 +205,6 @@ namespace Iwin1._2.Data
                     juego.FechaJuego = reader.GetDateTime("fecha_juego");
                     juego.EstadoJuego = reader.GetString("estado_juego");
                     juego.Lugar = reader.GetString("lugar");
-                    arbitro.Nombre = reader.GetString("arbitro");
-                    juego.ArbitroAsignado = arbitro;
                     juegoList.Add(juego);
 
                 }
@@ -234,13 +232,15 @@ namespace Iwin1._2.Data
 
             string connectionString = "Server=163.178.107.130; Database=iwincjm; Uid= laboratorios; Pwd=UCRSA.118;";
             // Tu consulta en SQL
-            
+           /* string query = "UPDATE `iwincjm`.`juego` SET `equipo_A` = "+jueg.EquipoA.Identificador+", `equipo_B` = "+jueg.EquipoB.Identificador+ ", " +
+                "`fecha_juego` = " + jueg.FechaJuego.Year + "-" + jueg.FechaJuego.Month + "-"
+                + jueg.FechaJuego.Day + ", `estado_juego` = '" + jueg.EstadoJuego+"', `lugar` = '"+jueg.Lugar+"'," +
+                "`arbitro_asignado` = "+jueg.ArbitroAsignado.Identificacion+" WHERE `identificador` = "+jueg.Identificador+"; ";*/
             string query = "UPDATE `iwincjm`.`juego` SET `equipo_A` = " + jueg.EquipoA.Identificador + ", `equipo_B` = " + jueg.EquipoB.Identificador + "," +
                 " `estado_juego` = '" + jueg.EstadoJuego + "', `lugar` = '" + jueg.Lugar + "'," +
-                "`arbitro_asignado` = " + jueg.ArbitroAsignado.Identificacion + ", `fecha_juego` = '" + jueg.FechaJuego.Year + "-" + jueg.FechaJuego.Month + "-"
-                + jueg.FechaJuego.Day + "' WHERE `identificador` = " + jueg.Identificador + " ; ";
+                "`arbitro_asignado` = " + jueg.ArbitroAsignado.Identificacion + " WHERE `identificador` = " + jueg.Identificador + "; ";
 
-            MessageBox.Show(query);
+
 
             // Prepara la conexión
             MySqlConnection databaseConnection = new MySqlConnection(connectionString);

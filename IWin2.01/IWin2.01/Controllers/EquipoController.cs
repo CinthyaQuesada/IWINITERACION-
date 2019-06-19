@@ -5,7 +5,6 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Iwin1._2.Data;
 using Iwin1._2.Domain;
-using System.Windows.Forms;
 //using System.Windows.Forms;
 
 namespace Iwin1._2.Controllers
@@ -103,14 +102,6 @@ namespace Iwin1._2.Controllers
         {
 
             return equipoData.infoRep(equipo);
-        }
-
-        // GET: api/Juego/5
-        [HttpGet("equipos/{identificadorCampeonato}", Name = "GetEquipos")]
-        public IEnumerable<Equipo> GetEquipos(int identificadorCampeonato)
-        {
-         
-            return equipoData.informacionEquipoPorCampeonato(identificadorCampeonato);
         }
 
 
