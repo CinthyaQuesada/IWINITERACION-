@@ -13544,9 +13544,9 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .main-header {
-  background: url(https://hdwallsource.com/img/2015/5/soccer-wallpaper-48951-50588-hd-wallpapers.jpg) no-repeat;
+  /*background: url(https://hdwallsource.com/img/2015/5/soccer-wallpaper-48951-50588-hd-wallpapers.jpg) no-repeat;*/
   background-size: cover;
-  min-height: 210px;
+  min-height: 610px;
 }
 
 .bg-color {
@@ -14105,9 +14105,9 @@ img.avatar {
 /* Add padding to containers */
 .containerINT {
   padding: 16px;
-  width: 50% !important;
+  width: 30% !important;
   left: 50% !important;
-  margin-left: 300px !important;
+  margin-left: 500px !important;
 }
 
 /* The "Forgot password" text */
@@ -14168,7 +14168,7 @@ span.psw {
   margin-left: 250px !important;
 }
 
-.item2{
+.item2 {
   margin-left: 400px !important;
 }
 
@@ -14185,8 +14185,12 @@ span.psw {
   background-color: #333;
 }
 
+form[_ngcontent-c1] {
+  border: #ffffff !important;
+}
 
-select[_ngcontent-c1][_ngcontent-c1], input[_ngcontent-c1][_ngcontent-c1] {
+
+select[_ngcontent-c1], input[_ngcontent-c1] {
   width: 390px !important;
   padding: 12px 20px;
   margin: 8px 0;

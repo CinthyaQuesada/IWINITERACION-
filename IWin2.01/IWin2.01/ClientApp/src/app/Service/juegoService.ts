@@ -48,6 +48,14 @@ export class juegoService {
 
   }
 
+  agregarJuego(campeonato: Juego): Observable<Juego> {
+    //console.log(campeonato.categoria + "  --1");
+    let headers = new Headers({ 'Content-Type': 'application/json' });
+    let options = new RequestOptions({ headers: headers });
+    return this.http.post(this.baseUrl + 'api/campeonato/', campeonato, options).map(this.extractData);
+
+  }
+
   private extractData(res: Response) {
     let body = res.json();
     return body.fields || {};

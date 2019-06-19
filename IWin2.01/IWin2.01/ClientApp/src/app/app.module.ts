@@ -52,6 +52,9 @@ import { ListarAnotacionesComponent } from './listar-anotaciones/listar-anotacio
 import { ListarSancionesColectivasComponent } from './listar-sanciones-colectivas/listar-sanciones-colectivas.component';
 import { ListarSancionesIndividualesComponent } from './listar-sanciones-individuales/listar-sanciones-individuales.component';
 import { ResultadoJuegoComponent } from './resultado-juego/resultado-juego.component';
+import { ModificarCampeonatoComponent } from './modificar-campeonato/modificar-campeonato.component';
+import { EliminarCampeonatoComponent } from './eliminar-campeonato/eliminar-campeonato.component';
+import { GenerarFechasComponent } from './generar-fechas/generar-fechas.component';
 
 
 @NgModule({
@@ -97,6 +100,9 @@ import { ResultadoJuegoComponent } from './resultado-juego/resultado-juego.compo
     ListarSancionesColectivasComponent,
     ListarSancionesIndividualesComponent,
     ResultadoJuegoComponent,
+    ModificarCampeonatoComponent,
+    EliminarCampeonatoComponent,
+    GenerarFechasComponent
 
 
   ],
@@ -169,6 +175,12 @@ import { ResultadoJuegoComponent } from './resultado-juego/resultado-juego.compo
       { path: 'listarSancionesColectivas', component: ListarSancionesColectivasComponent },
       { path: 'listarSancionesIndividuales', component: ListarSancionesIndividualesComponent },
       { path: 'resultadoJuego', component: ResultadoJuegoComponent },
+      { path: 'modificarCampeonato', component: ModificarCampeonatoComponent },
+
+      { path: 'eliminarCampeonato', component: EliminarCampeonatoComponent },
+
+      { path: 'agregarCampeonato', component: AgregarCampeonatoComponent },
+      { path: 'generarFechas', component: GenerarFechasComponent },
 
     ])
   ],

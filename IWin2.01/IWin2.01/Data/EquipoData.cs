@@ -540,6 +540,50 @@ namespace Iwin1._2.Data
 
             return equipoList;
         }
+
+        public List<Equipo> informacionEquipoPorCampeonato(int campeonato)
+        {
+
+            Equipo equipo = new Equipo();
+            List<Equipo> equipoList = new List<Equipo>();
+            string connectionString = "Server=163.178.107.130; Database=iwincjm; Uid= laboratorios; Pwd=UCRSA.118;";
+            string query = "SELECT * FROM iwincjm.equipo e JOIN iwincjm.inscripcion i ON e.identificador = i.identificador_equipo " +
+                "JOIN iwincjm.campeonato c ON i.identificador_campeonato = c.identificador Where c.identificador = " + campeonato + "; ";
+
+            MySqlConnection databaseConnection = new MySqlConnection(connectionString);
+            MySqlCommand commandDatabase = new MySqlCommand(query, databaseConnection);
+            commandDatabase.CommandTimeout = 70;
+            MySqlDataReader reader;
+            databaseConnection.Open();
+            reader = commandDatabase.ExecuteReader();
+
+            if (reader.HasRows)
+            {
+                while (reader.Read())
+                {
+                    equipo = new Equipo();
+                    equipo.Identificador = reader.GetInt32("identificador");
+                    equipo.NombreEquipo = reader.GetString("nombre_equipo");
+                    equipo.Categoria = reader.GetString("categoria");
+                    equipo.Rama = reader.GetString("rama");
+                    equipo.CanchaSede = reader.GetString("cancha_sede");
+                    equipo.TelefonoRepresentante = reader.GetString("telefono_representante");
+                    equipo.NombreRepresentante = reader.GetString("nombre_representante");
+                    equipo.ContraseniaEquipo = reader.GetString("contrasenia_equipo");
+                    equipoList.Add(equipo);
+
+
+                }
+            }
+            else
+            {
+                Console.WriteLine("No se encontraron datos.");
+            }
+
+            databaseConnection.Close();
+            Console.WriteLine(equipo.Categoria);
+            return equipoList;
+        }
     }
 }
 
