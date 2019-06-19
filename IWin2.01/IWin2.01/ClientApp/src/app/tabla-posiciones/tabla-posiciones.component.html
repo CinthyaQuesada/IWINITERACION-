@@ -25,25 +25,20 @@
     <!--/ nav-->
     <div class="container text-center">
       <div>
-        <h4 class="sub-title">Gestionar Arbitro</h4>
+        <h4 class="sub-title">Tabla Posiciones {{campeonato.nombreCampeonato}}</h4>
       </div>
     </div>
   </div>
 </header>
-<ul class="menuAdmin">
-  <li><a href="gestionar-arbitro">Listar</a></li>
-  <li><a href="registrar-arbitro">Registrar</a></li>
-  <li><a href="eliminar-arbitro">Eliminar</a></li>
-</ul>
+
 
 
 <!--/ cambiar-->
-
 <div class="containerINT">
   <div class="form-group">
     <br>
     <label class="label-input100 marginEliminar" style="align-self:center">Campeonato</label>
-  
+
     <div class="label-input100 marginEliminar">
       <td>
         <select [(ngModel)]="idCampeonato" name="identificadorEquipoA">
@@ -51,7 +46,7 @@
         </select>
         <br />
         <form id="formulario" class="form-signin">
-          <button class="btn btn-primary"  (click)="generar()" style="background-color:black">Consultar</button>
+          <button class="btn btn-primary" (click)="generar()" style="background-color:black">Consultar</button>
         </form>
         <br />
       </td>
@@ -89,7 +84,18 @@
 
   </table>
 </div>
-
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 <footer class="" id="footer">
   <div class="container">
     <div class="row">

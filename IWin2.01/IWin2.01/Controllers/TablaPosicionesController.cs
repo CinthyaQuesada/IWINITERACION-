@@ -43,7 +43,11 @@ namespace Iwin1._2.Controllers
             return tablaData.buscarEquipo(nombre);
         }
 
-
+        [HttpGet("logineq/{id}", Name = "loginEq")]
+        public Equipo loginEq(int id)
+        {
+            return tablaData.buscarEquipoLog(id);
+        }
 
     }
 }

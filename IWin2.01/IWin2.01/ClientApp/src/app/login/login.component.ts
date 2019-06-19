@@ -2,6 +2,7 @@ import { Login } from '../Domain/login.model';
 import { Component, OnInit, Inject } from '@angular/core';
 import { LoginService } from '../Service/login.service';
 import { HttpClient } from '@angular/common/http';
+import { Equipo } from '../Domain/Equipo.model';
 
 
 @Component({
@@ -16,14 +17,19 @@ export class LoginComponent implements OnInit {
   contrasenia: string;
   tipoUsuario: number;
   direccionamiento: string;
+  equipo: Equipo = new Equipo();
 
+  idEquipo: number;
 
-
-
-  constructor(private loginS: LoginService, private http: HttpClient, @Inject('BASE_URL') baseUrl: string) {
+  constructor(private loginS: LoginService, private http: HttpClient, @Inject('BASE_URL') private baseUrl: string) {
     this.http.get<Login[]>(baseUrl + 'api/Login').subscribe(result => {
       this.usuarios = result;
     }, error => console.error(error));
+
+    
+
+
+
   }
 
   ingresar() {
@@ -39,7 +45,12 @@ export class LoginComponent implements OnInit {
       }
       else if (this.verificar() == 1) {
         alert("Bienvenido " + this.nombreUsuario);
-        window.location.href = "login";
+        this.http.get<Equipo>(this.baseUrl + 'api/tablaposiciones/buscar/' + this.nombreUsuario).subscribe(result => {
+          this.equipo = result;
+        }, error => console.error(error));
+        this.idEquipo = this.equipo.identificador;
+
+        window.location.href = "moduloEncargado/" + this.idEquipo;
       }
     }
     else {

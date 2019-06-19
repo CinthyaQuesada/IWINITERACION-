@@ -52,9 +52,9 @@
         <div class="col-md-4 col-sm-6">
           <h3 class="cont-title"></h3>
           <div class="location-info">
-            <a href="tablaPosiciones">Tabla de posiciones</a> <br />
-            <a href="sancionColectiva">Saciones Colectivas</a>   <br />
-            <a href="sancionIndividual">Sanciones Individuales</a>   <br />
+            <a (click)="tabla()"> Tabla de posiciones</a> <br />
+            <a href="sancionColectiva/{{idEquipo}}">Saciones Colectivas</a>   <br />
+            <a href="sancionIndividual/{{idEquipo}}">Sanciones Individuales</a>   <br />
 
           </div>
         </div>
@@ -120,7 +120,7 @@
         <div class="col-md-4 col-sm-6">
           <h3 class="cont-title"></h3>
           <div class="location-info">
-            <a href="gestionarJugador">Equipo</a>
+            <a  (click)="equipoRep()">Equipo</a>
 
           </div>
         </div>

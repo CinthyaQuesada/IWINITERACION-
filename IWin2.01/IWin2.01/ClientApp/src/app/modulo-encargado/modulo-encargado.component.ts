@@ -16,16 +16,31 @@ export class ModuloEncargadoComponent implements OnInit {
   campeonato: Campeonato = new Campeonato();
   idCampeonato: number;
 
+ 
+
   constructor(private http: HttpClient, @Inject('BASE_URL') private baseUrl: string, private rutaActiva: ActivatedRoute) {
-    this.nombreEquipo = this.rutaActiva.snapshot.params.nombre;
-    this.http.get<Equipo>(this.baseUrl + 'api/tablaposiciones/buscar/' + this.nombreEquipo).subscribe(result => {
+    this.idEquipo = this.rutaActiva.snapshot.params.id;
+
+    this.http.get<Equipo>(this.baseUrl + 'api/tablaposiciones/logineq/' + this.idEquipo).subscribe(result => {
       this.equipo = result;
+    }, error => console.error(error));
+
+    this.http.get<Campeonato>(this.baseUrl + 'api/tablaposiciones/equipo/' + this.idEquipo).subscribe(result => {
+      this.campeonato = result;
     }, error => console.error(error));
 
   }
 
   ngOnInit() {
+    this.idEquipo = this.rutaActiva.snapshot.params.id;
 
+    this.http.get<Equipo>(this.baseUrl + 'api/tablaposiciones/logineq/' + this.idEquipo).subscribe(result => {
+      this.equipo = result;
+    }, error => console.error(error));
+
+    this.http.get<Campeonato>(this.baseUrl + 'api/tablaposiciones/equipo/' + this.idEquipo).subscribe(result => {
+      this.campeonato = result;
+    }, error => console.error(error));
   }
 
   cerrar(): void {
@@ -33,20 +48,20 @@ export class ModuloEncargadoComponent implements OnInit {
   }
 
   tabla() {
-    this.idEquipo = this.equipo.identificador;
-    this.http.get<Campeonato>(this.baseUrl + 'api/tablaposiciones/equipo/' + this.idEquipo).subscribe(result => {
-      this.campeonato = result;
-    }, error => console.error(error));
+  
+  
+
     this.idCampeonato = this.campeonato.identificador;
-    window.location.href = "tabla-posciones-rep/" + this.idCampeonato;
+    window.location.href = "tabla-posciones-rep/" + this.idEquipo;
   }
 
   jugadores() {
     this.idEquipo = this.equipo.identificador;
-    window.location.href = "gestionarJuego/" + this.idEquipo;
+    window.location.href = "gestionarJugador/" + this.idEquipo;
   }
 
   equipoRep() {
+    this.nombreEquipo = this.equipo.nombreEquipo;
     window.location.href = "gestionar-equipo-rep/" + this.nombreEquipo;
   }
 }

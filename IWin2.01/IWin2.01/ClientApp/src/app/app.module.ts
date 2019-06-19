@@ -149,7 +149,7 @@ import { TablaPosicionesRepComponent } from './tabla-posiciones-rep/tabla-posici
 
       { path: 'login', component: LoginComponent },
 
-      { path: 'moduloEncargado', component: ModuloEncargadoComponent },
+      { path: 'moduloEncargado/:id', component: ModuloEncargadoComponent },
       { path: 'moduloAdministrador', component: ModuloAdministradorComponent },
 
       { path: 'registrar-arbitro', component: RegistrarArbitroComponent },

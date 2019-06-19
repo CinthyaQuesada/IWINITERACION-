@@ -14,6 +14,7 @@ export class GestionarEquipoRepComponent implements OnInit {
   public equipo: Equipo = new Equipo();
   public nombreEquipo: string;
   public url: string;
+  public idE: number;
 
   constructor(private http: HttpClient, @Inject('BASE_URL') baseUrl: string, private equipoS: EquipoService, private rutaActiva: ActivatedRoute) {
     this.nombreEquipo = this.rutaActiva.snapshot.params.nombre;
@@ -21,6 +22,16 @@ export class GestionarEquipoRepComponent implements OnInit {
     this.http.get<Equipo[]>(baseUrl + 'api/Equipo/' + this.nombreEquipo).subscribe(result => {
       this.equipos = result;
     }, error => console.error(error));
+
+
+
+
+  }
+
+  regresar() {
+    this.idE = this.equipo.identificador;
+
+    window.location.href = "moduloEngcargado/" + this.idE;
 
   }
 
