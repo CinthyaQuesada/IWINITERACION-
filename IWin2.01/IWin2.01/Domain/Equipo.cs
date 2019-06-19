@@ -16,7 +16,7 @@ namespace Iwin1._2.Domain
         private string logo;
         private string canchaSede;
         private string telefonoRepresentante;
-        private string contraseniaRepresentante;
+        private string contraseniaEquipo;
         List<Jugador> jugadores=new List<Jugador>();
 
         public int Identificador { get => identificador; set => identificador = value; }
@@ -27,7 +27,7 @@ namespace Iwin1._2.Domain
         public string Logo { get => logo; set => logo = value; }
         public string CanchaSede { get => canchaSede; set => canchaSede = value; }
         public string TelefonoRepresentante { get => telefonoRepresentante; set => telefonoRepresentante = value; }
-        public string ContraseniaEquipo { get => contraseniaRepresentante; set => contraseniaRepresentante = value; }
+        public string ContraseniaEquipo { get => contraseniaEquipo; set => contraseniaEquipo = value; }
 
         public Equipo()
         {
@@ -42,7 +42,7 @@ namespace Iwin1._2.Domain
             this.rama = rama;
             this.canchaSede = canchaSede;
             this.telefonoRepresentante = telefonoRepresentante;
-            this.contraseniaRepresentante = contraseniaRepresentante;
+            this.contraseniaEquipo = contraseniaRepresentante;
         }
 
         public Equipo(string nombreEquipo, string nombreRepresentante, string categoria, string rama, string logo, string canchaSede, string telefonoRepresentante, string contraseniaRepresentante)
@@ -54,7 +54,7 @@ namespace Iwin1._2.Domain
             this.logo = logo;
             this.canchaSede = canchaSede;
             this.telefonoRepresentante = telefonoRepresentante;
-            this.contraseniaRepresentante = contraseniaRepresentante;
+            this.contraseniaEquipo = contraseniaRepresentante;
         }
 
     }

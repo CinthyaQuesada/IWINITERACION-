@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Iwin1._2.Data;
 using Iwin1._2.Domain;
+using System.Windows.Forms;
 
 namespace Iwin1._2.Controllers
 {
@@ -13,17 +14,16 @@ namespace Iwin1._2.Controllers
     [ApiController]
     public class JuegoController : ControllerBase
     {
-
-        /*   // GET: api/Juego
-           [HttpGet]
+        /*
+          // GET: api/Juego
+           [HttpGet("getJ/", Name = "Get")]
            public IEnumerable<Juego> Get()
            {
                JuegoData juegoData = new JuegoData();
-
-               Console.WriteLine("Entraaaaa");
-               return juegoData.listarJuegos();
-           }   */
-
+            MessageBox.Show("entra en getttt");
+            return juegoData.listarJuegos();
+           }  */
+     
 
 
         // GET: api/Juego/5
@@ -43,8 +43,6 @@ namespace Iwin1._2.Controllers
             return juegoData.listarJuegoPorIdentificador(identificadorJuego);
         }
 
-
-
         /*
                 // PUT: api/Juego/actualizar/5
                 [HttpPut("actualizar/{id}")]
@@ -58,15 +56,28 @@ namespace Iwin1._2.Controllers
 
                 }*/
 
-        // PUT: api/juego/{juego}
+        /*// PUT: api/juego/{juego}
         [HttpPut]
         public Juego Put([FromBody] Juego juego)
         {
             JuegoData juegoData = new JuegoData();
-
+            MessageBox.Show("entra en puttt");
             juegoData.actualizarJuego(juego);
             return juego;
+        }*/
+
+        // PUT: api/Juego/5
+        [HttpPut("{id}")]
+        public void Put(int id, [FromBody] Juego value)
+        {
+          
+            
+            JuegoData juegoData = new JuegoData();
+            MessageBox.Show("entra en puttt");
+            juegoData.actualizarJuego(value);
+
+
         }
-       
+
     }
 }

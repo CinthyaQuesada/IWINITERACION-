@@ -10,15 +10,17 @@ namespace Iwin1._2.Data
     public class CampeonatoData
     {
 
+        //string connectionString = "Server=db4free.net; Database=iwincjmdb; Uid= laboratorios; Pwd=UCRSA.118;old guids=true;";
+        string connectionString = "Server=163.178.107.130; Database=iwincjm; Uid= laboratorios; Pwd=UCRSA.118;";
 
         public List<Campeonato> listarCampeonatos()
         {
 
             Campeonato campeonato;
             List<Campeonato> campeonatoList = new List<Campeonato>();
-            string connectionString = "Server=163.178.107.130; Database=iwincjm; Uid= laboratorios; Pwd=UCRSA.118;";
+            
             // Tu consulta en SQL
-            string query = "SELECT * FROM Campeonato";
+            string query = "SELECT * FROM iwincjm.campeonato";
 
             // Prepara la conexión
             MySqlConnection databaseConnection = new MySqlConnection(connectionString);
@@ -69,8 +71,7 @@ namespace Iwin1._2.Data
 
         public void agregarCampeonato(Campeonato campeonato)
         {
-
-            string connectionString = "Server=163.178.107.130; Database=iwincjm; Uid= laboratorios; Pwd=UCRSA.118;";
+            
          
             string query = "Insert into campeonato(`nombre_campeonato`,`tipo`,`categoria`,`cantidad_grupos`,`fecha_inicio`) " +
                 "values('" + campeonato.NombreCampeonato + "','" + campeonato.Tipo + "','" + campeonato.Categoria + "','" 

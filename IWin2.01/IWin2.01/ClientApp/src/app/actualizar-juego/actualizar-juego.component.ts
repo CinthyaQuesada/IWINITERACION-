@@ -49,37 +49,38 @@ export class ActualizarJuegoComponent {
       this.juegos = result;
     }, error => console.error(error));
 
-
-
-
   }
 
   buscarJuego(juegoSelect: Juego): void {
 
-    this.juegoSeleccionado = juegoSelect;
-    this.http.get<Equipo[]>(this.baseUrl + 'api/Equipo/').subscribe(result => {
-      this.equipos = result;
-    }, error => console.error(error));
 
     this.http.get<Arbitro[]>(this.baseUrl + 'api/Arbitro/').subscribe(result => {
       this.arbitroAsignados = result;
     }, error => console.error(error));
 
+    this.fechaJuego = juegoSelect.fechaJuego;
+    this.estadoJuego = juegoSelect.estadoJuego;
+    this.lugar = juegoSelect.lugar;
+    this.arbitroAsignado = juegoSelect.arbitroAsignado;
+    this.juegoSeleccionado = juegoSelect;
+
   }
 
   actualizar(): void {
-    this.juegoSeleccionado.equipoA.identificador = this.identificadorEquipoA;
-    this.juegoSeleccionado.equipoB.identificador = this.identificadorEquipoB;
+    console.log("entra en boton actualizar");
+    this.juegoSeleccionado.fechaJuego = this.fechaJuego;
+    this.juegoSeleccionado.estadoJuego = this.estadoJuego;
+    this.juegoSeleccionado.lugar = this.lugar;
     this.juegoSeleccionado.arbitroAsignado.identificacion = this.identificacionArbitro;
 
-    console.log(this.juegoSeleccionado.equipoA.identificador + " - " + this.juegoSeleccionado.equipoB.identificador + " - " + this.juegoSeleccionado.fechaJuego.getMonth + " - " + this.juegoSeleccionado.estadoJuego + " - " + this.juegoSeleccionado.lugar + " - " + this.juegoSeleccionado.arbitroAsignado.identificacion);
-    if (this.juegoSeleccionado.equipoA != null && this.juegoSeleccionado.equipoB != null && this.juegoSeleccionado.fechaJuego != null && this.juegoSeleccionado.estadoJuego != null && this.juegoSeleccionado.arbitroAsignado.identificacion != null && this.juegoSeleccionado.estadoJuego != "" && this.juegoSeleccionado.arbitroAsignado.identificacion != "") {
+
+    if (this.juegoSeleccionado.fechaJuego != null && this.juegoSeleccionado.estadoJuego != null && this.juegoSeleccionado.estadoJuego != "" && this.juegoSeleccionado.lugar != null && this.juegoSeleccionado.lugar != "" && this.juegoSeleccionado.arbitroAsignado.identificacion != null && this.juegoSeleccionado.arbitroAsignado.identificacion != "" && this.juegoSeleccionado.estadoJuego != null && this.juegoSeleccionado.estadoJuego != "") {
+      console.log(this.juegoSeleccionado.lugar);
       this.juegoService.actualizar(this.juegoSeleccionado).subscribe(data => this.juego = data);
-      window.location.href = "actualizarJuego"
+      //window.location.href = "actualizarJuego"
     } else {
       alert("Datos incompletos. Por favor llene todos los espacios.");
     }
-    console.log(this.juegoSeleccionado.estadoJuego);
   }
 
 

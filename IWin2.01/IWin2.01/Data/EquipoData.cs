@@ -11,7 +11,7 @@ namespace Iwin1._2.Data
     public class EquipoData
     {
 
-        string connectionString = "Server=163.178.107.130; Database=iwincjm; Uid= laboratorios; Pwd=UCRSA.118;";
+        string connectionString = "Server=db4free.net; Database=iwincjmdb; Uid= laboratorios; Pwd=UCRSA.118;old guids=true;";
 
         public EquipoData()
         {
