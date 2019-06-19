@@ -22,20 +22,21 @@ export class juegoService {
 
   buscarJuego(identificador: number): Observable<Juego> {
 
-    return this.http.get(this.url + "api/juego/" + identificador).map(response => response.json());
+    return this.http.get(this.baseUrl + "api/juego/" + identificador).map(response => response.json());
 
   }
 
   actualizarJuego(juego: Juego): Observable<Juego> {
-    return this.http.put(this.url + 'api/jugador/' + juego.identificador, juego).map(response => response.json());
+    return this.http.put(this.baseUrl + 'api/jugador/' + juego.identificador, juego).map(response => response.json());
 
   }
 
-  actualizar(juego: Juego): Observable<Juego>{
-    console.log(juego.estadoJuego + "  --1");
-    let headers = new Headers({ 'Content-Type': 'application/json' });
+  actualizar(juego: Juego): Observable<Juego> {
+    console.log(this.baseUrl + 'api/Juego/');
+    /*let headers = new Headers({ 'Content-Type': 'application/json' });
     let options = new RequestOptions({ headers: headers });
-    return this.http.put(this.url + 'api/juego/', juego, options).map(this.extractData);
+    return this.http.put(this.url + 'api/Juego/', juego, options).map(this.extractData);*/
+    return this.http.put(this.baseUrl + 'api/Juego/' + juego.identificador, juego).map(response => response.json());
 
   }
 
@@ -43,7 +44,15 @@ export class juegoService {
     console.log(campeonato.categoria + "  --1");
     let headers = new Headers({ 'Content-Type': 'application/json' });
     let options = new RequestOptions({ headers: headers });
-    return this.http.post(this.url + 'api/campeonato/', campeonato, options).map(this.extractData);
+    return this.http.post(this.baseUrl + 'api/campeonato/', campeonato, options).map(this.extractData);
+
+  }
+
+  agregarJuego(campeonato: Juego): Observable<Juego> {
+    //console.log(campeonato.categoria + "  --1");
+    let headers = new Headers({ 'Content-Type': 'application/json' });
+    let options = new RequestOptions({ headers: headers });
+    return this.http.post(this.baseUrl + 'api/campeonato/', campeonato, options).map(this.extractData);
 
   }
 

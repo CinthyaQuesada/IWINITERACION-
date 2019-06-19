@@ -58,7 +58,7 @@ export class AgregarCampeonatoComponent implements OnInit {
       console.log(this.tipo + " " + this.categoria);
 
 
-      this.campeonatoservice.agregarCampeonato(new Campeonato(this.identificador, this.nombreCampeonato, this.tipo, this.categoria, this.cantidadGrupos, this.fechaInicio)).subscribe(data => this.campeonato = data);
+      this.campeonatoservice.agregarCampeonato(new Campeonato(this.identificador, this.nombreCampeonato, this.tipo, this.categoria, 0, this.fechaInicio)).subscribe(data => this.campeonato = data);
       alert("El campeonato " + this.nombreCampeonato + " ha sido agregado exitosamente")
       window.location.href = "agregarCampeonato"
 
