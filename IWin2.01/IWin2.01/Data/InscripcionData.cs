@@ -35,7 +35,7 @@ namespace Iwin1._2.Data
             Campeonato campeonato;
             List<Campeonato> campeonatoList = new List<Campeonato>();
             string connectionString = "Server=163.178.107.130; Database=iwincjm; Uid= laboratorios; Pwd=UCRSA.118;";
-            string query = "SELECT * FROM Campeonato";
+            string query = "SELECT * FROM `campeonato` WHERE cantidad_grupos=0";
 
             MySqlConnection databaseConnection = new MySqlConnection(connectionString);
             MySqlCommand commandDatabase = new MySqlCommand(query, databaseConnection);
