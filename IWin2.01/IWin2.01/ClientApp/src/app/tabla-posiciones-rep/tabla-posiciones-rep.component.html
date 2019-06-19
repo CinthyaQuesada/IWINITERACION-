@@ -1,3 +1,4 @@
+<!--header-->
 <header class="main-header" id="header">
   <link rel="stylesheet" type="text/css" href="../../assets/css/util.css">
   <link rel="stylesheet" type="text/css" href="../../assets/css/main1.css">
@@ -29,58 +30,45 @@
     </div>
   </div>
 </header>
-
-<body>
-  <ul class="menuAdmin">
-    <li><a href="gestionar-arbitro">Listar</a></li>
-    <li><a href="registrar-arbitro">Registrar</a></li>
-    <li><a href="eliminar-arbitro">Eliminar</a></li>
-  </ul>
-  <br><br>
-  <div class="form-group">
-
-    <br>
-    <label class="label-input100 marginEliminar" style="align-self:center">Nombre del Arbitro</label>
-    <br>
-    <input class="wrap-input100 validate-input bg1 rs1-wrap-input100 marginEliminar" [(ngModel)]="arbitroB" name="arbitroB" />
-  </div>
-  <a class="btn btn-primary marginEliminar" (click)="buscarArbitro()" style="background-color:black">Buscar</a>
+<ul class="menuAdmin">
+  <li><a href="gestionar-arbitro">Listar</a></li>
+  <li><a href="registrar-arbitro">Registrar</a></li>
+  <li><a href="eliminar-arbitro">Eliminar</a></li>
+</ul>
 
 
+<!--/ cambiar-->
+<br />
+<br/>
+<div class="tabla">
+  <table id="example" class="table table-striped table-bordered" style="width:100%">
+    <tr>
+      <th>Nomnbre Equipo</th>
+      <th>PJ</th>
+      <th>PG</th>
+      <th>PP</th>
+      <th>PE</th>
+      <th>GF</th>
+      <th>GC</th>
+      <th>GD</th>
+      <th>Pts</th>
+    </tr>
+    <tbody>
+      <tr *ngFor="let tabla of tablaPos">
+        <td style="vertical-align:middle">{{tabla.equipo.nombreEquipo}}</td>
+        <td style="vertical-align:middle">{{tabla.partidosJugados}}</td>
+        <td style="vertical-align:middle">{{tabla.partidosGanados}}</td>
+        <td style="vertical-align:middle">{{tabla.partidosPerdidos}}</td>
+        <td style="vertical-align:middle">{{tabla.PartidosPerdidos}}</td>
+        <td style="vertical-align:middle">{{tabla.golesFavor}}</td>
+        <td style="vertical-align:middle">{{tabla.golesContra}}</td>
+        <td style="vertical-align:middle">{{tabla.golDif}}</td>
+        <td style="vertical-align:middle">{{tabla.cantidadPuntos}}</td>
+      </tr>
+    </tbody>
 
-
-  
-  <div *ngIf="arbitros" class="row marginEliminar">
-
-
-    <div class="grid-container col-md-3" *ngFor="let arbitro of arbitros">
-
-
-
-      <div class="item3">
-
-
-        <div class="card" style="width: 18rem;">
-          <div class="card-body">
-            <h3 class="card-title">{{arbitro.nombre}}{{ " "+arbitro.apellidos}}</h3>
-            <h5 class="card-text">Identificación: {{ arbitro.identificacion}}</h5>
-            <h5 class="card-text">Categoría: {{ arbitro.categoria}}</h5>
-            <h5 class="card-text">Telefono: {{ arbitro.telefono}}</h5>
-            <a class="btn btn-primary" (click)="eliminar(arbitro.identificacion,arbitro.nombre)" style="background-color:black">Eliminar</a>
-          </div>
-        </div>
-
-
-      </div>
-
-
-
-
-    </div>
-  </div>
-</body>
-     
-
+  </table>
+</div>
 
 <footer class="" id="footer">
   <div class="container">
@@ -109,11 +97,3 @@
     </div>
   </div>
 </footer>
-<!---->
-<!--contact ends-->
-<script src="js/jquery.min.js"></script>
-<script src="js/jquery.easing.min.js"></script>
-<script src="js/bootstrap.min.js"></script>
-<script src="js/wow.js"></script>
-<script src="js/custom.js"></script>
-<script src="contactform/contactform.js"></script>
