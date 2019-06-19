@@ -55,6 +55,10 @@ import { TablaPosicionesComponent } from './tabla-posiciones/tabla-posiciones.co
 import { TablaPosicionesRepComponent } from './tabla-posiciones-rep/tabla-posiciones-rep.component';
 import { AdministrarResumenComponent } from './administrar-resumen/administrar-resumen.component';
 import { ResumenComponent } from './resumen/resumen.component';
+import { ResultadoJuegoComponent } from './resultado-juego/resultado-juego.component';
+import { ModificarCampeonatoComponent } from './modificar-campeonato/modificar-campeonato.component';
+import { EliminarCampeonatoComponent } from './eliminar-campeonato/eliminar-campeonato.component';
+import { GenerarFechasComponent } from './generar-fechas/generar-fechas.component';
 
 
 @NgModule({
@@ -102,8 +106,11 @@ import { ResumenComponent } from './resumen/resumen.component';
     GestionarArbitroComponent,
     EliminarArbitroComponent,
     TablaPosicionesComponent,
-    TablaPosicionesRepComponent
-    
+    TablaPosicionesRepComponent,
+    ModificarCampeonatoComponent,
+    EliminarCampeonatoComponent,
+    GenerarFechasComponent
+
 
   ],
   imports: [
@@ -177,10 +184,17 @@ import { ResumenComponent } from './resumen/resumen.component';
       { path: 'listarAnotaciones', component: ListarAnotacionesComponent },
       { path: 'listarSancionesColectivas', component: ListarSancionesColectivasComponent },
       { path: 'listarSancionesIndividuales', component: ListarSancionesIndividualesComponent },
+      { path: 'resultadoJuego', component: ResultadoJuegoComponent },
+      { path: 'modificarCampeonato', component: ModificarCampeonatoComponent },
+
+      { path: 'eliminarCampeonato', component: EliminarCampeonatoComponent },
+
+      { path: 'agregarCampeonato', component: AgregarCampeonatoComponent },
+      { path: 'generarFechas', component: GenerarFechasComponent },
 
       { path: 'tabla-posiciones', component: TablaPosicionesComponent },
 
-      { path: 'tabla-posiciones-rep/:idC', component: TablaPosicionesRepComponent }
+      { path: 'tabla-posiciones-rep/:idC', component: TablaPosicionesRepComponent },
 
 
       { path: 'resultado', component: AdministrarResumenComponent },

@@ -1,3 +1,4 @@
+
 <!--header-->
 <header class="main-header" id="header">
   <div class="bg-color">
@@ -33,63 +34,28 @@
   <li><a href="actualizarJuego">Actualizar</a></li>
   <li><a href="resultadoJuego">Insertar Resultados</a></li>
 </ul>
-<p *ngIf="!campeonatos"><em>Cargando.......</em></p>
-
-
-<!--campeonatos-->
-<div class="form-group">
-  <label class="control-label col-sm-2" for="tipo">Campeonatos:</label>
-  <div class="col-sm-10">
-    <td>
-      <select [(ngModel)]="campeonato" name="campeonato">
-        <option [ngValue]="campeonato" *ngFor="let campeonato of campeonatos">{{campeonato.nombreCampeonato}}</option>
-      </select>
-    </td>
-
-    <form id="formulario" class="form-signin">
-      <button class="btn btn-primary" (click)="buscar(campeonato.identificador)">Buscar</button>
-    </form>
-    <br />
-  </div>
-</div>
-<br />
-<!--juegos-->
-<div class="tabla">
-  <table id="example" class="table table-striped table-bordered" style="width:100%">
-    <tr>
-      <th>Identificador</th>
-      <th>Equipo A</th>
-      <th>Equipo B</th>
-      <th>Fecha</th>
-      <th>Estado</th>
-      <th>Lugar</th>
-      <th>Arbitro</th>
-      <th>Opcion</th>
-    </tr>
-    <tbody>
-      <tr *ngFor="let juego of juegos">
-        <td style="vertical-align:middle">{{juego.identificador}}</td>
-        <td style="vertical-align:middle">{{juego.equipoA.nombreEquipo}}</td>
-        <td style="vertical-align:middle">{{juego.equipoB.nombreEquipo}}</td>
-        <td style="vertical-align:middle">{{juego.fechaJuego}}</td>
-        <td style="vertical-align:middle">{{juego.estadoJuego}}</td>
-        <td style="vertical-align:middle">{{juego.lugar}}</td>
-        <td style="vertical-align:middle">{{juego.arbitroAsignado.nombre}}</td>
-        <td style="vertical-align:middle">
-          <button class="btn btn-primary" (click)="buscarJuego(juego)">
-            Buscar
-          </button>
-        </td>
-      </tr>
-    </tbody>
-
-  </table>
-</div>
-
-
-<br />
-
 <div class="containerINT">
+
+  <div class="form-group">
+    <label class="control-label col-sm-2" for="juego">Juego:</label>
+    <div class="col-sm-10">
+      <td>
+        <select [(ngModel)]="juego" name="juego">
+          <option [ngValue]="juego" *ngFor="let juego of juegos">{{juego.identificador}}</option>
+        </select>
+      </td>
+    </div>
+  </div>
+  <div class="form-group">
+    <label class="control-label col-sm-2" for="equipo">Equipo:</label>
+    <div class="col-sm-10">
+      <td>
+        <select [(ngModel)]="equipo" name="equipo">
+          <option [ngValue]="equipo" *ngFor="let equipo of equipos">{{equipo.identificador}}</option>
+        </select>
+      </td>
+    </div>
+  </div>
 
 
   <div class="form-group">
@@ -127,9 +93,6 @@
 
   <br />
   <button class="btn btn-lg btn-primary btn-block" (click)="actualizar()" type="submit"> Actualizar </button>
-
-
-
 
 </div>
 
