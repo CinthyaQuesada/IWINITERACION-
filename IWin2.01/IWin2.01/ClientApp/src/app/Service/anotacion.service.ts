@@ -12,6 +12,7 @@ import "rxjs/add/operator/map";
 import { DatePipe } from '@angular/common';
 import { SancionIndividual } from '../Domain/sancionIndividual.model';
 import { Anotacion } from '../Domain/anotacion.model';
+import { Resultado2 } from '../Domain/Resultado2';
 @Injectable()
 export class AnotacionService {
 
@@ -39,6 +40,15 @@ export class AnotacionService {
 
   }
 
+
+  getListaEquipos(idCampeonato: number): Observable<Equipo[]> {
+
+    console.log(this.url + "api/GenerarFechas/" + idCampeonato)
+    return this.http.get(this.url + "api/GenerarFechas/" + idCampeonato).map(response => response.json());
+
+
+
+  }
 
 
 
@@ -77,6 +87,18 @@ export class AnotacionService {
 
 
   }
+
+  guardarResultado(sancion: Resultado2): Observable<Resultado2> {
+    let body = sancion;
+    let headers = new Headers({ 'Content-Type': 'application/json' });
+    let options = new RequestOptions({ headers: headers });
+    return this.http.post(this.url + 'api/resultado/', body, options).map(this.extractData);
+
+
+
+
+  }
+
 
 }
 

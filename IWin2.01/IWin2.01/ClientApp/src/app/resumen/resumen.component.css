@@ -1,0 +1,57 @@
+.grid-container {
+  display: grid;
+  grid-column-gap: 5px;
+  grid-template-columns: auto auto auto;
+  padding: 10px;
+}
+
+a.btn:hover {
+  -webkit-transform: scale(1.1);
+  -moz-transform: scale(1.1);
+  -o-transform: scale(1.1);
+}
+
+a.btn {
+  -webkit-transform: scale(0.8);
+  -moz-transform: scale(0.8);
+  -o-transform: scale(0.8);
+  -webkit-transition-duration: 0.5s;
+  -moz-transition-duration: 0.5s;
+  -o-transition-duration: 0.5s;
+}
+
+th, td {
+  border: 1px solid blue;
+  width: 200px;
+  word-wrap: break-word;
+}
+
+table {
+  table-layout: fixed;
+  width: 250px;
+}
+
+.a {
+  align-items: center;
+  width: 500px;
+  height: auto
+}
+
+.grid-item {
+  padding: 20px;
+  font-size: 30px;
+  text-align: center;
+}
+
+form[_ngcontent-c1] {
+  border: #ffffff !important;
+}
+
+
+select[_ngcontent-c1], input[_ngcontent-c1] {
+  width: 390px !important;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+}
