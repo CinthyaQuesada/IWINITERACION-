@@ -55,7 +55,6 @@ import { TablaPosicionesComponent } from './tabla-posiciones/tabla-posiciones.co
 import { TablaPosicionesRepComponent } from './tabla-posiciones-rep/tabla-posiciones-rep.component';
 import { AdministrarResumenComponent } from './administrar-resumen/administrar-resumen.component';
 import { ResumenComponent } from './resumen/resumen.component';
-import { ResultadoJuegoComponent } from './resultado-juego/resultado-juego.component';
 import { ModificarCampeonatoComponent } from './modificar-campeonato/modificar-campeonato.component';
 import { EliminarCampeonatoComponent } from './eliminar-campeonato/eliminar-campeonato.component';
 import { GenerarFechasComponent } from './generar-fechas/generar-fechas.component';
@@ -109,7 +108,7 @@ import { GenerarFechasComponent } from './generar-fechas/generar-fechas.componen
     TablaPosicionesRepComponent,
     ModificarCampeonatoComponent,
     EliminarCampeonatoComponent,
-    GenerarFechasComponent
+    GenerarFechasComponent, AdministrarResumenComponent
 
 
   ],
@@ -184,7 +183,6 @@ import { GenerarFechasComponent } from './generar-fechas/generar-fechas.componen
       { path: 'listarAnotaciones', component: ListarAnotacionesComponent },
       { path: 'listarSancionesColectivas', component: ListarSancionesColectivasComponent },
       { path: 'listarSancionesIndividuales', component: ListarSancionesIndividualesComponent },
-      { path: 'resultadoJuego', component: ResultadoJuegoComponent },
       { path: 'modificarCampeonato', component: ModificarCampeonatoComponent },
 
       { path: 'eliminarCampeonato', component: EliminarCampeonatoComponent },
