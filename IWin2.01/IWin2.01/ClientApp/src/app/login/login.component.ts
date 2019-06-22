@@ -18,16 +18,17 @@ export class LoginComponent implements OnInit {
   tipoUsuario: number;
   direccionamiento: string;
   equipo: Equipo = new Equipo();
-
+  equipos: Equipo[] = new Array<Equipo>();
   idEquipo: number;
 
   constructor(private loginS: LoginService, private http: HttpClient, @Inject('BASE_URL') private baseUrl: string) {
     this.http.get<Login[]>(baseUrl + 'api/Login').subscribe(result => {
       this.usuarios = result;
     }, error => console.error(error));
-
     
-
+    this.http.get<Equipo[]>(this.baseUrl + 'api/Equipo/').subscribe(result => {
+      this.equipos = result;
+    }, error => console.error(error));
 
 
   }
@@ -44,12 +45,9 @@ export class LoginComponent implements OnInit {
         window.location.href ="moduloAdministrador";
       }
       else if (this.verificar() == 1) {
+        this.idE();
         alert("Bienvenido " + this.nombreUsuario);
-        this.http.get<Equipo>(this.baseUrl + 'api/tablaposiciones/buscar/' + this.nombreUsuario).subscribe(result => {
-          this.equipo = result;
-        }, error => console.error(error));
-        this.idEquipo = this.equipo.identificador;
-
+        console.log(this.idEquipo);
         window.location.href = "moduloEncargado/" + this.idEquipo;
       }
     }
@@ -61,6 +59,7 @@ export class LoginComponent implements OnInit {
 
 
   verificar() {
+    
     var cont = 0;
     var valido = -1;
 
@@ -79,6 +78,22 @@ export class LoginComponent implements OnInit {
 
 
   ngOnInit() {
+    
+  }
+
+
+   idE() {
+    var cont = 0;
+    while (cont < this.equipos.length) {
+      if (this.nombreUsuario == this.equipos[cont].nombreEquipo) {
+        this.idEquipo = this.equipos[cont].identificador;
+        cont = this.equipos.length;
+      }
+      else {
+        
+      }
+      cont++;
+    }
   }
 
 }

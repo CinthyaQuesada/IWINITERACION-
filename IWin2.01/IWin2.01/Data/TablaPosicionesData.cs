@@ -258,6 +258,44 @@ namespace Iwin1._2.Data
             return campeonatoList;
         }
 
+        public List<Campeonato> campeonatosE(int id)
+        {
+            Campeonato campeonato;
+            List<Campeonato> campeonatoList = new List<Campeonato>();
+            string connectionString = "Server=163.178.107.130; Database=iwincjm; Uid= laboratorios; Pwd=UCRSA.118;";
+            string query = "SELECT c.identificador, nombre_campeonato, cantidad_grupos, fecha_inicio FROM Campeonato c JOIN inscripcion i ON C.identificador=I.identificador_campeonato WHERE i.identificador_equipo='" + id+"'";
+
+            MySqlConnection databaseConnection = new MySqlConnection(connectionString);
+            MySqlCommand commandDatabase = new MySqlCommand(query, databaseConnection);
+            commandDatabase.CommandTimeout = 60;
+            MySqlDataReader reader;
+
+            databaseConnection.Open();
+
+            reader = commandDatabase.ExecuteReader();
+
+            if (reader.HasRows)
+            {
+                while (reader.Read())
+                {
+                    campeonato = new Campeonato();
+                    campeonato.Identificador = reader.GetInt32("identificador");
+                    campeonato.NombreCampeonato = reader.GetString("nombre_campeonato");
+                    campeonato.CantidadGrupos = reader.GetInt32("cantidad_grupos");
+                    campeonato.FechaInicio = reader.GetDateTime("fecha_inicio");
+
+                    campeonatoList.Add(campeonato);
+                }
+            }
+            else
+            {
+
+                Console.WriteLine("No se encontraron datos.");
+            }
+            databaseConnection.Close();
+            return campeonatoList;
+        }
+
         public Campeonato campeonatoPorEquipo(int idEquipo)
         {
             Campeonato campeonato = new Campeonato();
@@ -303,7 +341,7 @@ namespace Iwin1._2.Data
             List<TablaPosiciones> tablaPosiciones = new List<TablaPosiciones>();
             string connectionString = "Server=163.178.107.130; Database=iwincjm; Uid= laboratorios; Pwd=UCRSA.118;";
 
-            string query = "SELECT c.nombre_campeonato, e.nombre_equipo, e.identificador as idE, count(r.id_equipo) as pj, sum(r.goles_fav) as gf, sum(r.goles_enc) as gc, sum(r.goles_fav)- sum(r.goles_enc) as gd,sum(r.puntos) as puntos, count(if(r.puntos=3,1,NULL)) as pg,count(if(r.puntos=1,1,NULL)) as pe,count(if(r.puntos=0,1,NULL)) as pp FROM equipo e JOIN resultadosjuego r ON e.identificador=r.id_equipo JOIN juego j ON j.identificador = r.id_juego JOIN campeonato c ON j.identificador_campeonato = c.identificadorWHERE r.id_campeonato='"+ idCampeonato + "' GROUP BY nombre_equipo";
+            string query = "SELECT c.nombre_campeonato, e.nombre_equipo, e.identificador as idE, count(r.id_equipo) as pj, sum(r.goles_fav) as gf, sum(r.goles_enc) as gc, sum(r.goles_fav)- sum(r.goles_enc) as gd,sum(r.puntos) as puntos, count(if(r.puntos=3,1,NULL)) as pg,count(if(r.puntos=1,1,NULL)) as pe,count(if(r.puntos=0,1,NULL)) as pp FROM equipo e JOIN resultadosjuego r ON e.identificador=r.id_equipo JOIN juego j ON j.identificador = r.id_juego JOIN campeonato c ON j.identificador_campeonato = c.identificador WHERE r.id_campeonato='"+ idCampeonato + "' GROUP BY nombre_equipo";
 
             MySqlConnection databaseConnection = new MySqlConnection(connectionString);
             MySqlCommand commandDatabase = new MySqlCommand(query, databaseConnection);

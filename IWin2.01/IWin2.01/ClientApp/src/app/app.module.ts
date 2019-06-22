@@ -54,11 +54,10 @@ import { ListarSancionesIndividualesComponent } from './listar-sanciones-individ
 import { TablaPosicionesComponent } from './tabla-posiciones/tabla-posiciones.component';
 import { TablaPosicionesRepComponent } from './tabla-posiciones-rep/tabla-posiciones-rep.component';
 import { AdministrarResumenComponent } from './administrar-resumen/administrar-resumen.component';
-import { ResumenComponent } from './resumen/resumen.component';
-import { ResultadoJuegoComponent } from './resultado-juego/resultado-juego.component';
 import { ModificarCampeonatoComponent } from './modificar-campeonato/modificar-campeonato.component';
 import { EliminarCampeonatoComponent } from './eliminar-campeonato/eliminar-campeonato.component';
 import { GenerarFechasComponent } from './generar-fechas/generar-fechas.component';
+import { ResultadoJuegoComponent } from './resultado-juego/resultado-juego.component';
 
 
 @NgModule({
@@ -109,14 +108,15 @@ import { GenerarFechasComponent } from './generar-fechas/generar-fechas.componen
     TablaPosicionesRepComponent,
     ModificarCampeonatoComponent,
     EliminarCampeonatoComponent,
-    GenerarFechasComponent
+    GenerarFechasComponent,
+    AdministrarResumenComponent
 
 
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
     HttpClientModule,
-    FormsModule, HttpModule,
+    FormsModule, HttpModule, 
     RouterModule.forRoot([
       { path: '', component: HomeComponent, pathMatch: 'full' },
       { path: 'fetch-data', component: FetchDataComponent },
@@ -184,7 +184,7 @@ import { GenerarFechasComponent } from './generar-fechas/generar-fechas.componen
       { path: 'listarAnotaciones', component: ListarAnotacionesComponent },
       { path: 'listarSancionesColectivas', component: ListarSancionesColectivasComponent },
       { path: 'listarSancionesIndividuales', component: ListarSancionesIndividualesComponent },
-      { path: 'resultadoJuego', component: ResultadoJuegoComponent },
+     
       { path: 'modificarCampeonato', component: ModificarCampeonatoComponent },
 
       { path: 'eliminarCampeonato', component: EliminarCampeonatoComponent },
@@ -194,10 +194,12 @@ import { GenerarFechasComponent } from './generar-fechas/generar-fechas.componen
 
       { path: 'tabla-posiciones', component: TablaPosicionesComponent },
 
-      { path: 'tabla-posiciones-rep/:idC', component: TablaPosicionesRepComponent },
+      { path: 'tabla-posiciones-rep/:id', component: TablaPosicionesRepComponent },
 
 
       { path: 'resultado', component: AdministrarResumenComponent },
+
+     
     ])
   ],
   providers: [jugadorservice, AnotacionService, SancionColectivaService, SancionIndividualService, campeonatoService, juegoService, LoginService, ArbitroService, InscripcionService, EquipoService],

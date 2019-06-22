@@ -15,7 +15,7 @@
           </div>
           <div class="collapse navbar-collapse navbar-right" id="mynavbar">
             <ul class="nav navbar-nav">
-              <li><a href="moduloAdministrador">Regresar</a></li>
+              <li><a href="moduloEncargado/{{idEquipo}}">Regresar</a></li>
               <button type="submit" class="btn btn-submit" onclick="location.href='#contact'">Cerrar Sesion</button>
             </ul>
           </div>
@@ -30,11 +30,11 @@
     </div>
   </div>
 </header>
+<form id="formulario" class="form-signin">
+  <button class="btn btn-primary" (click)="generar()" style="background-color:black">Consultar</button>
+</form>
 
 
-<div>
-  <h4 class="sub-title">Campeonato {{campeonato.nombreCampeonato}}</h4>
-</div>
 <!--/ cambiar-->
 <br />
 <br/>
@@ -57,7 +57,7 @@
         <td style="vertical-align:middle">{{tabla.partidosJugados}}</td>
         <td style="vertical-align:middle">{{tabla.partidosGanados}}</td>
         <td style="vertical-align:middle">{{tabla.partidosPerdidos}}</td>
-        <td style="vertical-align:middle">{{tabla.PartidosPerdidos}}</td>
+        <td style="vertical-align:middle">{{tabla.partidosEmpatados}}</td>
         <td style="vertical-align:middle">{{tabla.golesFavor}}</td>
         <td style="vertical-align:middle">{{tabla.golesContra}}</td>
         <td style="vertical-align:middle">{{tabla.golDif}}</td>

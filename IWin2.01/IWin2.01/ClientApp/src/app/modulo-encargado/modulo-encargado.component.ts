@@ -52,7 +52,7 @@ export class ModuloEncargadoComponent implements OnInit {
   
 
     this.idCampeonato = this.campeonato.identificador;
-    window.location.href = "tabla-posciones-rep/" + this.idEquipo;
+    window.location.href = "tabla-posiciones-rep/" + this.idEquipo;
   }
 
   jugadores() {
