@@ -26,7 +26,7 @@ import { ModuloEncargadoComponent } from './modulo-encargado/modulo-encargado.co
 import { ActualizarJugadorComponent } from './actualizar-jugador/actualizar-jugador.component';
 import { LoginService } from './Service/login.service';
 import { ArbitroService } from './Service/arbitro.service';
-import { GestionarArbitroComponent } from './gestionar-arbitro/gestionar-arbitro.component';
+
 import { EliminarArbitroComponent } from './eliminar-arbitro/eliminar-arbitro.component';
 import { RegistrarArbitroComponent } from './registrar-arbitro/registrar-arbitro.component';
 import { InscribirEquipoComponent } from './inscribir-equipo/inscribir-equipo.component';
@@ -58,6 +58,7 @@ import { ModificarCampeonatoComponent } from './modificar-campeonato/modificar-c
 import { EliminarCampeonatoComponent } from './eliminar-campeonato/eliminar-campeonato.component';
 import { GenerarFechasComponent } from './generar-fechas/generar-fechas.component';
 import { ResultadoJuegoComponent } from './resultado-juego/resultado-juego.component';
+import { GestionarArbitroComponent } from './gestionar-anotaciones/gestionar-arbitro/gestionar-arbitro.component';
 
 
 @NgModule({

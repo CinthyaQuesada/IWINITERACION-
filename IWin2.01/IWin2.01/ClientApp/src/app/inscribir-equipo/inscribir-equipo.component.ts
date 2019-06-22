@@ -43,6 +43,7 @@ export class InscribirEquipoComponent implements OnInit {
  
     this.campeonato.identificador = this.identificadorCampeonato;
     this.equipo = this.equipos[0];
+    this.identificadorEquipo = this.equipo.identificador;
     this.inscripcion2 = this.inscripcionV[0];
     if (this.campeonato.identificador != null && this.equipo.identificador != null && this.fechaInscripcion) {
       if (this.inscripcion2 != null) {
@@ -80,6 +81,10 @@ export class InscribirEquipoComponent implements OnInit {
 
   }
    
-  
+  regresar() {
+    this.equipo = this.equipos[0];
+    this.identificadorEquipo = this.equipo.identificador;
+    window.location.href = "moduloEncargado/" + this.identificadorEquipo;
+  }
 
 }

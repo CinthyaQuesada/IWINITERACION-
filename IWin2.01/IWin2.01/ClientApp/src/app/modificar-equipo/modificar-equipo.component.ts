@@ -104,5 +104,9 @@ export class ModificarEquipoComponent implements OnInit {
   }
 
 
-
+  regresar() {
+    this.equipo2 = this.equipos[0];
+    this.identificador = this.equipo2.identificador;
+    window.location.href = "moduloEncargado/" + this.identificador;
+  }
 }

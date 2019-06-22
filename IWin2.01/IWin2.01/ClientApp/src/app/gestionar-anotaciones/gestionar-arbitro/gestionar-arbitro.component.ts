@@ -1,6 +1,7 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Arbitro } from '../Domain/Arbitro';
+import { Arbitro } from '../../Domain/Arbitro';
+
 
 @Component({
   selector: 'app-gestionar-arbitro',
@@ -8,9 +9,9 @@ import { Arbitro } from '../Domain/Arbitro';
   styleUrls: ['./gestionar-arbitro.component.css']
 })
 export class GestionarArbitroComponent implements OnInit {
-    ngOnInit(): void {
-        
-    }
+  ngOnInit(): void {
+
+  }
   public arbitros: Arbitro[];
 
   constructor(http: HttpClient, @Inject('BASE_URL') baseUrl: string) {
