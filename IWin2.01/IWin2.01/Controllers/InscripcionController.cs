@@ -56,6 +56,17 @@ namespace Iwin1._2.Controllers
             insData.realizarInscripcion(inscripcion);
         }
 
-        
+        [HttpGet("campid/{id}", Name = "InscCa")]
+        public IEnumerable<Inscripcion> InscCa(int id)
+        {
+            // MessageBox.Show("DELETE");
+            return insData.inscripcionesC(id);
+        }
+
+        [HttpPut("{id}")]
+        public void Put(int id, [FromBody] Inscripcion insc)
+        {
+            insData.modificar(insc, id);
+        }
     }
 }

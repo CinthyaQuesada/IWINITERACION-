@@ -7,6 +7,8 @@
   <meta name="description" content="Free Bootstrap Theme by BootstrapMade.com">
   <meta name="keywords" content="free website templates, free bootstrap themes, free template, free bootstrap, free website template">
   <link href='https://fonts.googleapis.com/css?family=Lato:400,700,300|Open+Sans:400,600,700,300' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" type="text/css" href="../../assets/css/util.css">
+  <link rel="stylesheet" type="text/css" href="../../assets/css/main1.css">
 
 </head>
 <!--header-->
@@ -25,7 +27,7 @@
           <div class="collapse navbar-collapse navbar-right" id="mynavbar">
             <ul class="nav navbar-nav">
               <li><a href="moduloAdministrador">Regresar</a></li>
-              <button  type="submit" class="btn btn-submit"  onclick="location.href='#contact'">Cerrar Sesion</button>
+              <button type="submit" class="btn btn-submit" onclick="location.href='#contact'">Cerrar Sesion</button>
             </ul>
           </div>
         </div>
@@ -33,7 +35,7 @@
     </nav>
     <!--/ nav-->
     <div class="container text-center">
-      <div >
+      <div>
         <h4 class="sub-title">Gestionar Equipo</h4>
       </div>
     </div>
@@ -42,22 +44,58 @@
 <ul class="menuAdmin">
   <li><a href="gestionar-equipo-adm">Listar</a></li>
   <li><a href="eliminar-equipo-adm">Eliminar</a></li>
+  <li><a href="listar-inscripciones">Inscripciones</a></li>
 </ul>
-<div class="row marginEliminar" *ngIf="equipos">
-  <div class="grid-container, col-md-3" *ngFor="let equipo of equipos">
-    <div>
-      <div>
-        <h3> {{equipo.nombreEquipo}} </h3>
-        <h4>Rama: {{ equipo.rama}}</h4>
-        <h4>Caegoria: {{ equipo.categoria}}</h4>
-        <h4>Cancha Sede: {{ equipo.canchaSede}}</h4>
-        <form id="formulario" class="form-signin">
-          <button class="btn btn-primary" (click)="eliminar(equipo.identificador,equipo.nombreEquipo)">Eliminar</button>
-        </form>
+
+<div class="container-table100">
+  <div class="wrap-table100">
+    <div class="table100 ver1">
+      <div class="table100-firstcol">
+        <table>
+          <thead>
+            <tr class="row100 head">
+              <th class="cell100 column1">LISTA DE EQUIPOS</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+
+      <div class="wrap-table100-nextcols js-pscroll">
+        <div class="table100-nextcols">
+          <table>
+            <thead>
+              <tr class="row100 head">
+                <th class="cell100 column2">Nombre Equipo</th>
+                <th class="cell100 column2">Representante</th>
+                <th class="cell100 column3">Cancha Sede</th>
+                <th class="cell100 column4">Telefono Representante</th>
+                <th class="cell100 column4">Acción</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let equipo of equipos">
+                <td style="vertical-align:middle">{{equipo.nombreEquipo}}</td>
+                <td style="vertical-align:middle">{{equipo.nombreRepresentante}}</td>
+                <td style="vertical-align:middle">{{equipo.canchaSede}}</td>
+                <td style="vertical-align:middle">{{equipo.telefonoRepresentante}}</td>
+                <td style="vertical-align:middle">
+                  <button class="btn btn-primary" (click)="eliminar(equipo.identificador,equipo.nombreEquipo)"style="background-color:black">
+                    Eliminar
+                  </button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
       </div>
     </div>
   </div>
 </div>
+
+
+
+
 
 
 <footer class="" id="footer">

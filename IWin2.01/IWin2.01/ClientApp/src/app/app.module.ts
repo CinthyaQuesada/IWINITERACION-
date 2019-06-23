@@ -112,6 +112,7 @@ import { GestionarArbitroComponent } from './gestionar-anotaciones/gestionar-arb
 
 
 
+
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -196,6 +197,7 @@ import { GestionarArbitroComponent } from './gestionar-anotaciones/gestionar-arb
 
       { path: 'tabla-posiciones-rep/:id', component: TablaPosicionesRepComponent },
 
+      { path: 'listar-inscripciones', component: ListarInscripcionesComponent },
 
   
 
