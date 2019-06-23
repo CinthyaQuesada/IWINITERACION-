@@ -49,7 +49,7 @@ export class ListarSancionesIndividualesComponent implements OnInit {
 
 
   seleccionar() {
-    this.anotacionService.getJuegos(this.campeonaatoSelecto).subscribe(data => this.juegos = data);;
+    this.anotacionService.getJuegosAll(this.campeonaatoSelecto).subscribe(data => this.juegos = data);;
     this.juegoB = false;
 
     this.juegosSelectos = false;
@@ -73,7 +73,6 @@ export class ListarSancionesIndividualesComponent implements OnInit {
 
     this.juego = juego;
 
-    console.log(this.baseUrl + 'api/sancionIndividual/juego/' + juego.identificador)
     this.juegoB = true;
     this.http.get<SancionIndividual[]>(this.baseUrl + 'api/sancionIndividual/juego/' + juego.identificador).subscribe(result => {
       this.sanciones = result;

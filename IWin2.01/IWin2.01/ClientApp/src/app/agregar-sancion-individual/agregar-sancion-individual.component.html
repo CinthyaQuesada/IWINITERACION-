@@ -31,10 +31,8 @@
 </header>
 
 <ul class="menuAdmin">
-  <li><a href="gestionarJuego">Lista</a></li>
-  <li><a href="actualizarJuego">Registrar</a></li>
-  <li><a href="gestionarJuego">Modificar</a></li>
-  <li><a href="actualizarJuego">Eliminar</a></li>
+  <li><a href="agregarSancionIndividual">Agregar</a></li>
+  <li><a href="listarSancionesIndividuales">Listar</a></li>
 </ul>
 
 <div style="height='1000'">
@@ -71,7 +69,7 @@
 
 
 
-  </div><div class="tabla" style="align-content:center">
+  </div><div *ngIf="juegos; else salida" class="tabla" style="align-content:center">
     <table id="example" class="table table-striped table-bordered">
       <tr>
 
@@ -105,7 +103,7 @@
 
 <div *ngIf="juegosSelectos">
   <div class="grid-container1">
-    <div class="grid-item1">
+    <div style="width:630px; " class="grid-item1">
 
       <app-sancion-individual #actualiza idEquipo="{{juego.equipoA.identificador}} " idJuego="{{juego.identificador}}"></app-sancion-individual>
 
@@ -125,3 +123,6 @@
 <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br />
 
 
+<ng-template #salida>
+  No posee Juegos registrados
+</ng-template>

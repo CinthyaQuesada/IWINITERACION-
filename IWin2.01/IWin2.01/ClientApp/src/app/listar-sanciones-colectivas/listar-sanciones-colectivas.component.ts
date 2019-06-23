@@ -54,7 +54,7 @@ export class ListarSancionesColectivasComponent implements OnInit {
 
 
   seleccionar() {
-    this.anotacionService.getJuegos(this.campeonaatoSelecto).subscribe(data => this.juegos = data);;
+    this.anotacionService.getJuegosAll(this.campeonaatoSelecto).subscribe(data => this.juegos = data);;
     this.juego = new Juego();
     this.juegoB = false;
     this.juegosSelectos = false;

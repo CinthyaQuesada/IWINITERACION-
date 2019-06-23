@@ -22,7 +22,7 @@
     </nav>
     <!--/ nav-->
     <div class="container text-center">
-      <div >
+      <div>
         <h4 class="sub-title">Anotaciones</h4>
       </div>
     </div>
@@ -71,7 +71,7 @@
   </div>
 
 
-  <div class="tabla" style="align-content:center">
+  <div *ngIf="juegos; else salida" class="tabla" style="align-content:center">
     <table id="example" class="table table-striped table-bordered">
       <tr>
 
@@ -124,3 +124,6 @@
 
 <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br />
 
+<ng-template #salida>
+  No posee Juegos registrados
+</ng-template>

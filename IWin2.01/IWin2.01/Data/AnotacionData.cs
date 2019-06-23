@@ -263,7 +263,7 @@ namespace Iwin1_2.Data
                 "JOIN iwincjm.equipo eb ON j.equipo_B = eb.identificador " +
                 "JOIN iwincjm.campeonato c ON j.identificador_campeonato = c.identificador " +
                 "JOIN iwincjm.arbitro a ON j.arbitro_asignado = a.identificacion " +
-                "WHERE j.identificador_campeonato=" + identificadorCampeonato+ " and j.estado_juego='finalizado'";
+                "WHERE j.identificador_campeonato=" + identificadorCampeonato+ " and j.estado_juego='finalizado' and j.identificador not in (Select  identificador_juego from sancionIndividual ) ";
 
 
             // Prepara la conexión

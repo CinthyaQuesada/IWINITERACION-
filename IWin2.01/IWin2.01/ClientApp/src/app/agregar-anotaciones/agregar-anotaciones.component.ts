@@ -47,6 +47,7 @@ export class AgregarAnotacionesComponent implements OnInit {
 
 
   seleccionar() {
+    this.juegos = [];
     this.anotacionService.getJuegos(this.campeonaatoSelecto).subscribe(data => this.juegos = data);;
 
 

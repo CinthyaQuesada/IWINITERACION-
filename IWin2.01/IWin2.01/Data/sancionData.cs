@@ -22,6 +22,230 @@ namespace Iwin1_2.Data
         }
 
 
+
+        public List<Juego> listarJuegosPorCampeonato(Int32 identificadorCampeonato)
+        {
+
+            Juego juego;
+            Campeonato campeonato;
+            Equipo equipoA;
+            Equipo equipoB;
+            Arbitro arbitro;
+            List<Juego> juegoList = new List<Juego>();
+            string connectionString = "Server=163.178.107.130; Database=iwincjm; Uid= laboratorios; Pwd=UCRSA.118;";
+            // Tu consulta en SQL
+            string query = "SELECT j.identificador, c.nombre_campeonato as campeonato, ea.nombre_equipo as equipoA, " +
+                "eb.nombre_equipo as equipoB,j.fecha_juego, j.estado_juego, j.lugar, a.nombre as arbitro " +
+                "FROM iwincjm.juego j JOIN iwincjm.equipo ea ON j.equipo_A = ea.identificador " +
+                "JOIN iwincjm.equipo eb ON j.equipo_B = eb.identificador " +
+                "JOIN iwincjm.campeonato c ON j.identificador_campeonato = c.identificador " +
+                "JOIN iwincjm.arbitro a ON j.arbitro_asignado = a.identificacion " +
+                "WHERE j.identificador_campeonato=" + identificadorCampeonato + " and j.estado_juego='finalizado' and j.identificador not in (Select  identificador_juego from sancionColectiva ) ";
+
+
+            // Prepara la conexión
+            MySqlConnection databaseConnection = new MySqlConnection(connectionString);
+            MySqlCommand commandDatabase = new MySqlCommand(query, databaseConnection);
+            commandDatabase.CommandTimeout = 60;
+            MySqlDataReader reader;
+
+            // A consultar !
+
+            // Abre la base de datos
+            databaseConnection.Open();
+
+            // Ejecuta la consultas
+            reader = commandDatabase.ExecuteReader();
+
+            // Hasta el momento todo bien, es decir datos obtenidos
+
+            // IMPORTANTE :#
+            // Si tu consulta retorna un resultado, usa el siguiente proceso para obtener datos
+
+            if (reader.HasRows)
+            {
+                while (reader.Read())
+                {
+                    juego = new Juego();
+                    equipoA = new Equipo();
+                    equipoB = new Equipo();
+                    arbitro = new Arbitro();
+                    juego.Identificador = reader.GetInt32("identificador");
+                    equipoA.NombreEquipo = reader.GetString("equipoA");
+                    equipoB.NombreEquipo = reader.GetString("equipoB");
+                    juego.EquipoA = equipoA;
+                    juego.EquipoB = equipoB;
+                    juego.FechaJuego = reader.GetDateTime("fecha_juego");
+                    juego.EstadoJuego = reader.GetString("estado_juego");
+                    juego.Lugar = reader.GetString("lugar");
+                    arbitro.Nombre = reader.GetString("arbitro");
+                    juego.ArbitroAsignado = arbitro;
+                    juegoList.Add(juego);
+                }
+            }
+            else
+            {
+
+                Console.WriteLine("No se encontraron datos.");
+            }
+
+            // Cerrar la conexión
+            databaseConnection.Close();
+
+
+            return juegoList;
+        }
+
+
+        public List<Juego> listarJuegosPorCampeonatoAll(Int32 identificadorCampeonato)
+        {
+
+            Juego juego;
+            Campeonato campeonato;
+            Equipo equipoA;
+            Equipo equipoB;
+            Arbitro arbitro;
+            List<Juego> juegoList = new List<Juego>();
+            string connectionString = "Server=163.178.107.130; Database=iwincjm; Uid= laboratorios; Pwd=UCRSA.118;";
+            // Tu consulta en SQL
+            string query = "SELECT j.identificador, c.nombre_campeonato as campeonato, ea.nombre_equipo as equipoA, " +
+                "eb.nombre_equipo as equipoB,j.fecha_juego, j.estado_juego, j.lugar, a.nombre as arbitro " +
+                "FROM iwincjm.juego j JOIN iwincjm.equipo ea ON j.equipo_A = ea.identificador " +
+                "JOIN iwincjm.equipo eb ON j.equipo_B = eb.identificador " +
+                "JOIN iwincjm.campeonato c ON j.identificador_campeonato = c.identificador " +
+                "JOIN iwincjm.arbitro a ON j.arbitro_asignado = a.identificacion " +
+                "WHERE j.identificador_campeonato=" + identificadorCampeonato + " and j.estado_juego='registrado'";
+
+
+            // Prepara la conexión
+            MySqlConnection databaseConnection = new MySqlConnection(connectionString);
+            MySqlCommand commandDatabase = new MySqlCommand(query, databaseConnection);
+            commandDatabase.CommandTimeout = 60;
+            MySqlDataReader reader;
+
+            // A consultar !
+
+            // Abre la base de datos
+            databaseConnection.Open();
+
+            // Ejecuta la consultas
+            reader = commandDatabase.ExecuteReader();
+
+            // Hasta el momento todo bien, es decir datos obtenidos
+
+            // IMPORTANTE :#
+            // Si tu consulta retorna un resultado, usa el siguiente proceso para obtener datos
+
+            if (reader.HasRows)
+            {
+                while (reader.Read())
+                {
+                    juego = new Juego();
+                    equipoA = new Equipo();
+                    equipoB = new Equipo();
+                    arbitro = new Arbitro();
+                    juego.Identificador = reader.GetInt32("identificador");
+                    equipoA.NombreEquipo = reader.GetString("equipoA");
+                    equipoB.NombreEquipo = reader.GetString("equipoB");
+                    juego.EquipoA = equipoA;
+                    juego.EquipoB = equipoB;
+                    juego.FechaJuego = reader.GetDateTime("fecha_juego");
+                    juego.EstadoJuego = reader.GetString("estado_juego");
+                    juego.Lugar = reader.GetString("lugar");
+                    arbitro.Nombre = reader.GetString("arbitro");
+                    juego.ArbitroAsignado = arbitro;
+                    juegoList.Add(juego);
+                }
+            }
+            else
+            {
+
+                Console.WriteLine("No se encontraron datos.");
+            }
+
+            // Cerrar la conexión
+            databaseConnection.Close();
+
+
+            return juegoList;
+        }
+
+
+        public List<Juego> listarJuegosPorCampeonatoIndividual(Int32 identificadorCampeonato)
+        {
+
+            Juego juego;
+            Campeonato campeonato;
+            Equipo equipoA;
+            Equipo equipoB;
+            Arbitro arbitro;
+            List<Juego> juegoList = new List<Juego>();
+            string connectionString = "Server=163.178.107.130; Database=iwincjm; Uid= laboratorios; Pwd=UCRSA.118;";
+            // Tu consulta en SQL
+            string query = "SELECT j.identificador, c.nombre_campeonato as campeonato, ea.nombre_equipo as equipoA, " +
+                "eb.nombre_equipo as equipoB,j.fecha_juego, j.estado_juego, j.lugar, a.nombre as arbitro " +
+                "FROM iwincjm.juego j JOIN iwincjm.equipo ea ON j.equipo_A = ea.identificador " +
+                "JOIN iwincjm.equipo eb ON j.equipo_B = eb.identificador " +
+                "JOIN iwincjm.campeonato c ON j.identificador_campeonato = c.identificador " +
+                "JOIN iwincjm.arbitro a ON j.arbitro_asignado = a.identificacion " +
+                "WHERE j.identificador_campeonato=" + identificadorCampeonato + " and j.estado_juego='finalizado' and j.identificador not in (Select  identificador_juego from sancionIndividual ) ";
+
+
+            // Prepara la conexión
+            MySqlConnection databaseConnection = new MySqlConnection(connectionString);
+            MySqlCommand commandDatabase = new MySqlCommand(query, databaseConnection);
+            commandDatabase.CommandTimeout = 60;
+            MySqlDataReader reader;
+
+            // A consultar !
+
+            // Abre la base de datos
+            databaseConnection.Open();
+
+            // Ejecuta la consultas
+            reader = commandDatabase.ExecuteReader();
+
+            // Hasta el momento todo bien, es decir datos obtenidos
+
+            // IMPORTANTE :#
+            // Si tu consulta retorna un resultado, usa el siguiente proceso para obtener datos
+
+            if (reader.HasRows)
+            {
+                while (reader.Read())
+                {
+                    juego = new Juego();
+                    equipoA = new Equipo();
+                    equipoB = new Equipo();
+                    arbitro = new Arbitro();
+                    juego.Identificador = reader.GetInt32("identificador");
+                    equipoA.NombreEquipo = reader.GetString("equipoA");
+                    equipoB.NombreEquipo = reader.GetString("equipoB");
+                    juego.EquipoA = equipoA;
+                    juego.EquipoB = equipoB;
+                    juego.FechaJuego = reader.GetDateTime("fecha_juego");
+                    juego.EstadoJuego = reader.GetString("estado_juego");
+                    juego.Lugar = reader.GetString("lugar");
+                    arbitro.Nombre = reader.GetString("arbitro");
+                    juego.ArbitroAsignado = arbitro;
+                    juegoList.Add(juego);
+                }
+            }
+            else
+            {
+
+                Console.WriteLine("No se encontraron datos.");
+            }
+
+            // Cerrar la conexión
+            databaseConnection.Close();
+
+
+            return juegoList;
+        }
+
+
+
         public List<sancionColectiva> GetAllSancionescolectivas(int id)
         {
             sancionColectiva sancionColectiva;

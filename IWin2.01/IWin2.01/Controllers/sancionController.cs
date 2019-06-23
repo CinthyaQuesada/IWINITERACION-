@@ -30,6 +30,23 @@ namespace Iwin1._2.Controllers
             return this.sancionData.GetAllSancionescolectivasByCampeonato(id);
         }
 
+
+        // GET: api/equipo/5
+        [HttpGet("juegos/{id}", Name = "Grgfgrrstgffhjrrret")]
+        public IEnumerable<Juego> GetByCampeo(int id)
+        {
+            return sancionData.listarJuegosPorCampeonatoIndividual(id);
+        }
+
+
+        // GET: api/equipo/5
+        [HttpGet("juegosAll/{id}", Name = "Grrrstkkghjrrret")]
+        public IEnumerable<Juego> GetByCampeonatoAll(int id)
+        {
+            return sancionData.listarJuegosPorCampeonatoAll(id);
+        }
+
+
         // POST: api/sancion
         [HttpPost]
         public sancionColectiva Post([FromBody] sancionColectiva sancion)

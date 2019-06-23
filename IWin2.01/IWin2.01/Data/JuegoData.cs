@@ -163,7 +163,7 @@ namespace Iwin1._2.Data
             List<Juego> juegoList = new List<Juego>();
             string connectionString = "Server=163.178.107.130; Database=iwincjm; Uid= laboratorios; Pwd=UCRSA.118;";
             // Tu consulta en SQL
-            string query = "SELECT j.identificador, c.nombre_campeonato AS nombreCampeonato, ea.nombre_equipo AS equipoA, " +
+            string query = "SELECT j.identificador,j.estado_juego c.nombre_campeonato AS nombreCampeonato, ea.nombre_equipo AS equipoA, " +
                 "eb.nombre_equipo AS equipoB, j.fecha_juego, j.lugar, j.arbitro_asignado FROM iwincjm.juego j " +
                 "JOIN campeonato c on j.identificador_campeonato=c.identificador " +
                 "JOIN equipo ea ON j.equipo_A = ea.identificador " +

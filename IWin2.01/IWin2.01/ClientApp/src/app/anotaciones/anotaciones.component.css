@@ -2,7 +2,6 @@
   display: grid;
   grid-column-gap: 5px;
   grid-template-columns: auto auto auto;
-  background-color: #2196F3;
   padding: 10px;
 }
 
@@ -21,6 +20,14 @@ a.btn {
   -o-transition-duration: 0.5s;
 }
 
+.option {
+  font-size: 16px
+}
+
+.h3 {
+  font-size: 23px
+}
+
 th, td {
   border: 1px solid blue;
   width: 200px;
@@ -35,7 +42,8 @@ table {
 .a {
   align-items: center;
   width: 500px;
-  height: auto
+  height: auto;
+  font-size: 16px
 }
 
 .grid-item {

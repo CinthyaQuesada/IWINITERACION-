@@ -2,9 +2,9 @@
   display: grid;
   grid-column-gap: 5px;
   grid-template-columns: auto auto auto;
-  background-color: #2196F3;
   padding: 10px;
 }
+
 a.btn:hover {
   -webkit-transform: scale(1.1);
   -moz-transform: scale(1.1);
@@ -19,21 +19,33 @@ a.btn {
   -moz-transition-duration: 0.5s;
   -o-transition-duration: 0.5s;
 }
+
+.option {
+  font-size: 16px
+}
+
+.h3 {
+  font-size: 23px
+}
+
 th, td {
   border: 1px solid blue;
   width: 200px;
   word-wrap: break-word;
 }
+
 table {
   table-layout: fixed;
   width: 250px;
 }
+
 .a {
   align-items: center;
   width: 500px;
-
-  height: auto
+  height: auto;
+  font-size: 16px
 }
+
 .grid-item {
   background-color: rgba(255, 255, 255, 0.8);
   border: 1px solid rgba(0, 0, 0, 0.8);

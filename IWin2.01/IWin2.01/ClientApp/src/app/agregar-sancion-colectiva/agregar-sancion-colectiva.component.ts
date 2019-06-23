@@ -43,6 +43,7 @@ export class AgregarSancionColectivaComponent implements OnInit {
 
 
   seleccionar() {
+    this.juegos = [];
     this.SancionColectivaService.getJuegos(this.campeonaatoSelecto).subscribe(data => this.juegos = data);;
 
 

@@ -49,7 +49,7 @@ export class ListarAnotacionesComponent implements OnInit {
 
 
   seleccionar() {
-    this.anotacionService.getJuegos(this.campeonaatoSelecto).subscribe(data => this.juegos = data);;
+    this.anotacionService.getJuegosAll(this.campeonaatoSelecto).subscribe(data => this.juegos = data);;
 
 
     this.juegosSelectos = false;

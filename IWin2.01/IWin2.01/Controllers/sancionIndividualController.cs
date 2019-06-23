@@ -28,7 +28,12 @@ namespace Iwin1._2.Controllers
             return sancionData.GetAllSancionesIndividualesByJuego(id);
                 }
 
-
+        // GET: api/equipo/5
+        [HttpGet("juegosAll/{id}", Name = "Grrrstghjrrret")]
+        public IEnumerable<Juego> GetByCampeonatoAll(int id)
+        {
+            return sancionData.listarJuegosPorCampeonatoAll(id);
+        }
 
 
         // GET: api/campeonato/5
@@ -46,6 +51,12 @@ namespace Iwin1._2.Controllers
             return sancionData.GetAllSancionesIndividualesByEquipo(equipo, id);
         }
 
+        // GET: api/equipo/5
+        [HttpGet("juegos/{id}", Name = "Grrrsjrrret")]
+        public IEnumerable<Juego> GetByCampeo(int id)
+        {
+            return sancionData.listarJuegosPorCampeonatoIndividual(id);
+        }
 
 
 

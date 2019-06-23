@@ -58,6 +58,14 @@ export class AnotacionService {
 
 
   }
+
+  public getJuegosAll(idCampeonato: number): Observable<Juego[]> {
+
+    return this.http.get(this.url + 'api/sancionIndividual/juegosAll/' + idCampeonato).map(response => response.json());
+
+
+  }
+
   buscarJuego(identificador: number): Observable<Juego> {
 
     return this.http.get(this.url + "api/juego/" + identificador).map(response => response.json());

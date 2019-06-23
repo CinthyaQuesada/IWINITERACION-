@@ -54,15 +54,16 @@ import { ListarSancionesIndividualesComponent } from './listar-sanciones-individ
 import { TablaPosicionesComponent } from './tabla-posiciones/tabla-posiciones.component';
 import { TablaPosicionesRepComponent } from './tabla-posiciones-rep/tabla-posiciones-rep.component';
 import { AdministrarResumenComponent } from './administrar-resumen/administrar-resumen.component';
-import { ResumenComponent } from './resumen/resumen.component';
 import { ModificarCampeonatoComponent } from './modificar-campeonato/modificar-campeonato.component';
 import { EliminarCampeonatoComponent } from './eliminar-campeonato/eliminar-campeonato.component';
 import { GenerarFechasComponent } from './generar-fechas/generar-fechas.component';
+import { ResumenComponent } from './resumen/resumen.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
+    ResumenComponent,
     AgregarSancionColectivaComponent,
     SancionEquipoComponent,
     NavMenuComponent,
