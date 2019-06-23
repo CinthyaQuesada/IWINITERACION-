@@ -27,6 +27,11 @@ export class TablaPosicionesRepComponent implements OnInit {
       this.campeonatos = result;
     }, error => console.error(error));
 
+    this.http.get<Equipo>(this.baseUrl + 'api/TablaPosiciones/logineq/' + this.idEquipo).subscribe(result => {
+      this.eq = result;
+    }, error => console.error(error));
+
+
   }
 
   ngOnInit() {

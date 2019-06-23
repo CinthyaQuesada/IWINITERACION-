@@ -16,77 +16,11 @@ import { Resultado2 } from '../Domain/Resultado2';
   styleUrls: ['./resumen.component.css']
 })
 export class ResumenComponent implements OnInit {
-
-  @Input() idEquipo: number;
-  @Input() idJuego: number;
-  equipo: Equipo;
-  total: number;
-  conteo: number = 0;
-  colectivas: number;
-  individuales: number;
-  anotaciones: number;
-  id: number = 0;
-  public resultadoA: Resultado2;
-  public sancionesExistentes: boolean;
-  jugadorSelecto: Jugador;
-  jugadorS: string;
-  juego: Juego;
-  datos: boolean = false;
-  constructor(private http: HttpClient, @Inject('BASE_URL') public baseUrl: string, private SancionColectivaService: SancionColectivaService) {
-
-  }
-  resumen: Resultado2;
- 
-  getNombre() {
-
-
-
-    if (this.equipo != undefined) {
-      return this.equipo.nombreEquipo;
+    ngOnInit(): void {
+        throw new Error("Method not implemented.");
     }
-    else return "";
-  }
-  validar() {
-    this.resumen = new Resultado2(1, new Juego(this.idJuego), new Equipo(this.idEquipo), this.anotaciones, this.colectivas, this.individuales);
-      return true;
 
 
-  
-
-
-  }
-  ngOnInit() {
-    console.log("pasaaaaaaaaaa")
-    this.anotaciones = 0;
-    this.individuales = 0;
-    this.colectivas = 0;
-    
-
-    this.http.get<Equipo>(this.baseUrl + "api/resultado/equipo/" + this.idEquipo).subscribe(result => {
-      this.equipo = result;
-    }, error => console.error(error));
-
-   
-    this.http.get<Juego>(this.baseUrl + "api/juego/" + this.idJuego).subscribe(result => {
-      this.juego = result;
-    }, error => console.error(error));
-
-    
-
-  }
-
-  setidEquipo(idEquipo: number) {
-    this.idEquipo = idEquipo;
-
-  }
-  
- 
-  getsanciones() {
-
-    return this.anotaciones;
-
-
-  }
 
   
   

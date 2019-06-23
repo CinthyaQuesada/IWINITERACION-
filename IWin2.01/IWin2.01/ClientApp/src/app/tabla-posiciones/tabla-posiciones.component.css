@@ -14105,9 +14105,9 @@ img.avatar {
 /* Add padding to containers */
 .containerINT {
   padding: 16px;
-  width: 50% !important;
+  width: 30% !important;
   left: 50% !important;
-  margin-left: 300px !important;
+  margin-left: 500px !important;
 }
 
 /* The "Forgot password" text */
@@ -14185,7 +14185,31 @@ span.psw {
   background-color: #333;
 }
 
-.marginEliminar {
+form[_ngcontent-c1] {
+  border: #ffffff !important;
+}
+
+
+select[_ngcontent-c1], input[_ngcontent-c1] {
+  width: 390px !important;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+}
+
+.marg {
   margin-left: 100px;
-  margin-bottom: 50px;
+}
+
+.colors {
+  background-color: black;
+}
+
+.colors2 {
+  color: white;
+}
+
+.colors3 {
+  border-color: black;
 }

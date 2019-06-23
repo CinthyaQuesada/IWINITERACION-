@@ -13,7 +13,7 @@
           </div>
           <div class="collapse navbar-collapse navbar-right" id="mynavbar">
             <ul class="nav navbar-nav">
-              <button type="submit" (click)="cerrar()" class="btn btn-submit">Cerrar Sesion</button>
+              <button type="submit"  class="btn btn-submit" onclick="location.href='#contact'">Cerrar Sesion</button>
             </ul>
           </div>
         </div>
@@ -52,9 +52,9 @@
         <div class="col-md-4 col-sm-6">
           <h3 class="cont-title"></h3>
           <div class="location-info">
-            <a (click)="tabla()"> Tabla de posiciones</a> <br />
-            <a href="sancionColectiva/{{idEquipo}}">Saciones Colectivas</a>   <br />
-            <a href="sancionIndividual/{{idEquipo}}">Sanciones Individuales</a>   <br />
+            <a class="tam" (click)="tabla()"> Tabla de posiciones</a> <br />
+            <a class="tam" href="sancionColectiva/{{idEquipo}}">Saciones Colectivas</a>   <br />
+            <a class="tam" href="sancionIndividual/{{idEquipo}}">Sanciones Individuales</a>   <br />
 
           </div>
         </div>
@@ -87,7 +87,7 @@
         <div class="col-md-4 col-sm-6">
           <h3 class="cont-title"></h3>
           <div class="location-info">
-            <a href="listarJugador/1">Jugadores</a>
+            <a class="tam" href="gestionarJugador/{{idEquipo}}">Jugadores</a>
 
           </div>
         </div>
@@ -120,7 +120,7 @@
         <div class="col-md-4 col-sm-6">
           <h3 class="cont-title"></h3>
           <div class="location-info">
-            <a  (click)="equipoRep()">Equipo</a>
+            <a class="tam"  (click)="equipoRep()">Equipo</a>
 
           </div>
         </div>

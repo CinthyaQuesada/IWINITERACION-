@@ -11,7 +11,7 @@ namespace Iwin1._2.Data
     public class EquipoData
     {
 
-        string connectionString = "Server=db4free.net; Database=iwincjmdb; Uid= laboratorios; Pwd=UCRSA.118;old guids=true;";
+        string connectionString = "Server=163.178.107.130; Database=iwincjm; Uid= laboratorios; Pwd=UCRSA.118;";
 
         public EquipoData()
         {
@@ -142,7 +142,7 @@ namespace Iwin1._2.Data
             Equipo Equipo = null;
 
 
-            string query = "SELECT identificador, nombre_equipo, nombre_representante,categoria,rama,logo, cancha_sede,telefono_representante FROM Equipo WHERE nombre_equipo='" + id + "'";
+            string query = "SELECT identificador, nombre_equipo, nombre_representante,categoria,rama,logo, cancha_sede,telefono_representante, contrasenia_equipo FROM Equipo WHERE nombre_equipo='" + id + "'";
 
             MySqlConnection databaseConnection = new MySqlConnection(connectionString);
             MySqlCommand commandDatabase = new MySqlCommand(query, databaseConnection);
@@ -160,15 +160,16 @@ namespace Iwin1._2.Data
                 while (reader.Read())
                 {
                     //                   ID                              First name                  Last Name                    Address
-                    Console.WriteLine(reader.GetInt32(0) + " - " + reader.GetInt32(1) + " - " + reader.GetString(2) + " - " + reader.GetString(3) + " - " + reader.GetDateTime(4) + " - " + reader.GetDateTime(5) + " - " + reader.GetString(6) + " - " + reader.GetInt32(7));
+                   
                     Equipo = new Equipo();
                     Equipo.Identificador = reader.GetInt32("identificador");
                     Equipo.NombreEquipo = reader.GetString("nombre_equipo");
+                    Equipo.NombreRepresentante = reader.GetString("nombre_representante");
                     Equipo.Categoria = reader.GetString("categoria");
                     Equipo.Rama = reader.GetString("rama");
                     Equipo.CanchaSede = reader.GetString("cancha_sede");
                     Equipo.TelefonoRepresentante = reader.GetString("telefono_representante");
-
+                    Equipo.ContraseniaEquipo = reader.GetString("contrasenia_equipo");
 
                     // Ejemplo para mostrar en el listView1 :
                     //string[] row = { reader.GetString(0), reader.GetString(1), reader.GetString(2), reader.GetString(3) };
@@ -357,7 +358,7 @@ namespace Iwin1._2.Data
 
             string connectionString = "Server=163.178.107.130; Database=iwincjm; Uid= laboratorios; Pwd=UCRSA.118;";
             string query = "UPDATE equipo  SET nombre_equipo='" + equipo.NombreEquipo + "' , nombre_representante='" + equipo.NombreRepresentante + "' , cancha_sede='" + equipo.CanchaSede + "'" +
-            ", telefono_representante= '" + equipo.TelefonoRepresentante + "'," + "contrasenia_equipo='" + equipo.ContraseniaEquipo + "'  WHERE identificador='" + id + "'";
+            ", telefono_representante= '" + equipo.TelefonoRepresentante + "'," + "contrasenia_equipo='" + equipo.ContraseniaEquipo + "'  WHERE identificador='" + id + "'; UPDATE login set contrasenia='"+equipo.ContraseniaEquipo+"' WHERE nombre_usuario='"+equipo.NombreEquipo+"';";
 
 
             MySqlConnection databaseConnection = new MySqlConnection(connectionString);
