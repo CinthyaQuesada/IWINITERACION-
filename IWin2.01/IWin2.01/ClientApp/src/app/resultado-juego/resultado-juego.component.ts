@@ -1,5 +1,7 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Http } from '@angular/http';
+import { DatePipe } from '@angular/common';
 import { juegoService } from '../Service/juegoService';
 import { Arbitro } from '../Domain/Arbitro';
 import { Equipo } from '../Domain/Equipo.model';
