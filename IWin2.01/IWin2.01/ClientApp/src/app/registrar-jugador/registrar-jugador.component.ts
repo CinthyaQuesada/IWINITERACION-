@@ -6,6 +6,7 @@ import { jugadorservice } from '../Service/jugadorservice';
 import { Jugador } from '../Domain/Jugador.model';
 import { isNullOrUndefined } from 'util';
 import { Console } from '@angular/core/src/console';
+import { Alert } from 'selenium-webdriver';
 @Component({
   selector: 'app-registrar-jugador',
   templateUrl: './registrar-jugador.component.html',
@@ -21,7 +22,7 @@ export class RegistrarJugadorComponent implements OnInit {
   fechaNacimiento: Date = null;
   existente: boolean = false;
   imagen: Object;
-  jugador: Jugador;
+  jugador: Jugador=null;
   constructor(http: HttpClient, @Inject('BASE_URL') baseUrl: string, private rutaActiva: ActivatedRoute, private jugadorservice: jugadorservice) {
 
   }
@@ -40,16 +41,17 @@ export class RegistrarJugadorComponent implements OnInit {
 
     this.jugadorservice.validarExistencia(this.identificacion).subscribe(data => this.jugador = data);
     if (this.jugador != null) {
-      console.log("No existe")
+     
       this.jugador = new Jugador(this.identificacion, this.nombre, this.apellidos, this.fechaNacimiento, this.idEquipo);
 
 
       this.jugadorservice.guardarJugador(this.jugador).subscribe(data => this.jugador = data);;
       window.location.href = 'registrarJugador/' + this.idEquipo;
+      this.jugador = null;
     }
     else {
 
-      console.log("Existe");
+      alert("El jugador ya se encuentra registrado");
 
     }
 

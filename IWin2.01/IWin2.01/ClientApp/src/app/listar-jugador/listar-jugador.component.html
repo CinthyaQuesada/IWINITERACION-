@@ -38,6 +38,17 @@
 
 
 <p *ngIf="!jugadores"><em>Loading...</em></p>
+<form class="form-inline" role="form">
+  <div class="form-group">
+    <label for="titulo">Nombre</label>
+    <input type="text" id="nombre" name="nombre" placeholder="nombre" [(ngModel)]="nombre">
+  </div>
+
+  <input (click)="filtrar()" type="submit" value="Buscar">
+
+</form>
+
+
 <div *ngIf="jugadores">
 
   <div class="tabla" style="align-content:center">
@@ -50,10 +61,10 @@
 
       </tr>
       <tbody>
-        <tr *ngFor="let jugador of jugadores">
+        <tr *ngFor="let jugador of getjugadores()">
           <td style="vertical-align:middle">{{ jugador.identificacion}}</td>
           <td style="vertical-align:middle">{{ jugador.nombre}} {{ jugador.apellidos}}</td>
-          <td style="vertical-align:middle">{{ jugador.fechaNacimiento | date:'dd/MM/yyyy hh:mm'}}</td>
+          <td style="vertical-align:middle">{{ jugador.fechaNacimiento | date:'dd/MM/yyyy '}}</td>
         </tr>
       </tbody>
     </table>

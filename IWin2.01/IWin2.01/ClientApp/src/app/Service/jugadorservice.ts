@@ -46,7 +46,7 @@ export class jugadorservice {
 
   getAllJugadores(idEquipo: number): Observable<Jugador[]> {
 
-    return this.http.get( this.url, idEquipo+"").map(response => response.json());
+    return this.http.get(this.url +"api/jugador/"+idEquipo+"").map(response => response.json());
 
   }
 
