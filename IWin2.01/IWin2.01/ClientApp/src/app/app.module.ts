@@ -58,6 +58,9 @@ import { ModificarCampeonatoComponent } from './modificar-campeonato/modificar-c
 import { EliminarCampeonatoComponent } from './eliminar-campeonato/eliminar-campeonato.component';
 import { GenerarFechasComponent } from './generar-fechas/generar-fechas.component';
 import { ResumenComponent } from './resumen/resumen.component';
+import { GestionarArbitroComponent } from './gestionar-anotaciones/gestionar-arbitro/gestionar-arbitro.component';
+
+
 
 
 @NgModule({
@@ -196,6 +199,7 @@ import { ResumenComponent } from './resumen/resumen.component';
       { path: 'tabla-posiciones-rep/:id', component: TablaPosicionesRepComponent },
 
       { path: 'listar-inscripciones', component: ListarInscripcionesComponent },
+      { path: 'resumenJuego', component: AdministrarResumenComponent },
 
   
 
