@@ -1,6 +1,7 @@
-
 <!--header-->
 <header class="main-header" id="header">
+  <link rel="stylesheet" type="text/css" href="../../assets/css/util.css">
+  <link rel="stylesheet" type="text/css" href="../../assets/css/main1.css">
   <div class="bg-color">
     <!--nav-->
     <nav class="nav navbar-default navbar-fixed-top">
@@ -14,8 +15,8 @@
           </div>
           <div class="collapse navbar-collapse navbar-right" id="mynavbar">
             <ul class="nav navbar-nav">
-              <li><a href="#contact">Regresar</a></li>
-              <button type="submit" class="btn btn-submit">Cerrar Sesion</button>
+              <li><a href="moduloAdministrador">Regresar</a></li>
+              <button type="submit" class="btn btn-submit" onclick="location.href='#contact'">Cerrar Sesion</button>
             </ul>
           </div>
         </div>
@@ -23,8 +24,8 @@
     </nav>
     <!--/ nav-->
     <div class="container text-center">
-      <div class="wrapper wow fadeInUp delay-05s">
-        <h4 class="sub-title">INSCRIPCIONES</h4>
+      <div>
+        <h4 class="sub-title">Inscripciones</h4>
       </div>
     </div>
   </div>
@@ -38,7 +39,31 @@
 
 <!--/ cambiar-->
 
+<div class="containerINT marg">
+  <br />
+  <form class="form-horizontal" action="/action_page.php">
 
+    <div class="form-group">
+
+      <div class="row">
+        <label class=" col-md-2 marg" for="nombreCampeonato">Campeonato</label>
+        <div class="col-sm-10 marg" >
+          <td class="marg">
+            <select [(ngModel)]="idC" name="campeonato">
+              <option [ngValue]="campeonato.identificador" *ngFor="let campeonato of campeonatos">{{campeonato.nombreCampeonato}}</option>
+            </select>
+          </td>
+          <br />
+        </div>
+      </div>
+    </div>
+
+    <button class="btn btn-lg btn-primary btn-block marg " (click)="consultar()" style="background-color:black" type="submit">
+      Consultar
+    </button>
+  </form>
+  <br />
+</div>
 
 
 <div class="container-table100">
@@ -64,15 +89,22 @@
                 <th class="cell100 column2">Campeonato</th>
                 <th class="cell100 column3">Equipo</th>
                 <th class="cell100 column5">Fecha Inscripcion</th>
+                <th class="cell100 column5">Solicitud</th>
               </tr>
             </thead>
             <tbody>
-              <tr *ngFor="let inscripcion of listas()">
-                <td >{{inscripcion.identificador}}</td>
+              <tr *ngFor="let inscripcion of insc">
+                <td>{{inscripcion.identificador}}</td>
                 <td style="vertical-align:middle">{{inscripcion.campeonato.nombreCampeonato}}</td>
                 <td style="vertical-align:middle">{{inscripcion.equipo.nombreEquipo}}</td>
                 <td style="vertical-align:middle">{{inscripcion.fechaInscripcion}}</td>
+                <td style="vertical-align:middle">
+                  <button class="btn btn-primary" (click)="aprobar(inscripcion.identificador)" style="background-color:black">
+                    Aprobar
+                  </button>
+                </td>
               </tr>
+
             </tbody>
           </table>
         </div>

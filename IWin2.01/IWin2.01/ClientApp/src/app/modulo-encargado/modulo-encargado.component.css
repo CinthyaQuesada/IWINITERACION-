@@ -13845,12 +13845,17 @@ a, a:hover {
 }
 
 .cont-title {
-  font-size: 24px;
+  font-size: 28px;
   padding: 15px 0px;
 }
 
 .location-info p span {
   display: inline-block;
+  
+}
+.tam {
+  font-size: 26px;
+ 
 }
 
 .location-info p span {

@@ -258,6 +258,44 @@ namespace Iwin1._2.Data
             return campeonatoList;
         }
 
+        public List<Campeonato> campeonatosE(int id)
+        {
+            Campeonato campeonato;
+            List<Campeonato> campeonatoList = new List<Campeonato>();
+            string connectionString = "Server=163.178.107.130; Database=iwincjm; Uid= laboratorios; Pwd=UCRSA.118;";
+            string query = "SELECT c.identificador, nombre_campeonato, cantidad_grupos, fecha_inicio FROM Campeonato c JOIN inscripcion i ON C.identificador=I.identificador_campeonato WHERE i.identificador_equipo='" + id+"'";
+
+            MySqlConnection databaseConnection = new MySqlConnection(connectionString);
+            MySqlCommand commandDatabase = new MySqlCommand(query, databaseConnection);
+            commandDatabase.CommandTimeout = 60;
+            MySqlDataReader reader;
+
+            databaseConnection.Open();
+
+            reader = commandDatabase.ExecuteReader();
+
+            if (reader.HasRows)
+            {
+                while (reader.Read())
+                {
+                    campeonato = new Campeonato();
+                    campeonato.Identificador = reader.GetInt32("identificador");
+                    campeonato.NombreCampeonato = reader.GetString("nombre_campeonato");
+                    campeonato.CantidadGrupos = reader.GetInt32("cantidad_grupos");
+                    campeonato.FechaInicio = reader.GetDateTime("fecha_inicio");
+
+                    campeonatoList.Add(campeonato);
+                }
+            }
+            else
+            {
+
+                Console.WriteLine("No se encontraron datos.");
+            }
+            databaseConnection.Close();
+            return campeonatoList;
+        }
+
         public Campeonato campeonatoPorEquipo(int idEquipo)
         {
             Campeonato campeonato = new Campeonato();

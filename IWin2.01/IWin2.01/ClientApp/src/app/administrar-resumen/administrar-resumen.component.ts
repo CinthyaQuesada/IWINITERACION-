@@ -28,7 +28,7 @@ export class AdministrarResumenComponent implements OnInit {
   public juegosSelectos: boolean;
   anotacionC: Resultado2;
   public juego: Juego;
- 
+
   @ViewChild('actualiza') actualizarCom: ResumenComponent;
   @ViewChild('actualiza2') actualizarCom2: ResumenComponent;
 
@@ -86,14 +86,14 @@ export class AdministrarResumenComponent implements OnInit {
           var ans = confirm("Los datos son correctos,¿Esta de acuerdo con proceder con el registro?");
           if (ans) {
 
-    
-              this.anotacionService.guardarResultado(this.actualizarCom.resumen).subscribe(data => this.anotacionC = data);
-            
-            
 
-              this.anotacionService.guardarResultado(this.actualizarCom2.resumen).subscribe(data => this.anotacionC = data);
+            this.anotacionService.guardarResultado(this.actualizarCom.resumen).subscribe(data => this.anotacionC = data);
 
-            
+
+
+            this.anotacionService.guardarResultado(this.actualizarCom2.resumen).subscribe(data => this.anotacionC = data);
+
+
 
             window.location.reload();
           }

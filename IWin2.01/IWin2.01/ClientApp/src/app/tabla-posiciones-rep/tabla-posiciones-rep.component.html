@@ -1,7 +1,20 @@
 <!--header-->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+  <meta name="description" content="Free Bootstrap Theme by BootstrapMade.com">
+  <meta name="keywords" content="free website templates, free bootstrap themes, free template, free bootstrap, free website template">
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700,300|Open+Sans:400,600,700,300' rel='stylesheet' type='text/css'>
+
+</head>
 <header class="main-header" id="header">
   <link rel="stylesheet" type="text/css" href="../../assets/css/util.css">
   <link rel="stylesheet" type="text/css" href="../../assets/css/main1.css">
+
+
   <div class="bg-color">
     <!--nav-->
     <nav class="nav navbar-default navbar-fixed-top">
@@ -15,7 +28,7 @@
           </div>
           <div class="collapse navbar-collapse navbar-right" id="mynavbar">
             <ul class="nav navbar-nav">
-              <li><a href="moduloAdministrador">Regresar</a></li>
+              <li><a href="moduloEncargado/{{idEquipo}}">Regresar</a></li>
               <button type="submit" class="btn btn-submit" onclick="location.href='#contact'">Cerrar Sesion</button>
             </ul>
           </div>
@@ -32,24 +45,44 @@
 </header>
 
 
-<div>
-  <h4 class="sub-title">Campeonato {{campeonato.nombreCampeonato}}</h4>
-</div>
+
 <!--/ cambiar-->
 <br />
-<br/>
-<div class="tabla">
-  <table id="example" class="table table-striped table-bordered" style="width:100%">
+<br />
+<div class="containerINT">
+  <br />
+  <form class="form-horizontal" action="/action_page.php">
+
+    <div class="form-group">
+
+      <div class="row">
+        <label class=" col-md-2" for="nombreCampeonato">Campeonato</label>
+        <label class="col-md-9 marg" for="nombreCampeonato">{{campeonatos[0].nombreCampeonato}}</label>
+        <label class=" col-md-2" for="nombreCampeonato">Equipo</label>
+        <label class="col-md-9 marg" for="nombreCampeonato">{{eq.nombreEquipo}}</label>
+      </div>
+    </div>
+
+
+    <br />
+    <button class="btn btn-lg btn-primary btn-block" (click)="generar()" style="background-color:black" type="submit">
+      Consultar
+    </button>
+  </form>
+  <br />
+</div>
+<div class="tabla" style="align-self:center">
+  <table id="example" class="table table-striped table-bordered marg" style="width:100%">
     <tr>
-      <th>Nomnbre Equipo</th>
-      <th>PJ</th>
-      <th>PG</th>
-      <th>PP</th>
-      <th>PE</th>
-      <th>GF</th>
-      <th>GC</th>
-      <th>GD</th>
-      <th>Pts</th>
+      <th class="colors colors2">Nomnbre Equipo</th>
+      <th class="colors colors2">PJ</th>
+      <th class="colors colors2">PG</th>
+      <th class="colors colors2">PP</th>
+      <th class="colors colors2">PE</th>
+      <th class="colors colors2">GF</th>
+      <th class="colors colors2">GC</th>
+      <th class="colors colors2">GD</th>
+      <th class="colors colors2">Pts</th>
     </tr>
     <tbody>
       <tr *ngFor="let tabla of tablaPos">
@@ -57,7 +90,7 @@
         <td style="vertical-align:middle">{{tabla.partidosJugados}}</td>
         <td style="vertical-align:middle">{{tabla.partidosGanados}}</td>
         <td style="vertical-align:middle">{{tabla.partidosPerdidos}}</td>
-        <td style="vertical-align:middle">{{tabla.PartidosPerdidos}}</td>
+        <td style="vertical-align:middle">{{tabla.partidosEmpatados}}</td>
         <td style="vertical-align:middle">{{tabla.golesFavor}}</td>
         <td style="vertical-align:middle">{{tabla.golesContra}}</td>
         <td style="vertical-align:middle">{{tabla.golDif}}</td>
@@ -79,6 +112,27 @@
 <br>
 <br>
 <br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+
+
+
 <footer class="" id="footer">
   <div class="container">
     <div class="row">
@@ -106,3 +160,10 @@
     </div>
   </div>
 </footer>
+
+<script src="js/jquery.min.js"></script>
+<script src="js/jquery.easing.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/wow.js"></script>
+<script src="js/custom.js"></script>
+<script src="contactform/contactform.js"></script>

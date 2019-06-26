@@ -44,7 +44,7 @@ export class EliminarEquipoRepComponent implements OnInit {
   }
 
   eliminar(id: number, nombre: string) {
-    console.log(this.equipos.length);
+    
     var ans = confirm("¿Está seguro que deseea eliminar el equipo " + nombre + "? ");
     if (ans) {
       this.equipoS.eliminarEquipo(id).subscribe(data => this.equipos);
@@ -58,5 +58,8 @@ export class EliminarEquipoRepComponent implements OnInit {
     const url = `${this.url2}/${id}`; // DELETE api/heroes/42
     this.http.delete(url, this.httpOptions);
   }
-
+  regresar() {
+    this.id = this.equipos[0].identificador;
+    window.location.href = "moduloEncargado/" + this.id;
+  }
 }

@@ -23,16 +23,15 @@ export class GestionarEquipoRepComponent implements OnInit {
       this.equipos = result;
     }, error => console.error(error));
 
-
+   
 
 
   }
 
   regresar() {
+    this.equipo = this.equipos[0];
     this.idE = this.equipo.identificador;
-
-    window.location.href = "moduloEngcargado/" + this.idE;
-
+    window.location.href = "moduloEncargado/" + this.idE;
   }
 
   ngOnInit() {

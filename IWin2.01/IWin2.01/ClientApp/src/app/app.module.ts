@@ -26,7 +26,7 @@ import { ModuloEncargadoComponent } from './modulo-encargado/modulo-encargado.co
 import { ActualizarJugadorComponent } from './actualizar-jugador/actualizar-jugador.component';
 import { LoginService } from './Service/login.service';
 import { ArbitroService } from './Service/arbitro.service';
-import { GestionarArbitroComponent } from './gestionar-arbitro/gestionar-arbitro.component';
+
 import { EliminarArbitroComponent } from './eliminar-arbitro/eliminar-arbitro.component';
 import { RegistrarArbitroComponent } from './registrar-arbitro/registrar-arbitro.component';
 import { InscribirEquipoComponent } from './inscribir-equipo/inscribir-equipo.component';
@@ -116,7 +116,7 @@ import { ResumenComponent } from './resumen/resumen.component';
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
     HttpClientModule,
-    FormsModule, HttpModule,
+    FormsModule, HttpModule, 
     RouterModule.forRoot([
       { path: '', component: HomeComponent, pathMatch: 'full' },
       { path: 'fetch-data', component: FetchDataComponent },
@@ -193,10 +193,13 @@ import { ResumenComponent } from './resumen/resumen.component';
 
       { path: 'tabla-posiciones', component: TablaPosicionesComponent },
 
-      { path: 'tabla-posiciones-rep/:idC', component: TablaPosicionesRepComponent },
+      { path: 'tabla-posiciones-rep/:id', component: TablaPosicionesRepComponent },
 
+      { path: 'listar-inscripciones', component: ListarInscripcionesComponent },
 
-      { path: 'resultado', component: AdministrarResumenComponent },
+  
+
+     
     ])
   ],
   providers: [jugadorservice, AnotacionService, SancionColectivaService, SancionIndividualService, campeonatoService, juegoService, LoginService, ArbitroService, InscripcionService, EquipoService],

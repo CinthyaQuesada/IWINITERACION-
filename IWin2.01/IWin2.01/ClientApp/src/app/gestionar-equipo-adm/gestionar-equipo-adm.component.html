@@ -1,73 +1,89 @@
 
 <!--header-->
-<header class="main-header" id="header">
-  <div class="bg-color">
-    <!--nav-->
-    <nav class="nav navbar-default navbar-fixed-top">
-      <div class="container">
-        <div class="col-md-12">
-          <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#mynavbar" aria-expanded="false" aria-controls="navbar">
-              <span class="fa fa-bars"></span>
-            </button>
-            <a href="index.html" class="navbar-brand">IWin</a>
-          </div>
-          <div class="collapse navbar-collapse navbar-right" id="mynavbar">
-            <ul class="nav navbar-nav">
-              <li><a href="#contact">Regresar</a></li>
-              <button type="submit" class="btn btn-submit">Cerrar Sesion</button>
-            </ul>
+  <header class="main-header" id="header">
+    <link rel="stylesheet" type="text/css" href="../../assets/css/util.css">
+    <link rel="stylesheet" type="text/css" href="../../assets/css/main1.css">
+
+    <div class="bg-color">
+      <!--nav-->
+      <nav class="nav navbar-default navbar-fixed-top">
+        <div class="container">
+          <div class="col-md-12">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#mynavbar" aria-expanded="false" aria-controls="navbar">
+                <span class="fa fa-bars"></span>
+              </button>
+              <a href="index.html" class="navbar-brand">IWin</a>
+            </div>
+            <div class="collapse navbar-collapse navbar-right" id="mynavbar">
+              <ul class="nav navbar-nav">
+                <li><a href="moduloAdministrador">Regresar</a></li>
+                <button type="submit" class="btn btn-submit" onclick="location.href='#contact'">Cerrar Sesion</button>
+              </ul>
+            </div>
           </div>
         </div>
-      </div>
-    </nav>
-    <!--/ nav-->
-    <div class="container text-center">
-      <div >
-        <h4 class="sub-title">Gestionar Equipo</h4>
+      </nav>
+      <!--/ nav-->
+      <div class="container text-center">
+        <div>
+          <h4 class="sub-title">Gestionar Equipo</h4>
+        </div>
       </div>
     </div>
-  </div>
-</header>
+  </header>
 <ul class="menuAdmin">
   <li><a href="gestionar-equipo-adm">Listar</a></li>
   <li><a href="eliminar-equipo-adm">Eliminar</a></li>
-  <li><a href="listar'inscripciones">Inscripciones</a></li>
+  <li><a href="listar-inscripciones">Inscripciones</a></li>
 </ul>
 
+<body>
 
 
+  <div class="container-table100">
+    <div class="wrap-table100">
+      <div class="table100 ver1">
+        <div class="table100-firstcol">
+          <table>
+            <thead>
+              <tr class="row100 head">
+                <th class="cell100 column1">LISTA DE EQUIPOS</th>
+              </tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+        </div>
 
-<div class="row marginEliminar" *ngIf="equipos">
-
-
-  <div class="grid-container, col-md-3" *ngFor="let equipo of equipos">
-
-
-
-
-    <div>
-      <div>
-
-        <h3> {{equipo.nombreEquipo}} </h3>
-        <h4>Rama: {{ equipo.rama}}</h4>
-        <h4>Caegoria: {{ equipo.categoria}}</h4>
-        <h4>Cancha Sede: {{ equipo.canchaSede}}</h4>
-
-
-
+        <div class="wrap-table100-nextcols js-pscroll">
+          <div class="table100-nextcols">
+            <table>
+              <thead>
+                <tr class="row100 head">
+                  <th class="cell100 column2">Nombre Equipo</th>
+                  <th class="cell100 column2">Representante</th>
+                  <th class="cell100 column3">Cancha Sede</th>
+                  <th class="cell100 column4">Telefono Representante</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let equipo of equipos" (click)="juegoPorEquipo(equipo)">
+                  <td style="vertical-align:middle">{{equipo.nombreEquipo}}</td>
+                  <td style="vertical-align:middle">{{equipo.nombreRepresentante}}</td>
+                  <td style="vertical-align:middle">{{equipo.canchaSede}}</td>
+                  <td style="vertical-align:middle">{{equipo.telefonoRepresentante}}</td>
+                 
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
       </div>
-
-
-
-
-
     </div>
-
-
-
   </div>
-</div>
+</body>
+
+
 <footer class="" id="footer">
   <div class="container">
     <div class="row">

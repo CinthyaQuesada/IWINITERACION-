@@ -53,4 +53,19 @@ export class InscripcionService {
   }
 
 
+ modificarInsc(insc: Inscripcion, id: number) {
+  let body = insc;
+  let headers = new Headers({ 'Content-Type': 'application/json' });
+  let options = new RequestOptions({ headers: headers });
+  return this.http.put(this.url + "api/inscripcion/" + id, JSON.stringify(body), { headers: headers }).map(this.extractData).catch(this.handleError);
+}
+
+  private handleError(error: any) {
+    let errMsg = (error.message) ? error.message :
+      error.status ? `${error.status} - ${error.statusText}` : 'Server error';
+    console.error(errMsg); // log to console instead
+    return Observable.throw(errMsg);
+  }
+
+
 }

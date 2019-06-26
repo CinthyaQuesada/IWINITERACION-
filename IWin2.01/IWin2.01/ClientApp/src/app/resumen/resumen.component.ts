@@ -36,7 +36,7 @@ export class ResumenComponent implements OnInit {
 
   }
   resumen: Resultado2;
- 
+
   getNombre() {
 
 
@@ -48,10 +48,10 @@ export class ResumenComponent implements OnInit {
   }
   validar() {
     this.resumen = new Resultado2(1, new Juego(this.idJuego), new Equipo(this.idEquipo), this.anotaciones, this.colectivas, this.individuales);
-      return true;
+    return true;
 
 
-  
+
 
 
   }
@@ -60,18 +60,18 @@ export class ResumenComponent implements OnInit {
     this.anotaciones = 0;
     this.individuales = 0;
     this.colectivas = 0;
-    
+
 
     this.http.get<Equipo>(this.baseUrl + "api/resultado/equipo/" + this.idEquipo).subscribe(result => {
       this.equipo = result;
     }, error => console.error(error));
 
-   
+
     this.http.get<Juego>(this.baseUrl + "api/juego/" + this.idJuego).subscribe(result => {
       this.juego = result;
     }, error => console.error(error));
 
-    
+
 
   }
 
@@ -79,8 +79,8 @@ export class ResumenComponent implements OnInit {
     this.idEquipo = idEquipo;
 
   }
-  
- 
+
+
   getsanciones() {
 
     return this.anotaciones;
@@ -88,7 +88,7 @@ export class ResumenComponent implements OnInit {
 
   }
 
-  
-  
- 
+
+
+
 }

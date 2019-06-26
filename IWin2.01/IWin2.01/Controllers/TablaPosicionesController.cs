@@ -49,5 +49,11 @@ namespace Iwin1._2.Controllers
             return tablaData.buscarEquipoLog(id);
         }
 
+        [HttpGet("camp/{id}", Name = "campoenatoEquipo")]
+        public IEnumerable<Campeonato> campoenatoEquipo(int id)
+        {
+            return tablaData.campeonatosE(id);
+        }
+
     }
 }
