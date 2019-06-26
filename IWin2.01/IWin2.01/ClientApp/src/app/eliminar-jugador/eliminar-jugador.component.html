@@ -47,15 +47,36 @@
 </ul>
 
 
-<form class="form-inline" role="form">
-  <div class="form-group">
-    <label for="titulo">Nombre</label>
-    <input type="text" id="nombre" name="nombre" placeholder="nombre" [(ngModel)]="nombre">
-  </div>
+    <form class="contact100-form validate-form" enctype="multipart/form-data" required>
+      <span class="contact100-form-title"></span>
 
-  <input (click)="filtrar()" type="submit" value="Buscar">
 
-</form>
+      <div class="wrap-input100 validate-input bg1" data-validate="Campo requerido">
+        <span class="label-input100">Nombre *</span>
+        <input class="input100" type="text" id="nombre" name="nombre" placeholder="nombre" [(ngModel)]="nombre">
+      </div>
+
+
+
+
+
+
+      <div class="container-contact100-form-btn">
+        <button class="contact100-form-btn" (click)="filtrar()">
+          <span>
+            Filtrar
+            <i class="fa fa-long-arrow-right m-l-7" aria-hidden="true"></i>
+          </span>
+        </button>
+      </div>
+    </form>
+
+
+
+
+
+
+
 
 
 <div *ngIf="jugadores">
@@ -79,7 +100,7 @@
     </table>
 
 
-
+    
 
   </div>
 

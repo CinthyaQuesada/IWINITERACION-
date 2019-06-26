@@ -1,5 +1,8 @@
 
 <header class="main-header" id="header">
+  <link rel="stylesheet" type="text/css" href="../../assets/css/util.css">
+  <link rel="stylesheet" type="text/css" href="../../assets/css/main.css">
+  <link rel="stylesheet" type="text/css" href="../../assets/css/main1.css">
   <div class="bg-color">
     <!--nav-->
     <nav class="nav navbar-default navbar-fixed-top">
@@ -23,7 +26,7 @@
     <!--/ nav-->
     <div class="container text-center">
       <div>
-        <h4 class="sub-title">Sanción Colectiva</h4>
+        <h4 class="sub-title">Gestionar Jugador</h4>
       </div>
     </div>
   </div>
@@ -38,60 +41,20 @@
 
 
 <p *ngIf="!jugadores"><em>Loading...</em></p>
-<form class="form-inline" role="form">
-  <div class="form-group">
-    <label for="titulo">Nombre</label>
-    <input type="text" id="nombre" name="nombre" placeholder="nombre" [(ngModel)]="nombre">
-  </div>
-
-  <input (click)="filtrar()" type="submit" value="Buscar">
-
-</form>
-
-
-<div *ngIf="jugadores">
-
-  <div class="tabla" style="align-content:center">
-    <table id="example" class="table table-striped table-bordered">
-      <tr>
-
-        <th>Identificación</th>
-        <th>Nombre</th>
-        <th>Fecha Nacimiento</th>
-
-      </tr>
-      <tbody>
-        <tr *ngFor="let jugador of getjugadores()">
-          <td style="vertical-align:middle">{{ jugador.identificacion}}</td>
-          <td style="vertical-align:middle">{{ jugador.nombre}} {{ jugador.apellidos}}</td>
-          <td style="vertical-align:middle">{{ jugador.fechaNacimiento | date:'dd/MM/yyyy '}}</td>
-        </tr>
-      </tbody>
-    </table>
 
 
 
-
-  </div>
-
-
-
-
-
-
+<div class="container-contact100">
+  <div class="wrap-contact100">
+    <h1>Registrar Jugador</h1>
+    <br>
+    <form class="contact100-form validate-form" enctype="multipart/form-data" required>
+      <span class="contact100-form-title"></span>
 
 
-
-  <div class="grid-container" *ngFor="">
-
-
-
-    <div class="item2"><img width="100" height="100" src="https://previews.123rf.com/images/tnn103eda/tnn103eda1703/tnn103eda170300007/73489700-jugador-de-f%C3%BAtbol-profesional-de-f%C3%BAtbol-en-acci%C3%B3n-aislado-fondo-blanco.jpg"></div>
-    <div class="item3">
-      <div>
-        <h3>{{ jugador.identificacion}}</h3>
-        <h4> {{ jugador.nombre}} {{ jugador.apellidos}}</h4>
-        <h4>{{ jugador.fechaNacimiento}}</h4>
+      <div class="wrap-input100 validate-input bg1" data-validate="Campo requerido">
+        <span class="label-input100">Nombre *</span>
+        <input class="input100" type="text" id="nombre" name="nombre" placeholder="nombre" [(ngModel)]="nombre">
       </div>
 
 
@@ -99,13 +62,72 @@
 
 
 
-    </div>
-
+      <div class="container-contact100-form-btn">
+        <button class="contact100-form-btn" (click)="filtrar() ">
+          <span>
+            Filtrar
+            <i class="fa fa-long-arrow-right m-l-7" aria-hidden="true"></i>
+          </span>
+        </button>
+      </div>
+    </form>
 
 
   </div>
+  
+
+<div *ngIf="jugadores">
+
+  <body>
+
+    <div class="container-table100">
+      <div class="wrap-table100">
+        <div class="table100 ver1">
+          <div class="table100-firstcol">
+            <table>
+              <thead>
+                <tr class="row100 head">
+                  <th class="cell100 column1">LISTA DE JUGADORES</th>
+                </tr>
+              </thead>
+              <tbody></tbody>
+            </table>
+          </div>
+
+          <div class="wrap-table100-nextcols js-pscroll">
+            <div class="table100-nextcols">
+              <table>
+                <thead>
+                  <tr class="row100 head">
+                    <th class="cell100 column2">Identificacion</th>
+                    <th class="cell100 column2">Nombre</th>
+                    <th class="cell100 column3">Fecha Nacimiento</th>
+
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let jugador of getjugadores()">
+                    <td style="vertical-align:middle">{{ jugador.identificacion}}</td>
+                    <td style="vertical-align:middle">{{ jugador.nombre}} {{ jugador.apellidos}}</td>
+                    <td style="vertical-align:middle">{{ jugador.fechaNacimiento | date:'dd/MM/yyyy '}}</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+
+</div>
+</div>
 
 
+
+
+
+<script src="../../assets/js/main.js"></script>
 
 
 
