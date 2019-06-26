@@ -112,7 +112,7 @@ import { GestionarArbitroComponent } from './gestionar-anotaciones/gestionar-arb
     TablaPosicionesRepComponent,
     ModificarCampeonatoComponent,
     EliminarCampeonatoComponent,
-    GenerarFechasComponent, AdministrarResumenComponent
+    GenerarFechasComponent, AdministrarResumenComponent, 
 
 
   ],

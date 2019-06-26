@@ -5,10 +5,10 @@ using System.Threading.Tasks;
 
 namespace Iwin1._2.Domain
 {
-    public class Juego
+    public class Juego2
     {
         int identificador;
-        string identificadorCampeonato;
+        Campeonato identificadorCampeonato;
         Equipo equipoA;
         Equipo equipoB;
         DateTime fechaJuego;
@@ -16,28 +16,15 @@ namespace Iwin1._2.Domain
         String lugar;
         Arbitro arbitroAsignado;
 
-        public Juego()
+        public Juego2()
         {
 
         }
 
-        public Juego(int identificador,  Equipo equipoA, Equipo equipoB, DateTime fechaJuego, String estadoJuego, String lugar, Arbitro arbitroAsignado)
+        public Juego2(int identificador, Campeonato identificadorCampeonato, Equipo equipoA, Equipo equipoB, DateTime fechaJuego, String estadoJuego, String lugar, Arbitro arbitroAsignado)
         {
             this.identificador = identificador;
-
-            this.equipoA = equipoA;
-            this.equipoB = equipoB;
-            this.fechaJuego = fechaJuego;
-            this.estadoJuego = estadoJuego;
-            this.lugar = lugar;
-            this.arbitroAsignado = arbitroAsignado;
-
-        }
-
-        public Juego(string identificadorCampeonato, int identificador, Equipo equipoA, Equipo equipoB, DateTime fechaJuego, String estadoJuego, String lugar, Arbitro arbitroAsignado)
-        {
-            this.identificador = identificador;
-
+            this.identificadorCampeonato = identificadorCampeonato;
             this.equipoA = equipoA;
             this.equipoB = equipoB;
             this.fechaJuego = fechaJuego;
@@ -48,12 +35,13 @@ namespace Iwin1._2.Domain
         }
 
         public int Identificador { get => identificador; set => identificador = value; }
+        public Campeonato IdentificadorCampeonato { get => identificadorCampeonato; set => identificadorCampeonato = value; }
         public Equipo EquipoA { get => equipoA; set => equipoA = value; }
         public Equipo EquipoB { get => equipoB; set => equipoB = value; }
         public DateTime FechaJuego { get => fechaJuego; set => fechaJuego = value; }
         public String EstadoJuego { get => estadoJuego; set => estadoJuego = value; }
         public String Lugar { get => lugar; set => lugar = value; }
         public Arbitro ArbitroAsignado { get => arbitroAsignado; set => arbitroAsignado = value; }
-        public String IdentificadorCampeonato { get => identificadorCampeonato; set => identificadorCampeonato = value; }
+
     }
 }

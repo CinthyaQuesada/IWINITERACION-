@@ -76,7 +76,30 @@ namespace Iwin1._2.Data
             return juegoList;
         }
 
+        public void agregarJuego(Juego juego)
+        {
+            string connectionString = "Server=163.178.107.130; Database=iwincjm; Uid= laboratorios; Pwd=UCRSA.118;";
 
+            string query = "INSERT INTO `iwincjm`.`juego` (`identificador_campeonato`, `equipo_A`, `equipo_B`, `fecha_juego`, `estado_juego`, `lugar`, `arbitro_asignado`) VALUES " +
+                "("+juego.IdentificadorCampeonato+", "+juego.EquipoA.Identificador+", "+juego.EquipoB.Identificador+ ", '" + juego.FechaJuego.Year + "-" + juego.FechaJuego.Month + "-"
+                + juego.FechaJuego.Day + "','"+juego.EstadoJuego+"', '"+juego.Lugar+"', '"+juego.ArbitroAsignado.Identificacion+"');";
+
+
+
+            MySqlConnection databaseConnection = new MySqlConnection(connectionString);
+            MySqlCommand commandDatabase = new MySqlCommand(query, databaseConnection);
+            commandDatabase.CommandTimeout = 60;
+            MySqlDataReader reader;
+
+            databaseConnection.Open();
+
+            reader = commandDatabase.ExecuteReader();
+
+
+            databaseConnection.Close();
+
+
+        }
 
         public List<Juego> listarJuegosPorCampeonato(Int32 identificadorCampeonato)
         {
@@ -136,6 +159,7 @@ namespace Iwin1._2.Data
                     arbitro.Nombre = reader.GetString("arbitro");
                     juego.ArbitroAsignado = arbitro;
                     juegoList.Add(juego);
+                  
                 }
             }
             else
@@ -147,8 +171,36 @@ namespace Iwin1._2.Data
             // Cerrar la conexión
             databaseConnection.Close();
 
+            
+
 
             return juegoList;
+        }
+
+        public List<Fecha> generarFechas(Int32 cantidad, DateTime fechaInicio)
+        {
+            List<Fecha> dates = new List<Fecha>();
+            DayOfWeek DayOfWeek = new DayOfWeek();
+            int ano = fechaInicio.Year;
+            int mes = fechaInicio.Month;
+            int dia = fechaInicio.Day;
+            Int32 contador = 0;
+            Fecha fecha;
+
+            // Loop from the first day of the month until we hit the next month, moving forward a day at a time
+            for (var date = new DateTime(ano, mes, dia); date.Month >= mes && contador<cantidad; date = date.AddDays(1))
+            {
+                if (date.DayOfWeek == DayOfWeek.Sunday)
+                {
+                    fecha = new Fecha();
+                    fecha.FechaT = date;
+                    dates.Add(fecha);
+                    contador++;
+                }
+            }
+
+            //MessageBox.Show("Prueba de fecha " + dates[0] + " " + dates[1] + " " + dates[2]);
+            return dates;
         }
 
 

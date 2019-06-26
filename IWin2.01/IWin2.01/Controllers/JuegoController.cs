@@ -43,6 +43,16 @@ namespace Iwin1._2.Controllers
             return juegoData.listarJuegoPorIdentificador(identificadorJuego);
         }
 
+        /*// POST: api/juego
+        [HttpPost]
+        public Juego2 Post([FromBody] Juego2 juego)
+        {
+            JuegoData campeonatoData = new JuegoData();
+
+            campeonatoData.agregarJuego(juego);
+            return juego;
+        }*/
+
         /*
                 // PUT: api/Juego/actualizar/5
                 [HttpPut("actualizar/{id}")]
@@ -77,6 +87,25 @@ namespace Iwin1._2.Controllers
             juegoData.actualizarJuego(value);
 
 
+        }
+
+        [HttpPost("{id}")]
+        public void Post(Juego id, [FromBody] Juego value)
+        {
+
+
+            JuegoData juegoData = new JuegoData();
+            juegoData.agregarJuego(value);
+
+
+        }
+
+        // GET: api/Juego/5
+        [HttpGet("{cantidad}/{fecha}", Name = "GetFechas")]
+        public IEnumerable<Fecha> GetFechas(int cantidad, DateTime fecha)
+        {
+            JuegoData juegoData = new JuegoData();
+            return juegoData.generarFechas(cantidad,fecha);
         }
 
 

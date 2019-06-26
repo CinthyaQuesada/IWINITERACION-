@@ -2,6 +2,7 @@
 <header class="main-header" id="header">
   <link rel="stylesheet" type="text/css" href="../../assets/css/util.css">
   <link rel="stylesheet" type="text/css" href="../../assets/css/main1.css">
+  <link rel="stylesheet" type="text/css" href="../../assets/css/main.css">
   <div class="bg-color">
     <!--nav-->
     <nav class="nav navbar-default navbar-fixed-top">
@@ -15,8 +16,8 @@
           </div>
           <div class="collapse navbar-collapse navbar-right" id="mynavbar">
             <ul class="nav navbar-nav">
-              <li><a href="moduloAdminitrador">Regresar</a></li>
-              <button type="submit" (click)="cerrar()" class="btn btn-submit">Cerrar Sesion</button>
+              <li><a href="moduloAdministrador">Regresar</a></li>
+              <button type="submit" class="btn btn-submit">Cerrar Sesion</button>
             </ul>
           </div>
         </div>
@@ -30,89 +31,74 @@
     </div>
   </div>
 </header>
-<ul class="menuAdmin">
+<ul class="menuAdmin" style="color: white;">
   <li><a href="gestionarJuego">Lista</a></li>
   <li><a href="actualizarJuego">Actualizar</a></li>
   <li><a href="resultadoJuego">Insertar Resultados</a></li>
 </ul>
 
 
-<p *ngIf="!campeonatos"><em>Loading.......</em></p>
-<!--campeonato-->
-<!--campeonatos-->
-<br/>
 
-<div class="form-group">
-  <label class="control-label col-sm-2" for="tipo">Campeonatos:</label>
-  <div class="col-sm-10">
-    <td>
-      <select [(ngModel)]="campeonato" name="campeonato">
-        <option [ngValue]="campeonato" *ngFor="let campeonato of campeonatos">{{campeonato.nombreCampeonato}}</option>
-      </select>
-    </td>
 
-    <form id="formulario" class="form-signin">
-      <button class="btn btn-primary" (click)="buscar(campeonato.identificador)">Buscar</button>
-    </form>
-    <br />
+
+
+<div class="wrap-input100 input100-select bg1 rs1-wrap-input100">
+  <span class="label-input100">Arbitro </span>
+  <div>
+    <select [(ngModel)]="identificacionArbitro" name="identificacionArbitro">
+      <option [ngValue]="arbitro.identificacion" *ngFor="let arbitro of arbitroAsignados">{{arbitro.identificacion}} - {{arbitro.nombre}} {{arbitro.apellidos}}</option>
+    </select>
   </div>
 </div>
-<br />
 
+<button class="contact100-form-btn" (click)="actualizar(arbitroAsignados)">
+  <span>
+    Actualizar
+    <i class="fa fa-long-arrow-right m-l-7" aria-hidden="true"></i>
+  </span>
+</button>
 
-<div class="container-table100" style="min-height:0; !important">
-  <div class="wrap-table100">
-    <div class="table100 ver1">
-      <div class="table100-firstcol">
-        <table>
-          <thead>
-            <tr class="row100 head">
-              <th class="cell100 column1">LISTA DE JUEGOS</th>
-            </tr>
-          </thead>
-          <tbody></tbody>
-        </table>
-      </div>
-
-      <div class="wrap-table100-nextcols js-pscroll">
-        <div class="table100-nextcols">
-          <table>
-            <thead>
-              <tr class="row100 head">
-                <th class="cell100 column2">Identificador Arbitro</th>
-                <th class="cell100 column2">Equipo A</th>
-                <th class="cell100 column3">Equipo B</th>
-                <th class="cell100 column5">Fecha</th>
-                <th class="cell100 column4">Estado</th>
-                <th class="cell100 column4">Lugar</th>
-                <th class="cell100 column4">Arbitro</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr *ngFor="let juego of juegos">
-                <td style="vertical-align:middle">{{juego.identificador}}</td>
-                <td style="vertical-align:middle">{{juego.equipoA.nombreEquipo}}</td>
-                <td style="vertical-align:middle">{{juego.equipoB.nombreEquipo}}</td>
-                <td style="vertical-align:middle">{{juego.fechaJuego  | date:'dd/MM/yyyy'}}</td>
-                <td style="vertical-align:middle">{{juego.estadoJuego}}</td>
-                <td style="vertical-align:middle">{{juego.lugar}}</td>
-                <td style="vertical-align:middle">{{juego.arbitroAsignado.nombre}}</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-    </div>
+<div class="wrap-input100 input100-select bg1 rs1-wrap-input100">
+  <span class="label-input100">Fecha </span>
+  <div>
+    <select [(ngModel)]="fecha" name="fecha">
+      <option [ngValue]="fecha.fecha" *ngFor="let fecha of fechas">{{fecha.fecha}}</option>
+    </select>
   </div>
 </div>
-<!---->
+<button class="contact100-form-btn" (click)="hola(fechas)">
+  <span>
+    Actualizar
+    <i class="fa fa-long-arrow-right m-l-7" aria-hidden="true"></i>
+  </span>
+</button>
+
+
+<div class="wrap-table100-nextcols js-pscroll">
+  <div class="table100-nextcols">
+    <table>
+      <thead>
+        <tr class="row100 head">
+          <th class="cell100 column2">Identificador Arbitro</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let fecha of fechas">
+          <td style="vertical-align:middle">{{fecha.fecha}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+
 <footer class="" id="footer">
   <div class="container">
     <div class="row">
       <div class="col-sm-7 footer-copyright">
         © Bethany Theme - All rights reserved
         <div class="credits">
-          <!--
+          <!--s
             All the links in the footer should remain intact.
             You can delete the links only if you purchased the pro version.
             Licensing information: https://bootstrapmade.com/license/
@@ -141,3 +127,6 @@
 <script src="js/wow.js"></script>
 <script src="js/custom.js"></script>
 <script src="contactform/contactform.js"></script>
+<p>
+  prueba works!
+</p>

@@ -8,15 +8,23 @@ import "rxjs/add/operator/map";
 import { DatePipe } from '@angular/common';
 import { Campeonato } from '../Domain/Campeonato.model';
 import { Juego } from '../Domain/juego.model';
+import { Fecha } from '../Domain/fecha.model';
 
 @Injectable()
 export class juegoService {
   private url = 'https://localhost:44396/';
   private juegos: Juego[] = new Array<Juego>();
+  private fechas: Fecha[] = new Array<Fecha>();
   public juego: Juego = new Juego();
 
 
   constructor(private http: Http, public htp: HttpClient, @Inject('BASE_URL') public baseUrl: string) {
+
+  }
+
+  public getFechas(cantidad: number, fecha: Date): Observable<Fecha[]> {
+    console.log(this.baseUrl + 'api/juego/' + cantidad + '/2019-06-19');
+    return this.http.get(this.baseUrl + 'api/juego/' + cantidad + '/2019-06-19').map(response => response.json());
 
   }
 
@@ -54,6 +62,16 @@ export class juegoService {
     let options = new RequestOptions({ headers: headers });
     return this.http.post(this.baseUrl + 'api/campeonato/', campeonato, options).map(this.extractData);
 
+  }
+
+  agregarJuegos(juego: Juego): Observable<Juego> {
+  
+    let headers = new Headers({ 'Content-Type': 'application/json' });
+    let options = new RequestOptions({ headers: headers });
+
+    console.log();
+    //return this.http.post(this.baseUrl + 'api/juego/', juego, options).map(this.extractData);
+    return this.http.post(this.baseUrl + 'api/Juego/' + juego, juego).map(response => response.json());
   }
 
   private extractData(res: Response) {

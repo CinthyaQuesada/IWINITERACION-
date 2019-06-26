@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Iwin1._2.Domain;
+using System.Windows.Forms;
 
 namespace Iwin1._2.Data
 {
@@ -110,6 +111,36 @@ namespace Iwin1._2.Data
 
 
 
+            // Prepara la conexión
+            MySqlConnection databaseConnection = new MySqlConnection(connectionString);
+            MySqlCommand commandDatabase = new MySqlCommand(query, databaseConnection);
+            commandDatabase.CommandTimeout = 60;
+            MySqlDataReader reader;
+
+
+            // Abre la base de datos
+            databaseConnection.Open();
+
+            // Ejecuta la consultas
+            reader = commandDatabase.ExecuteReader();
+
+            // actualizooo
+
+
+            // Cerrar la conexión
+            databaseConnection.Close();
+
+        }
+
+        public void modificarCameponato2(Campeonato campeonato)
+        {
+
+
+            string connectionString = "Server=163.178.107.130; Database=iwincjm; Uid= laboratorios; Pwd=UCRSA.118;";
+            // Tu consulta en SQL
+            string query = "UPDATE `iwincjm`.`campeonato` SET `cantidad_grupos` = " + campeonato.CantidadGrupos + " WHERE `identificador` = " + campeonato.Identificador + ";";
+
+            
             // Prepara la conexión
             MySqlConnection databaseConnection = new MySqlConnection(connectionString);
             MySqlCommand commandDatabase = new MySqlCommand(query, databaseConnection);
