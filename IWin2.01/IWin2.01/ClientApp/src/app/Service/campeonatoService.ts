@@ -35,6 +35,13 @@ export class campeonatoService {
     return this.http.put(this.baseUrl + 'api/campeonato/', campeonato, options).map(this.extractData);
 
   }
+  modificar2(campeonato: Campeonato): Observable<Campeonato> {
+    console.log(campeonato.tipo + "--" + campeonato.categoria)
+    let headers = new Headers({ 'Content-Type': 'application/json' });
+    let options = new RequestOptions({ headers: headers });
+    return this.http.put(this.baseUrl + 'api/campeonato/estado/', campeonato, options).map(this.extractData);
+
+  }
 
   eliminarCampeonato(identificador: number): Observable<Campeonato> {
 

@@ -1,5 +1,8 @@
 <!--header-->
 <header class="main-header" id="header">
+  <link rel="stylesheet" type="text/css" href="../../assets/css/util.css">
+  <link rel="stylesheet" type="text/css" href="../../assets/css/main1.css">
+  <link rel="stylesheet" type="text/css" href="../../assets/css/main.css">
   <div class="bg-color">
     <!--nav-->
     <nav class="nav navbar-default navbar-fixed-top">
@@ -53,84 +56,107 @@
   </div>
 </div>
 <br />
-<!--juegos-->
-<div class="tabla">
-  <table id="example" class="table table-striped table-bordered" style="width:100%">
-    <tr>
-      <th>Identificador</th>
-      <th>Equipo A</th>
-      <th>Equipo B</th>
-      <th>Fecha</th>
-      <th>Estado</th>
-      <th>Lugar</th>
-      <th>Arbitro</th>
-      <th>Opcion</th>
-    </tr>
-    <tbody>
-      <tr *ngFor="let juego of juegos">
-        <td style="vertical-align:middle">{{juego.identificador}}</td>
-        <td style="vertical-align:middle">{{juego.equipoA.nombreEquipo}}</td>
-        <td style="vertical-align:middle">{{juego.equipoB.nombreEquipo}}</td>
-        <td style="vertical-align:middle">{{juego.fechaJuego}}</td>
-        <td style="vertical-align:middle">{{juego.estadoJuego}}</td>
-        <td style="vertical-align:middle">{{juego.lugar}}</td>
-        <td style="vertical-align:middle">{{juego.arbitroAsignado.nombre}}</td>
-        <td style="vertical-align:middle">
-          <button class="btn btn-primary" (click)="buscarJuego(juego)">
-            Buscar
-          </button>
-        </td>
-      </tr>
-    </tbody>
 
-  </table>
+<div class="container-table100" style="min-height:0; !important">
+  <div class="wrap-table100">
+    <div class="table100 ver1">
+      <div class="table100-firstcol">
+        <table>
+          <thead>
+            <tr class="row100 head">
+              <th class="cell100 column1">LISTA DE JUEGOS</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+
+      <div class="wrap-table100-nextcols js-pscroll">
+        <div class="table100-nextcols">
+          <table>
+            <thead>
+              <tr class="row100 head">
+                <th class="cell100 column2">Identificador Arbitro</th>
+                <th class="cell100 column2">Equipo A</th>
+                <th class="cell100 column3">Equipo B</th>
+                <th class="cell100 column5">Fecha</th>
+                <th class="cell100 column4">Estado</th>
+                <th class="cell100 column4">Lugar</th>
+                <th class="cell100 column4">Arbitro</th>
+                <th class="cell100 column4">Opcion</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let juego of juegos">
+                <td style="vertical-align:middle">{{juego.identificador}}</td>
+                <td style="vertical-align:middle">{{juego.equipoA.nombreEquipo}}</td>
+                <td style="vertical-align:middle">{{juego.equipoB.nombreEquipo}}</td>
+                <td style="vertical-align:middle">{{juego.fechaJuego  | date:'dd/MM/yyyy'}}</td>
+                <td style="vertical-align:middle">{{juego.estadoJuego}}</td>
+                <td style="vertical-align:middle">{{juego.lugar}}</td>
+                <td style="vertical-align:middle">{{juego.arbitroAsignado.nombre}}</td>
+                <td style="vertical-align:middle">
+                  <button class="btn btn-primary" (click)="buscarJuego(juego)">
+                    Buscar
+                  </button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
-
 
 <br />
 
-<div class="containerINT">
 
 
-  <div class="form-group">
-    <label class="control-label col-sm-2" for="fechaJuego">Fecha:</label>
-    <div class="col-sm-10">
-      <input type="datetime-local" [(ngModel)]="fechaJuego" placeholder="Nombre" name="fechaJuego" width="200">
-    </div>
+<div class="container-contact100">
+    <div class="wrap-contact100">
+    <h1>Actualizar Juego</h1>
+    <br>
+          <form class="contact100-form validate-form" enctype="multipart/form-data" required>
+
+      <span class="contact100-form-title"></span>
+
+      <div class="wrap-input100 validate-input bg1" data-validate="Campo requerido">
+        <span class="label-input100">Fecha:</span>
+        <input class="input100" type="datetime-local" [(ngModel)]="fechaJuego" name="fechaJuego" placeholder="Fecha Juego">
+      </div>
+
+      <div class="wrap-input100 validate-input bg1" data-validate="Campo requerido">
+        <span class="label-input100">Estado:</span>
+        <input class="input100" type="text" [(ngModel)]="estadoJuego" name="estadoJuego" placeholder="Estado">
+      </div>
+
+      <div class="wrap-input100 validate-input bg1" data-validate="Campo requerido">
+        <span class="label-input100">Lugar:</span>
+        <input class="input100" type="text" [(ngModel)]="lugar" name="lugar" placeholder="Lugar ">
+      </div>
+
+
+      <div class="wrap-input100 input100-select bg1 rs1-wrap-input100">
+        <span class="label-input100">Arbitro </span>
+        <div>
+          <select [(ngModel)]="identificacionArbitro" name="identificacionArbitro">
+            <option [ngValue]="arbitro.identificacion" *ngFor="let arbitro of arbitroAsignados">{{arbitro.identificacion}} - {{arbitro.nombre}} {{arbitro.apellidos}}</option>
+          </select>
+        </div>
+      </div>
+
+
+      <div class="container-contact100-form-btn">
+        <button class="contact100-form-btn" (click)="actualizar()">
+          <span>
+            Actualizar
+            <i class="fa fa-long-arrow-right m-l-7" aria-hidden="true"></i>
+          </span>
+        </button>
+      </div>
+    </form>
   </div>
-
-  <div class="form-group">
-    <label class="control-label col-sm-2" for="estadoJuego">Estado:</label>
-    <div class="col-sm-10">
-      <input type="text" [(ngModel)]="estadoJuego" placeholder="Nombre" name="estadoJuego" width="200">
-    </div>
-  </div>
-
-  <div class="form-group">
-    <label class="control-label col-sm-2" for="lugar">Lugar:</label>
-    <div class="col-sm-10">
-      <input type="text" [(ngModel)]="lugar" placeholder="Nombre" name="lugar" width="200">
-    </div>
-  </div>
-
-  <div class="form-group">
-    <label class="control-label col-sm-2" for="tipo">Arbitro:</label>
-    <div class="col-sm-10">
-      <td>
-        <select [(ngModel)]="identificacionArbitro" name="identificacionArbitro">
-          <option [ngValue]="arbitro.identificacion" *ngFor="let arbitro of arbitroAsignados">{{arbitro.identificacion}} - {{arbitro.nombre}} {{arbitro.apellidos}}</option>
-        </select>
-      </td>
-    </div>
-  </div>
-
-
-  <br />
-  <button class="btn btn-lg btn-primary btn-block" (click)="actualizar()" type="submit"> Actualizar </button>
-
-
-
-
 </div>
 
 <footer class="" id="footer">

@@ -11,6 +11,9 @@
 </head>
 <!--header-->
 <header class="main-header" id="header">
+
+  <link rel="stylesheet" type="text/css" href="../../assets/css/util.css">
+  <link rel="stylesheet" type="text/css" href="../../assets/css/main1.css">
   <div class="bg-color">
     <!--nav-->
     <nav class="nav navbar-default navbar-fixed-top">
@@ -48,40 +51,50 @@
 
 
 
-<div class="containerINT">
-  <br />
+<div class="container-table100" style="min-height:0; !important">
+  <div class="wrap-table100">
+    <div class="table100 ver1">
+      <div class="table100-firstcol">
+        <table>
+          <thead>
+            <tr class="row100 head">
+              <th class="cell100 column1">LISTA DE CAMPEONATOS</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
 
-
-
-  <form class="form-horizontal" action="/action_page.php">
-
-    
-    <table id="example" class="table table-striped table-bordered" style="width:100%">
-      <tr>
-        <th>Nombre</th>
-        <th>Tipo</th>
-        <th>Categoria B</th>
-        <th>Fecha Inicio</th>
-        <th>Opcion</th>
-      </tr>
-      <tbody>
-        <tr *ngFor="let campeonato of campeonatos">
-          <td style="vertical-align:middle">{{campeonato.nombreCampeonato}}</td>
-          <td style="vertical-align:middle">{{campeonato.tipo}}</td>
-          <td style="vertical-align:middle">{{campeonato.categoria}}</td>
-          <td style="vertical-align:middle">{{campeonato.fechaInicio}}</td>
-          <td style="vertical-align:middle">
-            <button class="btn btn-primary" (click)="eliminar(campeonato.identificador)">
-              Eliminar
-            </button>
-          </td>
-        </tr>
-      </tbody>
-
-    </table>
-
-  </form>
-  <br />
+      <div class="wrap-table100-nextcols js-pscroll">
+        <div class="table100-nextcols">
+          <table>
+            <thead>
+              <tr class="row100 head">
+                <th class="cell100 column2">Nombre</th>
+                <th class="cell100 column2">Tipo</th>
+                <th class="cell100 column2">Categoria B</th>
+                <th class="cell100 column2">Fecha Inicio</th>
+                <th class="cell100 column2">Opcion</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let campeonato of campeonatos">
+                <td style="vertical-align:middle">{{campeonato.nombreCampeonato}}</td>
+                <td style="vertical-align:middle">{{campeonato.tipo}}</td>
+                <td style="vertical-align:middle">{{campeonato.categoria}}</td>
+                <td style="vertical-align:middle">{{campeonato.fechaInicio | date:'dd/MM/yyyy hh:mm'}}</td>
+                <td style="vertical-align:middle">
+                  <button class="btn btn-primary" (click)="eliminar(campeonato.identificador)">
+                    Eliminar
+                  </button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
 
 <footer class="" id="footer">

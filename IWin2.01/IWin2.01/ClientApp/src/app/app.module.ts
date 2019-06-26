@@ -58,6 +58,7 @@ import { ModificarCampeonatoComponent } from './modificar-campeonato/modificar-c
 import { EliminarCampeonatoComponent } from './eliminar-campeonato/eliminar-campeonato.component';
 import { GenerarFechasComponent } from './generar-fechas/generar-fechas.component';
 import { ResumenComponent } from './resumen/resumen.component';
+import { PruebaComponent } from './prueba/prueba.component';
 
 
 @NgModule({
@@ -109,7 +110,7 @@ import { ResumenComponent } from './resumen/resumen.component';
     TablaPosicionesRepComponent,
     ModificarCampeonatoComponent,
     EliminarCampeonatoComponent,
-    GenerarFechasComponent, AdministrarResumenComponent
+    GenerarFechasComponent, AdministrarResumenComponent, PruebaComponent
 
 
   ],
@@ -197,6 +198,7 @@ import { ResumenComponent } from './resumen/resumen.component';
 
 
       { path: 'resultado', component: AdministrarResumenComponent },
+      { path: 'prueba', component: PruebaComponent },
     ])
   ],
   providers: [jugadorservice, AnotacionService, SancionColectivaService, SancionIndividualService, campeonatoService, juegoService, LoginService, ArbitroService, InscripcionService, EquipoService],

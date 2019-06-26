@@ -37,6 +37,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Remove="ClientApp\src\app\Domain\juego2.model.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <None Remove="ClientApp\src\app\Domain\Resultado2.ts" />
   </ItemGroup>
 

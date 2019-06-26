@@ -51,6 +51,17 @@ namespace Iwin1._2.Controllers
             return campeonato;
         }
 
+
+        // PUT: api/cameponato/{cameponato}
+        [HttpPut("estado/")]
+        public Campeonato Put2([FromBody] Campeonato campeonato)
+        {
+            CampeonatoData campeonatoData = new CampeonatoData();
+
+            campeonatoData.modificarCameponato2(campeonato);
+            return campeonato;
+        }
+
         // DELETE: api/campeonato/5
         [HttpDelete("{id}")]
         public void Delete(Int32 id)

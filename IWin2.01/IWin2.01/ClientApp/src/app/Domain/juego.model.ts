@@ -21,6 +21,7 @@ export class Juego {
     arbitroAsignado?: Arbitro) {
 
     this.identificador = identificador;
+    this.identificadorCampeonato = identificadorCampeonato;
     this.equipoA = equipoA;
     this.equipoB = equipoB;
     this.fechaJuego = fechaJuego;
