@@ -13,7 +13,7 @@ namespace Iwin1._2.Data
         public void realizarInscripcion(Inscripcion inscripcion)
         {
             string connectionString = "Server=163.178.107.130; Database=iwincjm; Uid= laboratorios; Pwd=UCRSA.118;";
-            string query = "Insert into Inscripcion(identificador_campeonato,identificador_equipo,fecha_inscripcion) values('" + inscripcion.Campeonato.Identificador + "','" + inscripcion.Equipo.Identificador + "','" + inscripcion.FechaInscripcion.Year + "-" + inscripcion.FechaInscripcion.Month + "-" + inscripcion.FechaInscripcion.Day + "') ";
+            string query = "Insert into Inscripcion(identificador_campeonato,identificador_equipo,fecha_inscripcion,estado) values('" + inscripcion.Campeonato.Identificador + "','" + inscripcion.Equipo.Identificador + "','" + inscripcion.FechaInscripcion.Year + "-" + inscripcion.FechaInscripcion.Month + "-" + inscripcion.FechaInscripcion.Day + "','espera') ";
 
 
             MySqlConnection databaseConnection = new MySqlConnection(connectionString);

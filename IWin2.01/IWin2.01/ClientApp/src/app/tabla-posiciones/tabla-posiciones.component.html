@@ -56,8 +56,8 @@
     <div class="form-group">
 
       <div class="row">
-        <label class=" col-md-2" for="nombreCampeonato">Campeonato</label>
-        <div class="col-sm-10">
+        <label class=" col-md-2 marg" for="nombreCampeonato">Campeonato</label>
+        <div class="col-sm-10 marg" >
           <td>
             <select [(ngModel)]="idCampeonato" name="campeonato">
               <option [ngValue]="campeonato.identificador" *ngFor="let campeonato of campeonatos">{{campeonato.nombreCampeonato}}</option>
@@ -68,7 +68,7 @@
       </div>
     </div>
 
-    <button class="btn btn-lg btn-primary btn-block" (click)="generar()" style="background-color:black" type="submit">
+    <button class="btn btn-lg btn-primary btn-block marg" (click)="generar()" style="background-color:black" type="submit">
       Consultar
     </button>
   </form>

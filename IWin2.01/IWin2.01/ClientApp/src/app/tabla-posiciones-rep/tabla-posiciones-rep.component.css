@@ -14165,7 +14165,7 @@ span.psw {
 
 .tabla {
   width: 1000px !important;
-  margin-left: 250px !important;
+  margin-left: 220px !important;
 }
 
 .item2 {
@@ -14211,4 +14211,8 @@ select[_ngcontent-c1], input[_ngcontent-c1] {
 
 .colors3 {
   border-color:black;
+}
+
+.mar{
+  margin-left: 10px;
 }

@@ -67,7 +67,7 @@
                 </tr>
               </thead>
               <tbody>
-                <tr *ngFor="let equipo of equipos">
+                <tr *ngFor="let equipo of equipos" (click)="juegoPorEquipo(equipo)">
                   <td style="vertical-align:middle">{{equipo.nombreEquipo}}</td>
                   <td style="vertical-align:middle">{{equipo.nombreRepresentante}}</td>
                   <td style="vertical-align:middle">{{equipo.canchaSede}}</td>

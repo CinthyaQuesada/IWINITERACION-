@@ -1,6 +1,7 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Equipo } from '../Domain/Equipo.model';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-gestionar-equipo-adm',
@@ -18,5 +19,8 @@ export class GestionarEquipoAdmComponent implements OnInit {
 
   ngOnInit() {
   }
-
+  juegoPorEquipo(equipo: Equipo) {
+    console.log(equipo.identificador);
+    window.location.href = "listarJugador/" + equipo.identificador;
+  }
 }
